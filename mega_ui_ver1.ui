@@ -54,7 +54,7 @@
        <string notr="true">background-color: rgb(255, 204, 0);</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="opening_page">
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -82,7 +82,259 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="main_page">
+      <widget class="QWidget" name="main_page_2"/>
+      <widget class="QWidget" name="main_page_1">
+       <widget class="QPushButton" name="category_btn_1">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>90</y>
+          <width>120</width>
+          <height>42</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Pretendard ExtraBold</family>
+          <pointsize>18</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius:15px;
+border: 2px solid rgb(45, 45, 45);
+</string>
+        </property>
+        <property name="text">
+         <string>디카페인</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="category_btn_2">
+        <property name="geometry">
+         <rect>
+          <x>197</x>
+          <y>90</y>
+          <width>120</width>
+          <height>42</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Pretendard ExtraBold</family>
+          <pointsize>18</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius:15px;
+border: 2px solid rgb(45, 45, 45);</string>
+        </property>
+        <property name="text">
+         <string>추천메뉴</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="category_btn_3">
+        <property name="geometry">
+         <rect>
+          <x>323</x>
+          <y>90</y>
+          <width>120</width>
+          <height>42</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Pretendard ExtraBold</family>
+          <pointsize>18</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius:15px;
+border: 2px solid rgb(45, 45, 45);</string>
+        </property>
+        <property name="text">
+         <string>커피(ICE)</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="category_btn_4">
+        <property name="geometry">
+         <rect>
+          <x>451</x>
+          <y>90</y>
+          <width>120</width>
+          <height>42</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Pretendard ExtraBold</family>
+          <pointsize>18</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius:15px;
+border: 2px solid rgb(45, 45, 45);</string>
+        </property>
+        <property name="text">
+         <string>커피(HOT)</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="category_btn_5">
+        <property name="geometry">
+         <rect>
+          <x>578</x>
+          <y>90</y>
+          <width>120</width>
+          <height>42</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Pretendard ExtraBold</family>
+          <pointsize>18</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius:15px;
+border: 2px solid rgb(45, 45, 45);</string>
+        </property>
+        <property name="text">
+         <string>오늘의메뉴</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="category_btn_6">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>137</y>
+          <width>120</width>
+          <height>42</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Pretendard ExtraBold</family>
+          <pointsize>16</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius:15px;
+border: 2px solid rgb(45, 45, 45);</string>
+        </property>
+        <property name="text">
+         <string>스무디프라페</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="category_btn_7">
+        <property name="geometry">
+         <rect>
+          <x>197</x>
+          <y>137</y>
+          <width>120</width>
+          <height>42</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Pretendard ExtraBold</family>
+          <pointsize>16</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius:15px;
+border: 2px solid rgb(45, 45, 45);</string>
+        </property>
+        <property name="text">
+         <string>에이드&amp;&amp;주스</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="category_btn_9">
+        <property name="geometry">
+         <rect>
+          <x>453</x>
+          <y>137</y>
+          <width>120</width>
+          <height>42</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Pretendard ExtraBold</family>
+          <pointsize>18</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius:15px;
+border: 2px solid rgb(45, 45, 45);</string>
+        </property>
+        <property name="text">
+         <string>에스프레소</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="category_btn_8">
+        <property name="geometry">
+         <rect>
+          <x>324</x>
+          <y>137</y>
+          <width>120</width>
+          <height>42</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Pretendard ExtraBold</family>
+          <pointsize>18</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius:15px;
+border: 2px solid rgb(45, 45, 45);</string>
+        </property>
+        <property name="text">
+         <string>티(Tea)</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="category_btn_10">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>137</y>
+          <width>120</width>
+          <height>42</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Pretendard ExtraBold</family>
+          <pointsize>18</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius:15px;
+border: 2px solid rgb(45, 45, 45);</string>
+        </property>
+        <property name="text">
+         <string>음료</string>
+        </property>
+       </widget>
        <widget class="QLabel" name="logo_label">
         <property name="geometry">
          <rect>
@@ -102,974 +354,6 @@
         </property>
         <property name="text">
          <string>MEGA COFFEE</string>
-        </property>
-       </widget>
-       <widget class="QStackedWidget" name="category_stackedWidget">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>84</y>
-          <width>768</width>
-          <height>100</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>11</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
-        <property name="currentIndex">
-         <number>0</number>
-        </property>
-        <widget class="QWidget" name="category_1">
-         <widget class="QPushButton" name="category_left_btn">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>23</y>
-            <width>60</width>
-            <height>50</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(45, 45, 45);
-border: 2px solid rgb(45, 45, 45);
-border-radius:5px; color:white; 
-</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>img/qt자료/arrow-left.png</normaloff>img/qt자료/arrow-left.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>40</width>
-            <height>40</height>
-           </size>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="category_btn_1">
-          <property name="geometry">
-           <rect>
-            <x>70</x>
-            <y>6</y>
-            <width>120</width>
-            <height>42</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Pretendard ExtraBold</family>
-            <pointsize>18</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border-radius:15px;
-border: 2px solid rgb(45, 45, 45);
-</string>
-          </property>
-          <property name="text">
-           <string>디카페인</string>
-          </property>
-          <property name="checkable">
-           <bool>false</bool>
-          </property>
-          <property name="checked">
-           <bool>false</bool>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="category_btn_3">
-          <property name="geometry">
-           <rect>
-            <x>323</x>
-            <y>6</y>
-            <width>120</width>
-            <height>42</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Pretendard ExtraBold</family>
-            <pointsize>18</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border-radius:15px;
-border: 2px solid rgb(45, 45, 45);</string>
-          </property>
-          <property name="text">
-           <string>커피(ICE)</string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="category_btn_4">
-          <property name="geometry">
-           <rect>
-            <x>451</x>
-            <y>6</y>
-            <width>120</width>
-            <height>42</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Pretendard ExtraBold</family>
-            <pointsize>18</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border-radius:15px;
-border: 2px solid rgb(45, 45, 45);</string>
-          </property>
-          <property name="text">
-           <string>커피(HOT)</string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="category_btn_6">
-          <property name="geometry">
-           <rect>
-            <x>70</x>
-            <y>53</y>
-            <width>120</width>
-            <height>42</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Pretendard ExtraBold</family>
-            <pointsize>16</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border-radius:15px;
-border: 2px solid rgb(45, 45, 45);</string>
-          </property>
-          <property name="text">
-           <string>스무디&amp;프라페</string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="category_btn_5">
-          <property name="geometry">
-           <rect>
-            <x>578</x>
-            <y>6</y>
-            <width>120</width>
-            <height>42</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Pretendard ExtraBold</family>
-            <pointsize>18</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border-radius:15px;
-border: 2px solid rgb(45, 45, 45);</string>
-          </property>
-          <property name="text">
-           <string>오늘의메뉴</string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="category_btn_10">
-          <property name="geometry">
-           <rect>
-            <x>578</x>
-            <y>53</y>
-            <width>120</width>
-            <height>42</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Pretendard ExtraBold</family>
-            <pointsize>18</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border-radius:15px;
-border: 2px solid rgb(45, 45, 45);</string>
-          </property>
-          <property name="text">
-           <string>음료</string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="category_btn_9">
-          <property name="geometry">
-           <rect>
-            <x>453</x>
-            <y>53</y>
-            <width>120</width>
-            <height>42</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Pretendard ExtraBold</family>
-            <pointsize>18</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border-radius:15px;
-border: 2px solid rgb(45, 45, 45);</string>
-          </property>
-          <property name="text">
-           <string>에스프레소</string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="category_right_btn">
-          <property name="geometry">
-           <rect>
-            <x>708</x>
-            <y>23</y>
-            <width>60</width>
-            <height>50</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(45, 45, 45);
-border: 2px solid rgb(45, 45, 45);
-border-radius:5px; color:white; 
-</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>img/qt자료/arrow-right.png</normaloff>img/qt자료/arrow-right.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>40</width>
-            <height>40</height>
-           </size>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="category_btn_8">
-          <property name="geometry">
-           <rect>
-            <x>324</x>
-            <y>53</y>
-            <width>120</width>
-            <height>42</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Pretendard ExtraBold</family>
-            <pointsize>18</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border-radius:15px;
-border: 2px solid rgb(45, 45, 45);</string>
-          </property>
-          <property name="text">
-           <string>티</string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="category_btn_2">
-          <property name="geometry">
-           <rect>
-            <x>197</x>
-            <y>6</y>
-            <width>120</width>
-            <height>42</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Pretendard ExtraBold</family>
-            <pointsize>18</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border-radius:15px;
-border: 2px solid rgb(45, 45, 45);</string>
-          </property>
-          <property name="text">
-           <string>추천메뉴</string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="category_btn_7">
-          <property name="geometry">
-           <rect>
-            <x>197</x>
-            <y>53</y>
-            <width>120</width>
-            <height>42</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Pretendard ExtraBold</family>
-            <pointsize>18</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border-radius:15px;
-border: 2px solid rgb(45, 45, 45);</string>
-          </property>
-          <property name="text">
-           <string>에이드</string>
-          </property>
-         </widget>
-        </widget>
-        <widget class="QWidget" name="category_2">
-         <widget class="QPushButton" name="category_left_btn_2">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>23</y>
-            <width>60</width>
-            <height>50</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(45, 45, 45);
-border: 2px solid rgb(45, 45, 45);
-border-radius:5px; color:white; 
-</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>img/qt자료/arrow-left.png</normaloff>img/qt자료/arrow-left.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>40</width>
-            <height>40</height>
-           </size>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="category_btn_14">
-          <property name="geometry">
-           <rect>
-            <x>449</x>
-            <y>18</y>
-            <width>120</width>
-            <height>61</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Pretendard ExtraBold</family>
-            <pointsize>18</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border-radius:15px;
-border: 2px solid rgb(45, 45, 45);
-</string>
-          </property>
-          <property name="text">
-           <string>MD 상품</string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="category_btn_11">
-          <property name="geometry">
-           <rect>
-            <x>68</x>
-            <y>18</y>
-            <width>120</width>
-            <height>61</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Pretendard ExtraBold</family>
-            <pointsize>18</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border-radius:15px;
-border: 2px solid rgb(45, 45, 45);
-</string>
-          </property>
-          <property name="text">
-           <string>디저트</string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="category_btn_13">
-          <property name="geometry">
-           <rect>
-            <x>321</x>
-            <y>18</y>
-            <width>120</width>
-            <height>61</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Pretendard ExtraBold</family>
-            <pointsize>18</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border-radius:15px;
-border: 2px solid rgb(45, 45, 45);
-</string>
-          </property>
-          <property name="text">
-           <string>병음료</string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="category_btn_15">
-          <property name="geometry">
-           <rect>
-            <x>576</x>
-            <y>18</y>
-            <width>120</width>
-            <height>61</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Pretendard ExtraBold</family>
-            <pointsize>18</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border-radius:15px;
-border: 2px solid rgb(45, 45, 45);
-</string>
-          </property>
-          <property name="text">
-           <string>세트메뉴</string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="category_right_btn_2">
-          <property name="geometry">
-           <rect>
-            <x>708</x>
-            <y>23</y>
-            <width>60</width>
-            <height>50</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(45, 45, 45);
-border: 2px solid rgb(45, 45, 45);
-border-radius:5px; color:white; 
-</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>img/qt자료/arrow-right.png</normaloff>img/qt자료/arrow-right.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>40</width>
-            <height>40</height>
-           </size>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="category_btn_12">
-          <property name="geometry">
-           <rect>
-            <x>195</x>
-            <y>18</y>
-            <width>120</width>
-            <height>61</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Pretendard ExtraBold</family>
-            <pointsize>18</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border-radius:15px;
-border: 2px solid rgb(45, 45, 45);
-</string>
-          </property>
-          <property name="text">
-           <string>콜드블루</string>
-          </property>
-         </widget>
-        </widget>
-       </widget>
-       <widget class="QStackedWidget" name="menu_stackedWidget">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>193</y>
-          <width>749</width>
-          <height>567</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 127);</string>
-        </property>
-        <property name="currentIndex">
-         <number>0</number>
-        </property>
-        <widget class="QWidget" name="page_1">
-         <widget class="QLabel" name="menu_img_label_2">
-          <property name="geometry">
-           <rect>
-            <x>190</x>
-            <y>0</y>
-            <width>179</width>
-            <height>181</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QLabel" name="menu_img_label_3">
-          <property name="geometry">
-           <rect>
-            <x>380</x>
-            <y>0</y>
-            <width>179</width>
-            <height>181</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QLabel" name="menu_img_label_5">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>193</y>
-            <width>179</width>
-            <height>181</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QLabel" name="menu_img_label_9">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>386</y>
-            <width>179</width>
-            <height>181</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QLabel" name="menu_img_label_11">
-          <property name="geometry">
-           <rect>
-            <x>380</x>
-            <y>386</y>
-            <width>179</width>
-            <height>181</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QLabel" name="menu_img_label_4">
-          <property name="geometry">
-           <rect>
-            <x>570</x>
-            <y>0</y>
-            <width>179</width>
-            <height>181</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QLabel" name="menu_img_label_10">
-          <property name="geometry">
-           <rect>
-            <x>190</x>
-            <y>386</y>
-            <width>179</width>
-            <height>181</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QLabel" name="menu_img_label_1">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>179</width>
-            <height>181</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string>페이지1번</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="menu_img_label_6">
-          <property name="geometry">
-           <rect>
-            <x>190</x>
-            <y>193</y>
-            <width>179</width>
-            <height>181</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QLabel" name="menu_img_label_7">
-          <property name="geometry">
-           <rect>
-            <x>380</x>
-            <y>193</y>
-            <width>179</width>
-            <height>181</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QLabel" name="menu_img_label_8">
-          <property name="geometry">
-           <rect>
-            <x>570</x>
-            <y>193</y>
-            <width>179</width>
-            <height>181</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QLabel" name="menu_img_label_12">
-          <property name="geometry">
-           <rect>
-            <x>570</x>
-            <y>386</y>
-            <width>179</width>
-            <height>181</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </widget>
-        <widget class="QWidget" name="page_2">
-         <widget class="QLabel" name="menu_img_label_16">
-          <property name="geometry">
-           <rect>
-            <x>570</x>
-            <y>0</y>
-            <width>179</width>
-            <height>181</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QLabel" name="menu_img_label_19">
-          <property name="geometry">
-           <rect>
-            <x>380</x>
-            <y>193</y>
-            <width>179</width>
-            <height>181</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QLabel" name="menu_img_label_20">
-          <property name="geometry">
-           <rect>
-            <x>570</x>
-            <y>193</y>
-            <width>179</width>
-            <height>181</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QLabel" name="menu_img_label_17">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>193</y>
-            <width>179</width>
-            <height>181</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QLabel" name="menu_img_label_24">
-          <property name="geometry">
-           <rect>
-            <x>570</x>
-            <y>386</y>
-            <width>179</width>
-            <height>181</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QLabel" name="menu_img_label_13">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>179</width>
-            <height>181</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string>페이지2번</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="menu_img_label_14">
-          <property name="geometry">
-           <rect>
-            <x>190</x>
-            <y>0</y>
-            <width>179</width>
-            <height>181</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QLabel" name="menu_img_label_15">
-          <property name="geometry">
-           <rect>
-            <x>380</x>
-            <y>0</y>
-            <width>179</width>
-            <height>181</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QLabel" name="menu_img_label_23">
-          <property name="geometry">
-           <rect>
-            <x>380</x>
-            <y>386</y>
-            <width>179</width>
-            <height>181</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QLabel" name="menu_img_label_18">
-          <property name="geometry">
-           <rect>
-            <x>190</x>
-            <y>193</y>
-            <width>179</width>
-            <height>181</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QLabel" name="menu_img_label_22">
-          <property name="geometry">
-           <rect>
-            <x>190</x>
-            <y>386</y>
-            <width>179</width>
-            <height>181</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QLabel" name="menu_img_label_21">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>386</y>
-            <width>179</width>
-            <height>181</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </widget>
-       </widget>
-       <widget class="QPushButton" name="menu_right_btn">
-        <property name="geometry">
-         <rect>
-          <x>717</x>
-          <y>348</y>
-          <width>51</width>
-          <height>100</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">                border-top-left-radius: 20px;
-                border-bottom-left-radius: 20px;
-                background-color: rgb(45, 45, 45);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="menu_left_btn">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>348</y>
-          <width>51</width>
-          <height>100</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">                border-top-right-radius: 20px;
-                border-bottom-right-radius: 20px;
-                background-color: rgb(45, 45, 45);</string>
-        </property>
-        <property name="text">
-         <string/>
         </property>
        </widget>
       </widget>

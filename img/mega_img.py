@@ -77,7 +77,6 @@ def get_img():
         print(name[cnt].text)
         request.urlretrieve(url_, IMG +f'/{temp[cnt].text}_{name[cnt].text}.jpg')
 
-
     print(len(imgs))
     print(len(name))
 
