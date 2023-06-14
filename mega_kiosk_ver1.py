@@ -60,7 +60,7 @@ class WindowClass(QMainWindow, form_class):
         self.menu_left_btn.clicked.connect(lambda: self.menu_stackedWidget.setCurrentWidget(self.page_1))
         self.menu_left_btn.clicked.connect(self.show_menu_arrow_btn)
 
-
+        self.menu_frame_1.mousePressEvent = lambda x: print('인식해요')
 
     def show_menu_arrow_btn(self):
         """카테고리 개수에 따라 메뉴 화살표상태를 변경합니다."""
