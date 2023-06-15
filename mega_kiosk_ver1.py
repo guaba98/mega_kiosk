@@ -23,26 +23,21 @@ form_class = uic.loadUiType(form)[0]
 
 class WindowClass(QMainWindow, form_class):
     clicked = pyqtSignal()
+
     def add_page_mouse_press(self, event):
         self.stackedWidget.setCurrentWidget(self.main_page)
         # self.start_timer()
+
     def __init__(self):
         super().__init__()
         self.setupUi(self)
 
-        self.timer_list = []
-
         # 오픈화면
         self.stackedWidget.setCurrentIndex(0)  # 시작할때 화면은 오픈 페이지로 설정
         self.set_ad_image()  # 이미지 변경
-        self.DURATION_INT = 120
-        self.ad_label.mousePressEvent = self.add_page_mouse_press
 
         # 페이지 이동 및 타이머 시작
-        # self.ad_label.mousePressEvent = lambda event: (
-        #     self.stackedWidget.setCurrentWidget(self.main_page), #페이지 이동
-        #     self.start_timer() #동시에 타이머 시작
-        # )
+        self.ad_label.mousePressEvent = lambda event: (self.stackedWidget.setCurrentWidget(self.main_page))  # 페이지 이동)
 
         # 메인화면
         # 0. DB 불러오기
@@ -52,22 +47,34 @@ class WindowClass(QMainWindow, form_class):
         self.menu_df = pd.read_sql('select * from drinks_menu', con)  # 음료상세정보 전체 테이블
         self.img_path_df = pd.read_sql('select * from drinks_img_path', con)  # 음료 이미지 경로 테이블
         self.sold_out_df = pd.read_sql('select * from sold_out', con)
-        # print(self.menu_df['category'])
 
-        # 1. 카테고리 버튼 이동
+
+        # 1. 타이머
+        # 타이머 기본 설정값
+        self.DURATION_INT = 120
+        self.remaining_time = self.DURATION_INT
+
+        # 타이머와 관련된 변수들
+        self.timer = QTimer(self)
+        self.timer.timeout.connect(self.update_timer)
+        self.timer.setInterval(1000)
+
+        # 2. 카테고리 버튼 이동
         self.category_btn_list = [getattr(self, f"category_btn_{i}") for i in range(1, 16)]  # 카테고리 버튼 리스트화
         for btn in self.category_btn_list:
-
             btn.clicked.connect(self.change_categroy_btn_color)  # 버튼 색 바꾸기
             btn.clicked.connect(self.set_categroy_num)  # 카테고리 하단 메뉴 크기 설정
             btn.clicked.connect(self.show_menu_arrow_btn)  # 카테고리 하단 메뉴 크기 설정
-            btn.clicked.connect(lambda: self.menu_stackedWidget.setCurrentWidget(self.page_1))
+            btn.clicked.connect(lambda: self.menu_stackedWidget.setCurrentWidget(self.page_1)) # 음료 페이지 1페이지로 초기화
+            btn.clicked.connect(
+                lambda x, category=btn: self.start_timer(btn)) #카테고리 버튼 누를 때마다 타이머 초기화
 
-        # 2. 카테고리 페이지 넘기기 (메인화면 페이지 넘기기)
+
+        # 3. 카테고리 페이지 넘기기 (메인화면 페이지 넘기기)
         self.category_right_btn.clicked.connect(lambda: self.category_stackedWidget.setCurrentWidget(self.category_2))
         self.category_left_btn_2.clicked.connect(lambda: self.category_stackedWidget.setCurrentWidget(self.category_1))
 
-        # 3. 커피 메뉴 좌/우 버튼
+        # 4. 커피 메뉴 좌/우 버튼
         self.category_btn_1.click()
         self.menu_arrow_btn_num = 2
         self.menu_left_btn.clicked.connect(lambda: self.menu_stackedWidget.setCurrentWidget(self.page_1))
@@ -75,7 +82,7 @@ class WindowClass(QMainWindow, form_class):
         self.menu_right_btn.clicked.connect(self.show_menu_arrow_btn)
         self.menu_left_btn.clicked.connect(self.show_menu_arrow_btn)
 
-        # 4. 프레임 버튼 클릭하기 및 가격 폰트 변경
+        # 5. 프레임 버튼 클릭하기 및 가격 폰트 변경
         self.menu_frame_list = [getattr(self, f"menu_frame_{i}") for i in range(1, 25)]  # 메뉴 프레임 리스트화
         for frame in self.menu_frame_list:
             frame.mousePressEvent = lambda event, name=frame.objectName(): self.click_frame(event, name)
@@ -84,37 +91,19 @@ class WindowClass(QMainWindow, form_class):
         for label in self.menu_price_label_list:
             label.setStyleSheet('color: rgb(229, 79, 64);font: 63 12pt "Pretendard SemiBold";')
 
-        # 5. 타이머
-        # self.DURATION_INT = 10
-        # self.start_timer()
 
-        #타이머 시작 함수
 
-    def timer_clear(self):
-        # self.timer.stop()
-        self.time_left_int = self.DURATION_INT
-        self.start_timer()
 
-    def start_timer(self):
-        # 여기서부터 다시 해야함 #######################################################
+
+    def start_timer(self, category):
         """타이머 시작하는 함수"""
-        print('유저가 선택한 카테고리',self.user_clicked_category)
-        if self.timer_list[0] != self.user_clicked_category:
-            self.timer.stop()
-            print('타이머 멈춤')
-            self.time_left_int = self.DURATION_INT
-            self.timer = QTimer(self)
-            self.timer.start(1000)
-            self.timer.timeout.connect(self.timerTimeout)
-            self.timer.start()
+        self.timer.stop()
+        self.remaining_time = self.DURATION_INT
+        self.timer.start()
 
-        else:
-            self.time_left_int = self.DURATION_INT
-            self.timer = QTimer(self)
-            self.timer.start(1000)
-            self.timer.timeout.connect(self.timerTimeout)
-            self.timer.start()
-
+    def update_timer(self):
+        self.remaining_time -= 1
+        self.timer_label.setText(f"{str(self.remaining_time)}초")
     def timerTimeout(self):
         """1초가 지날때마다 시간을 초기화 시켜줌"""
         self.time_left_int -= 1
@@ -123,7 +112,6 @@ class WindowClass(QMainWindow, form_class):
             self.stackedWidget.setCurrentIndex(0)  # 120초가 지나면 시간 초기화하고 오픈화면으로 이동
         self.timer_label.setText(f'{str(self.time_left_int)}초')
 
-
     def click_frame(self, event, name):
         """프레임 선택 테스트"""
         # print(f'{name}프레임을 선택했습니다.')
@@ -131,13 +119,12 @@ class WindowClass(QMainWindow, form_class):
         condition1 = (self.menu_df['category'] == self.user_clicked_category)
         condition2 = (self.menu_df['category_num'] == int(name[11:]))
         # condition3 = (self.menu_df['sold_out'] == 0)
-        sold_out_state = self.menu_df.loc[condition1&condition2, 'sold_out']
+        sold_out_state = self.menu_df.loc[condition1 & condition2, 'sold_out']
         print(sold_out_state)
         if sold_out_state.sum() > 0:
             print('품절')
         else:
             print('낫품절')
-
 
     def show_menu_arrow_btn(self):
         """카테고리 개수에 따라 메뉴 화살표상태를 변경합니다."""
@@ -153,11 +140,7 @@ class WindowClass(QMainWindow, form_class):
         menu_frame_list = [getattr(self, f"menu_frame_{i}") for i in range(1, 25)]  # 담길 라벨 리스트화
         btn_name = self.sender().text()  # 버튼 이름 가져오기
         self.user_clicked_category = btn_name
-        self.timer_list.insert(0, btn_name)
-        print('타이머리스트',self.timer_list)
-        print('타이머리스트 1번',self.timer_list[0])
 
-        self.start_timer()  # 일단 여기에 넣어놓음 타이머
         category_drinks_num = len(self.menu_df[self.menu_df['category'] == btn_name])  # 카테고리 메뉴 갯수 세기
 
         # 카테고리 번호만큼 프레임 보여주기
@@ -208,7 +191,6 @@ class WindowClass(QMainWindow, form_class):
 
     def change_categroy_btn_color(self):
         """메인화면 상단 카테고리 버튼 색 바뀌게 함"""
-
 
         btn_object = self.sender()  # 버튼 객체 가져오기
 
