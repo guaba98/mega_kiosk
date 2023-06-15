@@ -638,7 +638,7 @@ border: 2px solid rgb(45, 45, 45);
           <x>10</x>
           <y>193</y>
           <width>749</width>
-          <height>567</height>
+          <height>581</height>
          </rect>
         </property>
         <property name="font">
@@ -648,7 +648,7 @@ border: 2px solid rgb(45, 45, 45);
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 127);</string>
+         <string notr="true"/>
         </property>
         <property name="currentIndex">
          <number>0</number>
@@ -660,7 +660,7 @@ border: 2px solid rgb(45, 45, 45);
             <x>0</x>
             <y>0</y>
             <width>749</width>
-            <height>567</height>
+            <height>581</height>
            </rect>
           </property>
           <property name="sizePolicy">
@@ -729,7 +729,7 @@ border: 2px solid rgb(45, 45, 45);
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-color: rgb(255, 255, 255);</string>
+                <string notr="true"/>
                </property>
                <property name="frameShape">
                 <enum>QFrame::StyledPanel</enum>
@@ -738,17 +738,20 @@ border: 2px solid rgb(45, 45, 45);
                 <enum>QFrame::Raised</enum>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_3">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
                 <property name="leftMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="topMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="rightMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="bottomMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <item>
                  <widget class="QLabel" name="menu_img_1">
@@ -765,7 +768,7 @@ border: 2px solid rgb(45, 45, 45);
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>20</height>
+                    <height>30</height>
                    </size>
                   </property>
                   <property name="font">
@@ -773,6 +776,9 @@ border: 2px solid rgb(45, 45, 45);
                     <family>Pretendard Medium</family>
                     <pointsize>12</pointsize>
                    </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true"/>
                   </property>
                   <property name="text">
                    <string/>
@@ -828,17 +834,20 @@ border: 2px solid rgb(45, 45, 45);
                 <enum>QFrame::Raised</enum>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_5">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
                 <property name="leftMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="topMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="rightMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="bottomMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <item>
                  <widget class="QLabel" name="menu_img_2">
@@ -864,6 +873,9 @@ border: 2px solid rgb(45, 45, 45);
                     <pointsize>12</pointsize>
                    </font>
                   </property>
+                  <property name="styleSheet">
+                   <string notr="true"/>
+                  </property>
                   <property name="text">
                    <string/>
                   </property>
@@ -880,7 +892,7 @@ border: 2px solid rgb(45, 45, 45);
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>30</height>
+                    <height>20</height>
                    </size>
                   </property>
                   <property name="font">
@@ -918,17 +930,20 @@ border: 2px solid rgb(45, 45, 45);
                 <enum>QFrame::Raised</enum>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_12">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
                 <property name="leftMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="topMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="rightMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="bottomMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <item>
                  <widget class="QLabel" name="menu_img_9">
@@ -970,7 +985,7 @@ border: 2px solid rgb(45, 45, 45);
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>30</height>
+                    <height>20</height>
                    </size>
                   </property>
                   <property name="font">
@@ -1002,7 +1017,7 @@ border: 2px solid rgb(45, 45, 45);
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-color: rgb(255, 255, 255);</string>
+                <string notr="true"/>
                </property>
                <property name="frameShape">
                 <enum>QFrame::StyledPanel</enum>
@@ -1011,17 +1026,20 @@ border: 2px solid rgb(45, 45, 45);
                 <enum>QFrame::Raised</enum>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_8">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
                 <property name="leftMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="topMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="rightMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="bottomMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <item>
                  <widget class="QLabel" name="menu_img_5">
@@ -1063,7 +1081,7 @@ border: 2px solid rgb(45, 45, 45);
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>30</height>
+                    <height>20</height>
                    </size>
                   </property>
                   <property name="font">
@@ -1101,17 +1119,20 @@ border: 2px solid rgb(45, 45, 45);
                 <enum>QFrame::Raised</enum>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_6">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
                 <property name="leftMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="topMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="rightMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="bottomMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <item>
                  <widget class="QLabel" name="menu_img_3">
@@ -1128,7 +1149,7 @@ border: 2px solid rgb(45, 45, 45);
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>20</height>
+                    <height>30</height>
                    </size>
                   </property>
                   <property name="font">
@@ -1192,19 +1213,19 @@ border: 2px solid rgb(45, 45, 45);
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_14">
                 <property name="spacing">
-                 <number>6</number>
+                 <number>0</number>
                 </property>
                 <property name="leftMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="topMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="rightMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="bottomMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <item>
                  <widget class="QLabel" name="menu_img_11">
@@ -1246,7 +1267,7 @@ border: 2px solid rgb(45, 45, 45);
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>30</height>
+                    <height>20</height>
                    </size>
                   </property>
                   <property name="font">
@@ -1284,17 +1305,20 @@ border: 2px solid rgb(45, 45, 45);
                 <enum>QFrame::Raised</enum>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_9">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
                 <property name="leftMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="topMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="rightMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="bottomMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <item>
                  <widget class="QLabel" name="menu_img_6">
@@ -1336,7 +1360,7 @@ border: 2px solid rgb(45, 45, 45);
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>30</height>
+                    <height>20</height>
                    </size>
                   </property>
                   <property name="font">
@@ -1375,19 +1399,19 @@ border: 2px solid rgb(45, 45, 45);
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_7">
                 <property name="spacing">
-                 <number>6</number>
+                 <number>0</number>
                 </property>
                 <property name="leftMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="topMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="rightMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="bottomMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <item>
                  <widget class="QLabel" name="menu_img_4">
@@ -1429,7 +1453,7 @@ border: 2px solid rgb(45, 45, 45);
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>30</height>
+                    <height>20</height>
                    </size>
                   </property>
                   <property name="font">
@@ -1437,6 +1461,9 @@ border: 2px solid rgb(45, 45, 45);
                     <family>Pretendard Medium</family>
                     <pointsize>12</pointsize>
                    </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true"/>
                   </property>
                   <property name="text">
                    <string/>
@@ -1467,17 +1494,20 @@ border: 2px solid rgb(45, 45, 45);
                 <enum>QFrame::Raised</enum>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_13">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
                 <property name="leftMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="topMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="rightMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="bottomMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <item>
                  <widget class="QLabel" name="menu_img_10">
@@ -1519,7 +1549,7 @@ border: 2px solid rgb(45, 45, 45);
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>30</height>
+                    <height>20</height>
                    </size>
                   </property>
                   <property name="font">
@@ -1557,17 +1587,20 @@ border: 2px solid rgb(45, 45, 45);
                 <enum>QFrame::Raised</enum>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_10">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
                 <property name="leftMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="topMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="rightMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="bottomMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <item>
                  <widget class="QLabel" name="menu_img_7">
@@ -1609,7 +1642,7 @@ border: 2px solid rgb(45, 45, 45);
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>30</height>
+                    <height>20</height>
                    </size>
                   </property>
                   <property name="font">
@@ -1647,17 +1680,20 @@ border: 2px solid rgb(45, 45, 45);
                 <enum>QFrame::Raised</enum>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_11">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
                 <property name="leftMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="topMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="rightMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="bottomMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <item>
                  <widget class="QLabel" name="menu_img_8">
@@ -1699,7 +1735,7 @@ border: 2px solid rgb(45, 45, 45);
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>30</height>
+                    <height>20</height>
                    </size>
                   </property>
                   <property name="font">
@@ -1737,17 +1773,20 @@ border: 2px solid rgb(45, 45, 45);
                 <enum>QFrame::Raised</enum>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_15">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
                 <property name="leftMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="topMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="rightMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <property name="bottomMargin">
-                 <number>9</number>
+                 <number>0</number>
                 </property>
                 <item>
                  <widget class="QLabel" name="menu_img_12">
@@ -1789,7 +1828,7 @@ border: 2px solid rgb(45, 45, 45);
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>30</height>
+                    <height>20</height>
                    </size>
                   </property>
                   <property name="font">
@@ -1824,7 +1863,7 @@ border: 2px solid rgb(45, 45, 45);
             <x>0</x>
             <y>0</y>
             <width>749</width>
-            <height>567</height>
+            <height>581</height>
            </rect>
           </property>
           <property name="sizePolicy">
@@ -1866,8 +1905,20 @@ border: 2px solid rgb(45, 45, 45);
            </property>
            <item>
             <layout class="QGridLayout" name="gridLayout_2">
+             <property name="leftMargin">
+              <number>9</number>
+             </property>
+             <property name="topMargin">
+              <number>9</number>
+             </property>
+             <property name="rightMargin">
+              <number>9</number>
+             </property>
+             <property name="bottomMargin">
+              <number>9</number>
+             </property>
              <property name="spacing">
-              <number>0</number>
+              <number>10</number>
              </property>
              <item row="0" column="0">
               <widget class="QFrame" name="menu_frame_13">
@@ -1878,7 +1929,7 @@ border: 2px solid rgb(45, 45, 45);
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-color: rgb(255, 255, 255);</string>
+                <string notr="true"/>
                </property>
                <property name="frameShape">
                 <enum>QFrame::StyledPanel</enum>
@@ -1902,7 +1953,7 @@ border: 2px solid rgb(45, 45, 45);
                 <item>
                  <widget class="QLabel" name="menu_img_13">
                   <property name="text">
-                   <string>페이지2</string>
+                   <string/>
                   </property>
                   <property name="scaledContents">
                    <bool>true</bool>
@@ -1914,7 +1965,7 @@ border: 2px solid rgb(45, 45, 45);
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>20</height>
+                    <height>30</height>
                    </size>
                   </property>
                   <property name="font">
@@ -2136,7 +2187,7 @@ border: 2px solid rgb(45, 45, 45);
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-color: rgb(255, 255, 255);</string>
+                <string notr="true"/>
                </property>
                <property name="frameShape">
                 <enum>QFrame::StyledPanel</enum>
@@ -2542,6 +2593,9 @@ border: 2px solid rgb(45, 45, 45);
                     <pointsize>11</pointsize>
                    </font>
                   </property>
+                  <property name="styleSheet">
+                   <string notr="true">color: rgb(229, 79, 64);</string>
+                  </property>
                   <property name="text">
                    <string/>
                   </property>
@@ -2930,6 +2984,296 @@ border: 2px solid rgb(45, 45, 45);
         <property name="text">
          <string/>
         </property>
+       </widget>
+       <widget class="QFrame" name="frame">
+        <property name="geometry">
+         <rect>
+          <x>9</x>
+          <y>796</y>
+          <width>516</width>
+          <height>218</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>516</width>
+          <height>218</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>516</width>
+          <height>218</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_29">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QScrollArea" name="scrollArea">
+           <property name="widgetResizable">
+            <bool>true</bool>
+           </property>
+           <widget class="QWidget" name="scrollAreaWidgetContents">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>512</width>
+              <height>214</height>
+             </rect>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_30" stretch="0">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QTableWidget" name="tableWidget"/>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="widget" native="true">
+        <property name="geometry">
+         <rect>
+          <x>544</x>
+          <y>796</y>
+          <width>215</width>
+          <height>218</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(213, 213, 213);</string>
+        </property>
+        <widget class="QPushButton" name="payment_admit_btn">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>138</y>
+           <width>215</width>
+           <height>80</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Pretendard SemiBold</family>
+           <pointsize>14</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::WheelFocus</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(45, 45, 45);
+color:white;</string>
+         </property>
+         <property name="text">
+          <string>0원
+결제하기</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>img/qt자료/insert-card (1).png</normaloff>img/qt자료/insert-card (1).png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>40</width>
+           <height>40</height>
+          </size>
+         </property>
+        </widget>
+        <widget class="QLabel" name="shopping_count_label">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>90</y>
+           <width>143</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Pretendard SemiBold</family>
+           <pointsize>16</pointsize>
+           <weight>7</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+</string>
+         </property>
+         <property name="text">
+          <string>선택한 상품</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="all_remove_label">
+         <property name="geometry">
+          <rect>
+           <x>144</x>
+           <y>1</y>
+           <width>70</width>
+           <height>70</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Pretendard ExtraBold</family>
+           <pointsize>19</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(229, 79, 64);
+border-radius: 35px;
+color:white;</string>
+         </property>
+         <property name="text">
+          <string>전체
+삭제</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="left_time_label">
+         <property name="geometry">
+          <rect>
+           <x>6</x>
+           <y>1</y>
+           <width>81</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Pretendard SemiBold</family>
+           <pointsize>17</pointsize>
+           <weight>7</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 63 17pt &quot;Pretendard SemiBold&quot;;</string>
+         </property>
+         <property name="text">
+          <string>남은시간</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="timer_label">
+         <property name="geometry">
+          <rect>
+           <x>6</x>
+           <y>30</y>
+           <width>121</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Pretendard ExtraBold</family>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(229, 79, 64);
+</string>
+         </property>
+         <property name="text">
+          <string>00초</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label">
+         <property name="geometry">
+          <rect>
+           <x>140</x>
+           <y>90</y>
+           <width>72</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Pretendard SemiBold</family>
+           <pointsize>16</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>0개</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="Line" name="line">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>80</y>
+           <width>215</width>
+           <height>3</height>
+          </rect>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Plain</enum>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
        </widget>
       </widget>
      </widget>
