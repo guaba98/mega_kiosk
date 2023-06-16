@@ -17,7 +17,7 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 
-form = resource_path('mega_ui_ver3.ui')  # 메가 메인 UI 불러오기
+form = resource_path('mega_ui_gik_ver.ui')  # 메가 메인 UI 불러오기
 form_class = uic.loadUiType(form)[0]
 
 
@@ -26,18 +26,19 @@ class WindowClass(QMainWindow, form_class):
 
     def add_page_mouse_press(self, event):
         self.stackedWidget.setCurrentWidget(self.main_page)
-        # self.start_timer()
+        self.category_btn_1.click()
 
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-
+        self.setWindowFlags(Qt.FramelessWindowHint)
         # 오픈화면
         self.stackedWidget.setCurrentIndex(0)  # 시작할때 화면은 오픈 페이지로 설정
         self.set_ad_image()  # 이미지 변경
 
         # 페이지 이동 및 타이머 시작
-        self.ad_label.mousePressEvent = lambda event: (self.stackedWidget.setCurrentWidget(self.main_page))  # 페이지 이동)
+        # self.ad_label.mousePressEvent = lambda event: (self.stackedWidget.setCurrentWidget(self.main_page))  # 페이지 이동)
+        self.ad_label.mousePressEvent = self.add_page_mouse_press  # 페이지 이동)
 
         # 메인화면
         # 0. DB 불러오기
@@ -103,14 +104,18 @@ class WindowClass(QMainWindow, form_class):
 
     def update_timer(self):
         self.remaining_time -= 1
+        if self.remaining_time == 0:
+            self.remaining_time = self.DURATION_INT
+            self.stackedWidget.setCurrentIndex(0)  # 120초가 지나면 오픈화면으로 이동
         self.timer_label.setText(f"{str(self.remaining_time)}초")
-    def timerTimeout(self):
-        """1초가 지날때마다 시간을 초기화 시켜줌"""
-        self.time_left_int -= 1
-        if self.time_left_int == 0:
-            self.time_left_int = self.DURATION_INT
-            self.stackedWidget.setCurrentIndex(0)  # 120초가 지나면 시간 초기화하고 오픈화면으로 이동
-        self.timer_label.setText(f'{str(self.time_left_int)}초')
+
+    # def timerTimeout(self):
+    #     """1초가 지날때마다 시간을 초기화 시켜줌"""
+    #     self.time_left_int -= 1
+    #     if self.time_left_int == 0:
+    #         self.time_left_int = self.DURATION_INT
+    #         self.stackedWidget.setCurrentIndex(0)  # 120초가 지나면 시간 초기화하고 오픈화면으로 이동
+    #     self.timer_label.setText(f'{str(self.time_left_int)}초')
 
     def click_frame(self, event, name):
         """프레임 선택 테스트"""
