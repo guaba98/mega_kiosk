@@ -3037,43 +3037,6 @@ border: 2px solid rgb(45, 45, 45);
          <property name="bottomMargin">
           <number>0</number>
          </property>
-         <item>
-          <widget class="QScrollArea" name="scrollArea">
-           <property name="widgetResizable">
-            <bool>true</bool>
-           </property>
-           <widget class="QWidget" name="scrollAreaWidgetContents">
-            <property name="geometry">
-             <rect>
-              <x>0</x>
-              <y>0</y>
-              <width>512</width>
-              <height>214</height>
-             </rect>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_30" stretch="0">
-             <property name="spacing">
-              <number>0</number>
-             </property>
-             <property name="leftMargin">
-              <number>0</number>
-             </property>
-             <property name="topMargin">
-              <number>0</number>
-             </property>
-             <property name="rightMargin">
-              <number>0</number>
-             </property>
-             <property name="bottomMargin">
-              <number>0</number>
-             </property>
-             <item>
-              <widget class="QTableWidget" name="tableWidget"/>
-             </item>
-            </layout>
-           </widget>
-          </widget>
-         </item>
         </layout>
        </widget>
        <widget class="QWidget" name="widget" native="true">
@@ -3113,8 +3076,8 @@ border: 2px solid rgb(45, 45, 45);
 color:white;</string>
          </property>
          <property name="text">
-          <string>0원
-결제하기</string>
+          <string>  0원
+  결제하기</string>
          </property>
          <property name="icon">
           <iconset>
@@ -3140,14 +3103,13 @@ color:white;</string>
           <font>
            <family>Pretendard SemiBold</family>
            <pointsize>16</pointsize>
-           <weight>7</weight>
+           <weight>50</weight>
            <italic>false</italic>
            <bold>false</bold>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">
-</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>선택한 상품</string>
