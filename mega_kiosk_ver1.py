@@ -17,45 +17,158 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 
-form = resource_path('mega_ui_gik_ver.ui')  # 메가 메인 UI 불러오기
-form_class = uic.loadUiType(form)[0]
+main_page_ui = resource_path('mega_ui_ver3.ui')  # 메가 메인 UI 불러오기
+main_page_class = uic.loadUiType(main_page_ui)[0]
+choose_option_ui = resource_path('mega_choose_option_page.ui') # 메가 선택창 불러오기
+choose_option_class = uic.loadUiType(choose_option_ui)[0]
+msg_box_ui = resource_path('msg_box.ui') # 메세지박스 ui 불러오기
+msg_box_class = uic.loadUiType(msg_box_ui)[0]
+
+class MSG_Dialog(QDialog, msg_box_class):
+    """메세지 박스 다이얼로그"""
+    data_signal = pyqtSignal(str)
+    def __init__(self, page_data):
+        super().__init__()
+        self.setupUi(self)
+        # self.setWindowFlags(Qt.FramelessWindowHint)
+        self.setWindowFlags(Qt.WindowType.FramelessWindowHint | Qt.WindowType.WindowStaysOnTopHint)
+        self.setAttribute(Qt.WA_TranslucentBackground, True)
+        # self.setStyleSheet('''
+        # #QDialog{border-radius: 15px;}
+        # ''')
+        #버튼 페이지 설정
+        if page_data == 1:
+            self.info_label.setText("메뉴가 품절이라 선택하실 수 없습니다.")
+            self.stackedWidget.setCurrentWidget(self.one_btn_page)
+        else:
+            self.stackedWidget.setCurrentWidget(self.two_btn_page)
+
+        #버튼 누르면 정보 넘겨주기
+        self.ok_btn.clicked.connect(self.close)
 
 
-class WindowClass(QMainWindow, form_class):
+class Option_Class(QDialog, choose_option_class):
+    """선택옵션 창"""
+    data_signal = pyqtSignal(str)
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.parent = parent
+
+        self.setupUi(self)
+        self.setWindowFlags(Qt.WindowType.FramelessWindowHint | Qt.WindowType.WindowStaysOnTopHint)
+        self.setAttribute(Qt.WA_TranslucentBackground, True)
+        self.move(30,40)
+
+        # 데이터 불러오기
+        self.order_num = 0
+        con = sqlite3.connect('./DATA/data.db')
+        price_df = pd.read_sql('select * from drinks_price', con)  # 가격 테이블
+
+
+        # 가격 이름 메뉴정보 불러오기
+        data = parent.send_info
+        self.drink_name = data['menu_name_x'].to_string(index=False)
+        self.drink_price = data['price'].to_string(index=False)
+        self.drink_info = data['info'].to_string(index=False)
+
+        # 정보 담기
+        self.menu_photo_label.setPixmap(QPixmap(data['img_path'].to_string(index=False))) #메뉴 이미지
+        self.menu_name_label.setText(str(self.drink_name)) #메뉴 이름
+        self.menu_info_label.setText(str(self.drink_info)) #메뉴 정보
+        self.menu_price_label.setText(str(self.drink_price)+'원') #메뉴 가격
+
+        # 버튼 시그널 연결
+        self.cancel_btn.clicked.connect(lambda x: self.close()) # 창 종료하기
+        self.cancel_btn.clicked.connect(self.close) # 창 종료하기
+        self.order_btn.clicked.connect(self.order_confirm)
+
+        #옵션 위한 테이블 생성
+        option_df = data.loc[:, 'cinnamon':'zero_cider_changed']
+        option_df_dict = option_df.to_dict('list')
+
+
+        option_df_dict_not_null = {key: [int(x) for x in value[0].split(',')] for key, value in option_df_dict.items() if
+                     value != ['0']}  # '이 양쪽에 들어가지 않은 인수형의 숫자 반환
+        if '디카페인' in self.drink_name:
+            option_df_dict_not_null['decaffein'] = 1
+        visible_dict = {'cinnamon':1, 'whip':2, 'strong_or_weak':3, 'syrup_add':4, 'light_vanilia_add':5,'stevia_changed':6,
+                        'stevia_add':7, 'honey_add':8, 'choose_milk':9, 'choose_topping':10, 'decaffein':11, 'zero_cider_changed':12}
+        option_frame_list = [getattr(self, f'option_frame_{frame}') for frame in range(1, 13)]
+        print(list(option_df_dict_not_null.keys()))
+        for idx, column in enumerate(list(visible_dict.keys())):
+            if column in list(option_df_dict_not_null.keys()):
+                option_frame_list[idx].setVisible(True)
+            else:
+                option_frame_list[idx].setVisible(False)
+
+
+
+            # print('선택옵션:', i)
+            # option_frame_list[visible_dict[i]].setVisible(True)
+            # print(visible_dict[i])
+            # print('=======================')
+
+
+
+    def close(self):
+        self.parent.remove_label()
+        self.accept()
+
+    def order_confirm(self):
+        """선택옵션 확인 후 db에 저장"""
+        self.order_num += 1
+
+        # 고객 db 불러오기 및 order table 테이블에 에 값 append(추가해주기)
+        conn = sqlite3.connect('./DATA/data.db')  # 데이터베이스 연결 정보 설정
+        cur = conn.cursor()  # 커서 생성
+        cur.execute("INSERT INTO order_table (id, order_drink, price) VALUES(?,?,?);", # SQL 쿼리 실행
+                    (self.order_num, self.drink_name, self.drink_price))
+        conn.commit() #변경사항 저장
+        cur.close() #연결 종료
+        conn.close()
+
+        # 선택옵션 창 종료
+        self.sample_label.close()
+        self.close()
+
+
+class WindowClass(QMainWindow, main_page_class):
+    """오픈화면 & 메인화면 창"""
     clicked = pyqtSignal()
 
     def add_page_mouse_press(self, event):
+        """오픈화면 누르면 발생하는 이벤트"""
         self.stackedWidget.setCurrentWidget(self.main_page)
-        self.category_btn_1.click()
 
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.setWindowFlags(Qt.FramelessWindowHint)
+
         # 오픈화면
         self.stackedWidget.setCurrentIndex(0)  # 시작할때 화면은 오픈 페이지로 설정
         self.set_ad_image()  # 이미지 변경
+        # self.setWindowFlags(Qt.FramelessWindowHint) # 프레임 지우기
+        # self.move(10,30) #창이동
 
         # 페이지 이동 및 타이머 시작
-        # self.ad_label.mousePressEvent = lambda event: (self.stackedWidget.setCurrentWidget(self.main_page))  # 페이지 이동)
-        self.ad_label.mousePressEvent = self.add_page_mouse_press  # 페이지 이동)
+        self.ad_label.mousePressEvent = lambda event: (self.stackedWidget.setCurrentWidget(self.main_page))  # 페이지 이동)
 
         # 메인화면
         # 0. DB 불러오기
         con = sqlite3.connect('./DATA/data.db')
         cur = con.cursor()
-        price_df = pd.read_sql('select * from drinks_price', con)  # 가격 테이블
+        self.price_df = pd.read_sql('select * from drinks_price', con)  # 가격 테이블
         self.menu_df = pd.read_sql('select * from drinks_menu', con)  # 음료상세정보 전체 테이블
         self.img_path_df = pd.read_sql('select * from drinks_img_path', con)  # 음료 이미지 경로 테이블
-        self.sold_out_df = pd.read_sql('select * from sold_out', con)
-
+        self.order_table_df = pd.read_sql('select * from order_table', con)  #
+        print(self.order_table_df)
 
         # 1. 타이머
         # 타이머 기본 설정값
         self.DURATION_INT = 120
         self.remaining_time = self.DURATION_INT
 
-        # 타이머와 관련된 변수들
+        # # 타이머와 관련된 변수들
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_timer)
         self.timer.setInterval(1000)
@@ -92,9 +205,18 @@ class WindowClass(QMainWindow, form_class):
         for label in self.menu_price_label_list:
             label.setStyleSheet('color: rgb(229, 79, 64);font: 63 12pt "Pretendard SemiBold";')
 
+        # 6. 전체 삭제 버튼
+        self.all_remove_label.clicked.connect(self.delete_order_table_values)
 
 
-
+    def delete_order_table_values(self):
+        """ 주문 값 삭제"""
+        conn = sqlite3.connect('./DATA/data.db')  # 데이터베이스 연결 정보 설정
+        cur = conn.cursor()  # 커서 생성
+        cur.execute("DELETE FROM 'order_table'")  # SQL 쿼리 실행
+        conn.commit() #변경사항 저장
+        cur.close() # 연결 종료
+        conn.close()
 
     def start_timer(self, category):
         """타이머 시작하는 함수"""
@@ -103,37 +225,55 @@ class WindowClass(QMainWindow, form_class):
         self.timer.start()
 
     def update_timer(self):
+        """타이머 시간 업데이트"""
         self.remaining_time -= 1
         if self.remaining_time == 0:
             self.remaining_time = self.DURATION_INT
-            self.stackedWidget.setCurrentIndex(0)  # 120초가 지나면 오픈화면으로 이동
+            self.stackedWidget.setCurrentWidget(self.main_page)
         self.timer_label.setText(f"{str(self.remaining_time)}초")
 
-    # def timerTimeout(self):
-    #     """1초가 지날때마다 시간을 초기화 시켜줌"""
-    #     self.time_left_int -= 1
-    #     if self.time_left_int == 0:
-    #         self.time_left_int = self.DURATION_INT
-    #         self.stackedWidget.setCurrentIndex(0)  # 120초가 지나면 시간 초기화하고 오픈화면으로 이동
-    #     self.timer_label.setText(f'{str(self.time_left_int)}초')
-
     def click_frame(self, event, name):
-        """프레임 선택 테스트"""
-        # print(f'{name}프레임을 선택했습니다.')
-        # print(name[11:])
-        condition1 = (self.menu_df['category'] == self.user_clicked_category)
-        condition2 = (self.menu_df['category_num'] == int(name[11:]))
+        """메뉴 선택하고 선택옵션 창 띄우기"""
+        print(f'{name}프레임을 선택했습니다.')
+        option_page_df = pd.merge(self.menu_df, self.img_path_df, on='id')
+        print(option_page_df.columns)
+
+        #조건설정
+        condition1 = (option_page_df['category'] == self.user_clicked_category)
+        condition2 = (option_page_df['category_num'] == int(name[11:]))
         # condition3 = (self.menu_df['sold_out'] == 0)
-        sold_out_state = self.menu_df.loc[condition1 & condition2, 'sold_out']
-        print(sold_out_state)
+
+        #조건에 맞는 변수이름에 저장
+        sold_out_state = option_page_df.loc[condition1 & condition2, 'sold_out']
+        self.send_info = option_page_df.loc[condition1 & condition2]
+        print(self.send_info['info'])
         if sold_out_state.sum() > 0:
-            print('품절')
+            msg_box_page = MSG_Dialog(1)
+            msg_box_page.show()
+            msg_box_page.exec_()
         else:
             print('낫품절')
+            self.show_sample_label()
+            dialog_page = Option_Class(self)
+            dialog_page.setWindowFlags(Qt.WindowStaysOnTopHint)  # Always on top
+            dialog_page.setAttribute(Qt.WA_ShowWithoutActivating)  # Prevent dialog from stealing focus
+            dialog_page.show()
+            # dialog_page.exec_()
+
+    def remove_label(self):
+        """선택옵션창 뒤에 검은 화면 숨겨줌"""
+        self.sample_label.hide()
+
+    def show_sample_label(self):
+        """임시 검은 라벨 띄우기"""
+        print('라벨 띄움')
+        self.sample_label = QLabel(self)
+        self.sample_label.setGeometry(0, 0, 768, 1024)
+        self.sample_label.setStyleSheet('background-color: rgba(45,45,45,200);')
+        self.sample_label.show()
 
     def show_menu_arrow_btn(self):
         """카테고리 개수에 따라 메뉴 화살표상태를 변경합니다."""
-
         current_page = self.menu_stackedWidget.currentWidget().objectName()
         self.menu_right_btn.setVisible(current_page == 'page_1' and self.menu_arrow_btn_num == 2)
         self.menu_left_btn.setVisible(current_page == 'page_2' and self.menu_arrow_btn_num == 2)
@@ -189,6 +329,9 @@ class WindowClass(QMainWindow, form_class):
             getattr(self, f'menu_name_label_{i}').setText(str(drink_name[0]))
             getattr(self, f'menu_price_label_{i}').setText(f'{str(drink_price[0])}원')
 
+        # self.menu_arrow_btn_num = category_drinks_num % 12 > 0
+        print('페이지번호',category_drinks_num // 12)
+        print('나머지', category_drinks_num % 12)
         if category_drinks_num > 12:
             self.menu_arrow_btn_num = 2
         else:
