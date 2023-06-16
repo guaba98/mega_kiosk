@@ -2,7 +2,6 @@ import os
 import sys
 import sqlite3
 import pandas as pd
-import numpy as np
 
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
@@ -16,54 +15,55 @@ def resource_path(relative_path):
     base_path = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
     return os.path.join(base_path, relative_path)
 
-
+# UI 불러오기
 main_page_ui = resource_path('mega_ui_ver3.ui')  # 메가 메인 UI 불러오기
 main_page_class = uic.loadUiType(main_page_ui)[0]
-choose_option_ui = resource_path('mega_choose_option_page.ui') # 메가 선택창 불러오기
+choose_option_ui = resource_path('mega_choose_option_page.ui')  # 메가 음료옵션창 불러오기
 choose_option_class = uic.loadUiType(choose_option_ui)[0]
-msg_box_ui = resource_path('msg_box.ui') # 메세지박스 ui 불러오기
+msg_box_ui = resource_path('msg_box.ui')  # 메세지박스 ui 불러오기
 msg_box_class = uic.loadUiType(msg_box_ui)[0]
+
 
 class MSG_Dialog(QDialog, msg_box_class):
     """메세지 박스 다이얼로그"""
     data_signal = pyqtSignal(str)
+
     def __init__(self, page_data):
         super().__init__()
         self.setupUi(self)
-        # self.setWindowFlags(Qt.FramelessWindowHint)
-        self.setWindowFlags(Qt.WindowType.FramelessWindowHint | Qt.WindowType.WindowStaysOnTopHint)
-        self.setAttribute(Qt.WA_TranslucentBackground, True)
-        # self.setStyleSheet('''
-        # #QDialog{border-radius: 15px;}
-        # ''')
-        #버튼 페이지 설정
+
+        # 화면 설정
+        self.setWindowFlags(Qt.WindowType.FramelessWindowHint | Qt.WindowType.WindowStaysOnTopHint) #프레임 지우기 / 윈도우가 다른 창 위에 항상 최상위로 유지되도록 함
+        self.setAttribute(Qt.WA_TranslucentBackground, True) #배경 투명하게 함
+
+        # 버튼 페이지 설정
         if page_data == 1:
             self.info_label.setText("메뉴가 품절이라 선택하실 수 없습니다.")
             self.stackedWidget.setCurrentWidget(self.one_btn_page)
         else:
             self.stackedWidget.setCurrentWidget(self.two_btn_page)
 
-        #버튼 누르면 정보 넘겨주기
-        self.ok_btn.clicked.connect(self.close)
+        # 버튼 누르면 정보 넘겨주기
+        self.ok_btn.clicked.connect(self.close) # 확인 누르면 창 닫힘
 
 
 class Option_Class(QDialog, choose_option_class):
     """선택옵션 창"""
     data_signal = pyqtSignal(str)
+
     def __init__(self, parent):
         super().__init__(parent)
         self.parent = parent
-
         self.setupUi(self)
-        self.setWindowFlags(Qt.WindowType.FramelessWindowHint | Qt.WindowType.WindowStaysOnTopHint)
-        self.setAttribute(Qt.WA_TranslucentBackground, True)
-        self.move(30,40)
+
+        # 화면 설정
+        self.setWindowFlags(Qt.WindowType.FramelessWindowHint | Qt.WindowType.WindowStaysOnTopHint) #프레임 지우기 / 윈도우가 다른 창 위에 항상 최상위로 유지되도록 함
+        self.setAttribute(Qt.WA_TranslucentBackground, True) #배경 투명하게 함
+        self.move(30, 40) # 창 이동
 
         # 데이터 불러오기
-        self.order_num = 0
         con = sqlite3.connect('./DATA/data.db')
         price_df = pd.read_sql('select * from drinks_price', con)  # 가격 테이블
-
 
         # 가격 이름 메뉴정보 불러오기
         data = parent.send_info
@@ -72,43 +72,34 @@ class Option_Class(QDialog, choose_option_class):
         self.drink_info = data['info'].to_string(index=False)
 
         # 정보 담기
-        self.menu_photo_label.setPixmap(QPixmap(data['img_path'].to_string(index=False))) #메뉴 이미지
-        self.menu_name_label.setText(str(self.drink_name)) #메뉴 이름
-        self.menu_info_label.setText(str(self.drink_info)) #메뉴 정보
-        self.menu_price_label.setText(str(self.drink_price)+'원') #메뉴 가격
+        self.menu_photo_label.setPixmap(QPixmap(data['img_path'].to_string(index=False)))  # 메뉴 이미지
+        self.menu_name_label.setText(str(self.drink_name))  # 메뉴 이름
+        self.menu_info_label.setText(str(self.drink_info))  # 메뉴 정보
+        self.menu_price_label.setText(str(self.drink_price) + '원')  # 메뉴 가격
 
         # 버튼 시그널 연결
-        self.cancel_btn.clicked.connect(lambda x: self.close()) # 창 종료하기
-        self.cancel_btn.clicked.connect(self.close) # 창 종료하기
+        self.cancel_btn.clicked.connect(lambda x: self.close())  # 창 종료하기
+        self.cancel_btn.clicked.connect(self.close)  # 창 종료하기
         self.order_btn.clicked.connect(self.order_confirm)
 
-        #옵션 위한 테이블 생성
+        # 옵션 위한 테이블 생성
         option_df = data.loc[:, 'cinnamon':'zero_cider_changed']
         option_df_dict = option_df.to_dict('list')
+        option_df_keys = list(option_df_dict.keys())
 
+        option_df_dict_not_null = {key: [int(x) for x in value[0].split(',')] for key, value in option_df_dict.items()
+                                   if value != ['0']}  # 0이 들어가지 않은 인수형의 숫자 반환
 
-        option_df_dict_not_null = {key: [int(x) for x in value[0].split(',')] for key, value in option_df_dict.items() if
-                     value != ['0']}  # '이 양쪽에 들어가지 않은 인수형의 숫자 반환
-        if '디카페인' in self.drink_name:
+        if '디카페인' in self.drink_name: #디카페인은 db에서 분리를안해서 후작업
             option_df_dict_not_null['decaffein'] = 1
-        visible_dict = {'cinnamon':1, 'whip':2, 'strong_or_weak':3, 'syrup_add':4, 'light_vanilia_add':5,'stevia_changed':6,
-                        'stevia_add':7, 'honey_add':8, 'choose_milk':9, 'choose_topping':10, 'decaffein':11, 'zero_cider_changed':12}
-        option_frame_list = [getattr(self, f'option_frame_{frame}') for frame in range(1, 13)]
-        print(list(option_df_dict_not_null.keys()))
-        for idx, column in enumerate(list(visible_dict.keys())):
-            if column in list(option_df_dict_not_null.keys()):
+
+        option_frame_list = [getattr(self, f'option_frame_{frame}') for frame in range(1, 13)] # 프레임들을 리스트에 담음
+
+        for idx, key in enumerate(option_df_keys): #음료에 맞게 옵션창 띄워줌
+            if key in list(option_df_dict_not_null.keys()):
                 option_frame_list[idx].setVisible(True)
             else:
                 option_frame_list[idx].setVisible(False)
-
-
-
-            # print('선택옵션:', i)
-            # option_frame_list[visible_dict[i]].setVisible(True)
-            # print(visible_dict[i])
-            # print('=======================')
-
-
 
     def close(self):
         self.parent.remove_label()
@@ -116,15 +107,15 @@ class Option_Class(QDialog, choose_option_class):
 
     def order_confirm(self):
         """선택옵션 확인 후 db에 저장"""
-        self.order_num += 1
+        self.order_num = 1 # 나중에 수정. 회원 아이디
 
         # 고객 db 불러오기 및 order table 테이블에 에 값 append(추가해주기)
         conn = sqlite3.connect('./DATA/data.db')  # 데이터베이스 연결 정보 설정
         cur = conn.cursor()  # 커서 생성
-        cur.execute("INSERT INTO order_table (id, order_drink, price) VALUES(?,?,?);", # SQL 쿼리 실행
+        cur.execute("INSERT INTO order_table (id, order_drink, price) VALUES(?,?,?);",  # SQL 쿼리 실행
                     (self.order_num, self.drink_name, self.drink_price))
-        conn.commit() #변경사항 저장
-        cur.close() #연결 종료
+        conn.commit()  # 변경사항 저장
+        cur.close()  # 연결 종료
         conn.close()
 
         # 선택옵션 창 종료
@@ -179,10 +170,9 @@ class WindowClass(QMainWindow, main_page_class):
             btn.clicked.connect(self.change_categroy_btn_color)  # 버튼 색 바꾸기
             btn.clicked.connect(self.set_categroy_num)  # 카테고리 하단 메뉴 크기 설정
             btn.clicked.connect(self.show_menu_arrow_btn)  # 카테고리 하단 메뉴 크기 설정
-            btn.clicked.connect(lambda: self.menu_stackedWidget.setCurrentWidget(self.page_1)) # 음료 페이지 1페이지로 초기화
+            btn.clicked.connect(lambda: self.menu_stackedWidget.setCurrentWidget(self.page_1))  # 음료 페이지 1페이지로 초기화
             btn.clicked.connect(
-                lambda x, category=btn: self.start_timer(btn)) #카테고리 버튼 누를 때마다 타이머 초기화
-
+                lambda x, category=btn: self.start_timer(btn))  # 카테고리 버튼 누를 때마다 타이머 초기화
 
         # 3. 카테고리 페이지 넘기기 (메인화면 페이지 넘기기)
         self.category_right_btn.clicked.connect(lambda: self.category_stackedWidget.setCurrentWidget(self.category_2))
@@ -208,14 +198,13 @@ class WindowClass(QMainWindow, main_page_class):
         # 6. 전체 삭제 버튼
         self.all_remove_label.clicked.connect(self.delete_order_table_values)
 
-
     def delete_order_table_values(self):
         """ 주문 값 삭제"""
         conn = sqlite3.connect('./DATA/data.db')  # 데이터베이스 연결 정보 설정
         cur = conn.cursor()  # 커서 생성
         cur.execute("DELETE FROM 'order_table'")  # SQL 쿼리 실행
-        conn.commit() #변경사항 저장
-        cur.close() # 연결 종료
+        conn.commit()  # 변경사항 저장
+        cur.close()  # 연결 종료
         conn.close()
 
     def start_timer(self, category):
@@ -238,12 +227,12 @@ class WindowClass(QMainWindow, main_page_class):
         option_page_df = pd.merge(self.menu_df, self.img_path_df, on='id')
         print(option_page_df.columns)
 
-        #조건설정
+        # 조건설정
         condition1 = (option_page_df['category'] == self.user_clicked_category)
         condition2 = (option_page_df['category_num'] == int(name[11:]))
         # condition3 = (self.menu_df['sold_out'] == 0)
 
-        #조건에 맞는 변수이름에 저장
+        # 조건에 맞는 변수이름에 저장
         sold_out_state = option_page_df.loc[condition1 & condition2, 'sold_out']
         self.send_info = option_page_df.loc[condition1 & condition2]
         print(self.send_info['info'])
@@ -255,10 +244,9 @@ class WindowClass(QMainWindow, main_page_class):
             print('낫품절')
             self.show_sample_label()
             dialog_page = Option_Class(self)
-            dialog_page.setWindowFlags(Qt.WindowStaysOnTopHint)  # Always on top
-            dialog_page.setAttribute(Qt.WA_ShowWithoutActivating)  # Prevent dialog from stealing focus
+            # dialog_page.setWindowFlags(Qt.WindowStaysOnTopHint)  # Always on top
+            # dialog_page.setAttribute(Qt.WA_ShowWithoutActivating)  # Prevent dialog from stealing focus
             dialog_page.show()
-            # dialog_page.exec_()
 
     def remove_label(self):
         """선택옵션창 뒤에 검은 화면 숨겨줌"""
@@ -330,7 +318,7 @@ class WindowClass(QMainWindow, main_page_class):
             getattr(self, f'menu_price_label_{i}').setText(f'{str(drink_price[0])}원')
 
         # self.menu_arrow_btn_num = category_drinks_num % 12 > 0
-        print('페이지번호',category_drinks_num // 12)
+        print('페이지번호', category_drinks_num // 12)
         print('나머지', category_drinks_num % 12)
         if category_drinks_num > 12:
             self.menu_arrow_btn_num = 2
