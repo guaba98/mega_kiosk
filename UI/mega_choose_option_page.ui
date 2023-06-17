@@ -320,9 +320,9 @@ color:rgb(229, 79, 65);</string>
                <property name="geometry">
                 <rect>
                  <x>0</x>
-                 <y>-16</y>
+                 <y>-1834</y>
                  <width>663</width>
-                 <height>2484</height>
+                 <height>2490</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -331,6 +331,12 @@ color:rgb(229, 79, 65);</string>
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
+                    <height>200</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
                     <height>200</height>
                    </size>
                   </property>
@@ -547,6 +553,12 @@ color:rgb(229, 79, 65);</string>
                     <height>200</height>
                    </size>
                   </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>200</height>
+                   </size>
+                  </property>
                   <property name="styleSheet">
                    <string notr="true">background-color: rgb(255, 232, 196);</string>
                   </property>
@@ -757,6 +769,12 @@ color:rgb(229, 79, 65);</string>
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
+                    <height>200</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
                     <height>200</height>
                    </size>
                   </property>
@@ -1091,6 +1109,12 @@ color:rgb(229, 79, 65);</string>
                     <height>200</height>
                    </size>
                   </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>200</height>
+                   </size>
+                  </property>
                   <property name="styleSheet">
                    <string notr="true">background-color: rgb(170, 255, 255);</string>
                   </property>
@@ -1301,6 +1325,12 @@ color:rgb(229, 79, 65);</string>
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
+                    <height>200</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
                     <height>200</height>
                    </size>
                   </property>
@@ -1518,6 +1548,12 @@ background-color: rgb(85, 170, 255);</string>
                     <height>200</height>
                    </size>
                   </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>200</height>
+                   </size>
+                  </property>
                   <property name="styleSheet">
                    <string notr="true">background-color: rgb(255, 255, 127);</string>
                   </property>
@@ -1728,6 +1764,12 @@ background-color: rgb(85, 170, 255);</string>
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
+                    <height>200</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
                     <height>200</height>
                    </size>
                   </property>
@@ -1944,6 +1986,12 @@ background-color: rgb(85, 170, 255);</string>
                     <height>200</height>
                    </size>
                   </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>200</height>
+                   </size>
+                  </property>
                   <property name="styleSheet">
                    <string notr="true">background-color: rgb(164, 173, 255);</string>
                   </property>
@@ -2154,6 +2202,12 @@ background-color: rgb(85, 170, 255);</string>
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
+                    <height>200</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
                     <height>200</height>
                    </size>
                   </property>
@@ -2429,6 +2483,12 @@ background-color: rgb(85, 170, 255);</string>
                     <height>200</height>
                    </size>
                   </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>200</height>
+                   </size>
+                  </property>
                   <property name="styleSheet">
                    <string notr="true">background-color: rgb(181, 255, 97);</string>
                   </property>
@@ -2639,6 +2699,12 @@ background-color: rgb(85, 170, 255);</string>
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
+                    <height>200</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
                     <height>200</height>
                    </size>
                   </property>
@@ -2914,8 +2980,14 @@ background-color: rgb(85, 170, 255);</string>
                     <height>200</height>
                    </size>
                   </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>200</height>
+                   </size>
+                  </property>
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(105, 255, 165);</string>
+                   <string notr="true">background-color: rgb(139, 255, 147);</string>
                   </property>
                   <property name="frameShape">
                    <enum>QFrame::StyledPanel</enum>
@@ -3118,6 +3190,19 @@ background-color: rgb(85, 170, 255);</string>
                    </item>
                   </layout>
                  </widget>
+                </item>
+                <item>
+                 <spacer name="verticalSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
                 </item>
                </layout>
               </widget>

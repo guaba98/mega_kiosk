@@ -16,11 +16,11 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 # UI 불러오기
-main_page_ui = resource_path('mega_ui_ver3.ui')  # 메가 메인 UI 불러오기
+main_page_ui = resource_path('./UI/mega_ui_ver3.ui')  # 메가 메인 UI 불러오기
 main_page_class = uic.loadUiType(main_page_ui)[0]
-choose_option_ui = resource_path('mega_choose_option_page.ui')  # 메가 음료옵션창 불러오기
+choose_option_ui = resource_path('./UI/mega_choose_option_page.ui')  # 메가 음료옵션창 불러오기
 choose_option_class = uic.loadUiType(choose_option_ui)[0]
-msg_box_ui = resource_path('msg_box.ui')  # 메세지박스 ui 불러오기
+msg_box_ui = resource_path('./UI/msg_box.ui')  # 메세지박스 ui 불러오기
 msg_box_class = uic.loadUiType(msg_box_ui)[0]
 
 
@@ -93,13 +93,42 @@ class Option_Class(QDialog, choose_option_class):
         if '디카페인' in self.drink_name: #디카페인은 db에서 분리를안해서 후작업
             option_df_dict_not_null['decaffein'] = 1
 
+        # 음료에 따라 옵션창 띄워주는 부분
         option_frame_list = [getattr(self, f'option_frame_{frame}') for frame in range(1, 13)] # 프레임들을 리스트에 담음
 
         for idx, key in enumerate(option_df_keys): #음료에 맞게 옵션창 띄워줌
             if key in list(option_df_dict_not_null.keys()):
-                option_frame_list[idx].setVisible(True)
+                option_frame_list[idx].setVisible(True) # 음료에 있는 카테고리만 보여주고
             else:
-                option_frame_list[idx].setVisible(False)
+                option_frame_list[idx].setVisible(False) # 나머지는 안보여줌
+
+        # 각 옵션창 프레임 내에 있는 버튼들 한번만 눌리게
+        self.option_button_groups = []
+
+        for i in range(1, 13):
+            option_frame = option_frame_list[i-1]
+            buttons = option_frame.findChildren(QPushButton)
+            button_group = QButtonGroup()
+            button_group.setExclusive(True)
+
+            for btn in buttons:
+                button_group.addButton(btn)
+            button_group.buttonClicked.connect(self.btn_check)
+            self.option_button_groups.append(button_group)
+
+        for btn_group in self.option_button_groups:
+            btn_group.buttons()[0].click()
+
+
+
+    def btn_check(self):
+        sender = self.sender()
+
+        for button_group in self.option_button_groups:
+            if sender not in button_group.buttons():
+                # button_group.buttons()[0].setChecked(True)
+                # button_group.setExclusive(False)
+                button_group.setExclusive(True)
 
     def close(self):
         self.parent.remove_label()
@@ -107,19 +136,20 @@ class Option_Class(QDialog, choose_option_class):
 
     def order_confirm(self):
         """선택옵션 확인 후 db에 저장"""
-        self.order_num = 1 # 나중에 수정. 회원 아이디
+        self.parent.drink_num += 1 # 주문 수량
 
         # 고객 db 불러오기 및 order table 테이블에 에 값 append(추가해주기)
         conn = sqlite3.connect('./DATA/data.db')  # 데이터베이스 연결 정보 설정
         cur = conn.cursor()  # 커서 생성
         cur.execute("INSERT INTO order_table (id, order_drink, price) VALUES(?,?,?);",  # SQL 쿼리 실행
-                    (self.order_num, self.drink_name, self.drink_price))
+                    (self.parent.drink_num, self.drink_name, self.drink_price))
         conn.commit()  # 변경사항 저장
         cur.close()  # 연결 종료
         conn.close()
 
         # 선택옵션 창 종료
-        self.sample_label.close()
+        self.parent.remove_label()
+        self.accept()
         self.close()
 
 
@@ -152,7 +182,7 @@ class WindowClass(QMainWindow, main_page_class):
         self.menu_df = pd.read_sql('select * from drinks_menu', con)  # 음료상세정보 전체 테이블
         self.img_path_df = pd.read_sql('select * from drinks_img_path', con)  # 음료 이미지 경로 테이블
         self.order_table_df = pd.read_sql('select * from order_table', con)  #
-        print(self.order_table_df)
+        self.drink_num = 0 # 음료 주문번호
 
         # 1. 타이머
         # 타이머 기본 설정값
@@ -197,6 +227,7 @@ class WindowClass(QMainWindow, main_page_class):
 
         # 6. 전체 삭제 버튼
         self.all_remove_label.clicked.connect(self.delete_order_table_values)
+
 
     def delete_order_table_values(self):
         """ 주문 값 삭제"""
