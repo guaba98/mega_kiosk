@@ -7,8 +7,7 @@ from PyQt5.QtWidgets import *
 from PyQt5 import uic
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
-from PyQt5 import QtWidgets
-
+from shopping_cart import *
 
 def resource_path(relative_path):
     """UI 받아오는 함수"""
@@ -228,6 +227,30 @@ class WindowClass(QMainWindow, main_page_class):
         # 6. 전체 삭제 버튼
         self.all_remove_label.clicked.connect(self.delete_order_table_values)
 
+        # 7. 장바구니 부분
+        add_shopping_item_to_listwidget(self.drinks_cart_list_widget, "디카페인 아메리카노", "2500")
+        # add_shopping_item_to_listwidget(self.drinks_cart_list_widget, "상품 1", "1000")
+
+    # def add_widgets_to_listwidget(self, list_widget, widgets):
+    #     # 한 줄에 위젯을 담을 QWidget 생성
+    #     item_widget = QWidget()
+    #     item_layout = QHBoxLayout()
+    #     item_widget.setLayout(item_layout)
+    #
+    #     # 위젯 리스트를 순회하며 QLabel과 QPushButton을 생성하고 QHBoxLayout에 추가
+    #     for widget_type in widgets:
+    #         if widget_type == "label":
+    #             label = QLabel("라벨")
+    #             item_layout.addWidget(label)
+    #         elif widget_type == "button":
+    #             button = QPushButton("버튼")
+    #             item_layout.addWidget(button)
+    #
+    #     # QListWidgetItem 생성 및 QListWidget에 위젯 추가
+    #     item = QListWidgetItem()
+    #     item.setSizeHint(item_widget.sizeHint())
+    #     list_widget.addItem(item)
+    #     list_widget.setItemWidget(item, item_widget)
 
     def delete_order_table_values(self):
         """ 주문 값 삭제"""
