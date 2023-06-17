@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QApplication, QVBoxLayout, QListWidgetItem, QListWidget, QLabel, QPushButton, QHBoxLayout, QWidget
+from PyQt5.QtWidgets import * #QApplication, QVBoxLayout, QListWidgetItem, QListWidget, QLabel, QPushButton, QHBoxLayout, QWidget
 
 
 class ShoppingItemWidget(QWidget):
