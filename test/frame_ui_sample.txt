@@ -1,0 +1,191 @@
+# -*- coding: utf-8 -*-
+
+################################################################################
+## Form generated from reading UI file 'test_2xfEfrF.ui'
+##
+## Created by: Qt User Interface Compiler version 5.15.2
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
+
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
+
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        if not MainWindow.objectName():
+            MainWindow.setObjectName(u"MainWindow")
+        MainWindow.resize(800, 614)
+        self.centralwidget = QWidget(MainWindow)
+        self.centralwidget.setObjectName(u"centralwidget")
+        self.out_frame = QFrame(self.centralwidget)
+        self.out_frame.setObjectName(u"out_frame")
+        self.out_frame.setGeometry(QRect(100, 40, 519, 218))
+        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.out_frame.sizePolicy().hasHeightForWidth())
+        self.out_frame.setSizePolicy(sizePolicy)
+        self.out_frame.setMinimumSize(QSize(518, 218))
+        self.out_frame.setMaximumSize(QSize(519, 218))
+        self.out_frame.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"font: 57 14pt \"Pretendard Medium\";")
+        self.out_frame.setFrameShape(QFrame.StyledPanel)
+        self.out_frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_29 = QVBoxLayout(self.out_frame)
+        self.verticalLayout_29.setSpacing(0)
+        self.verticalLayout_29.setObjectName(u"verticalLayout_29")
+        self.verticalLayout_29.setContentsMargins(0, 0, 0, 0)
+        self.scrollArea = QScrollArea(self.out_frame)
+        self.scrollArea.setObjectName(u"scrollArea")
+        font = QFont()
+        font.setFamily(u"Pretendard Medium")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(7)
+        self.scrollArea.setFont(font)
+        self.scrollArea.setFrameShape(QFrame.NoFrame)
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 517, 216))
+        self.verticalLayout_30 = QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout_30.setSpacing(0)
+        self.verticalLayout_30.setObjectName(u"verticalLayout_30")
+        self.verticalLayout_30.setContentsMargins(0, 0, 0, 0)
+        self.cart_frame_1 = QFrame(self.scrollAreaWidgetContents)
+        self.cart_frame_1.setObjectName(u"cart_frame_1")
+        self.cart_frame_1.setMinimumSize(QSize(516, 40))
+        self.cart_frame_1.setMaximumSize(QSize(16777215, 40))
+        self.cart_frame_1.setFrameShape(QFrame.StyledPanel)
+        self.cart_frame_1.setFrameShadow(QFrame.Raised)
+
+        self.horizontalLayout = QHBoxLayout(self.cart_frame_1)
+        self.horizontalLayout.setSpacing(0)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+
+
+        self.cart_remove_btn_1 = QPushButton(self.cart_frame_1)
+        self.cart_remove_btn_1.setObjectName(u"cart_remove_btn_1")
+        self.cart_remove_btn_1.setMaximumSize(QSize(40, 40))
+        self.cart_remove_btn_1.setStyleSheet(u"background-color: rgba(255, 255, 255, 0);")
+        icon = QIcon()
+        icon.addFile(u"../img/qt\uc790\ub8cc/cancel_icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.cart_remove_btn_1.setIcon(icon)
+        self.cart_remove_btn_1.setIconSize(QSize(35, 35))
+
+        self.horizontalLayout.addWidget(self.cart_remove_btn_1)
+
+        self.cart_num_1 = QLabel(self.cart_frame_1)
+        self.cart_num_1.setObjectName(u"cart_num_1")
+        self.cart_num_1.setMaximumSize(QSize(30, 40))
+        self.cart_num_1.setStyleSheet(u"background-color: rgb(170, 255, 255);\n"
+"color:rgb(229, 79, 64);")
+        self.cart_num_1.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout.addWidget(self.cart_num_1)
+
+        self.cart_drink_name_1 = QLabel(self.cart_frame_1)
+        self.cart_drink_name_1.setObjectName(u"cart_drink_name_1")
+        self.cart_drink_name_1.setMinimumSize(QSize(180, 0))
+        self.cart_drink_name_1.setMaximumSize(QSize(16777215, 40))
+        self.cart_drink_name_1.setStyleSheet(u"background-color: rgb(255, 255, 0);")
+
+        self.horizontalLayout.addWidget(self.cart_drink_name_1)
+
+        self.cart_minus_btn_1 = QPushButton(self.cart_frame_1)
+        self.cart_minus_btn_1.setObjectName(u"cart_minus_btn_1")
+        self.cart_minus_btn_1.setMaximumSize(QSize(40, 40))
+        self.cart_minus_btn_1.setStyleSheet(u"background-color: rgb(229, 79, 64);")
+        icon1 = QIcon()
+        icon1.addFile(u"../img/qt\uc790\ub8cc/minus_icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.cart_minus_btn_1.setIcon(icon1)
+        self.cart_minus_btn_1.setIconSize(QSize(35, 35))
+
+        self.horizontalLayout.addWidget(self.cart_minus_btn_1)
+
+        self.cart_drink_cnt_1 = QLabel(self.cart_frame_1)
+        self.cart_drink_cnt_1.setObjectName(u"cart_drink_cnt_1")
+        self.cart_drink_cnt_1.setMaximumSize(QSize(16777215, 40))
+        self.cart_drink_cnt_1.setStyleSheet(u"background-color: rgb(255, 170, 255);")
+        self.cart_drink_cnt_1.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout.addWidget(self.cart_drink_cnt_1)
+
+        self.cart_plus_btn_1 = QPushButton(self.cart_frame_1)
+        self.cart_plus_btn_1.setObjectName(u"cart_plus_btn_1")
+        self.cart_plus_btn_1.setMaximumSize(QSize(40, 40))
+        self.cart_plus_btn_1.setStyleSheet(u"background-color:rgb(229, 79, 64);")
+        icon2 = QIcon()
+        icon2.addFile(u"../img/qt\uc790\ub8cc/plus-icon - \ubcf5\uc0ac\ubcf8.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.cart_plus_btn_1.setIcon(icon2)
+        self.cart_plus_btn_1.setIconSize(QSize(35, 35))
+
+        self.horizontalLayout.addWidget(self.cart_plus_btn_1)
+
+        self.cart_price_1 = QLabel(self.cart_frame_1)
+        self.cart_price_1.setObjectName(u"cart_price_1")
+        self.cart_price_1.setFont(font)
+        self.cart_price_1.setStyleSheet(u"background-color: rgb(170, 255, 255);")
+        self.cart_price_1.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout.addWidget(self.cart_price_1)
+
+
+        self.verticalLayout_30.addWidget(self.cart_frame_1)
+
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_30.addItem(self.verticalSpacer)
+
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+
+        self.verticalLayout_29.addWidget(self.scrollArea)
+
+
+
+        self.my_frame = QFrame(self.centralwidget)
+        self.my_frame.setObjectName(u"my_frame")
+        self.my_frame.setGeometry(QRect(80, 320, 481, 221))
+        self.my_frame.setFrameShape(QFrame.StyledPanel)
+        self.my_frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout = QVBoxLayout(self.my_frame)
+        self.verticalLayout.setSpacing(0)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.my_scroll_area = QScrollArea(self.my_frame)
+        self.my_scroll_area.setObjectName(u"my_scroll_area")
+        self.my_scroll_area.setWidgetResizable(True)
+        self.my_scrollAreaWidgetContents = QWidget()
+        self.my_scrollAreaWidgetContents.setObjectName(u"my_scrollAreaWidgetContents")
+        self.my_scrollAreaWidgetContents.setGeometry(QRect(0, 0, 477, 217))
+        self.verticalLayout_2 = QVBoxLayout(self.my_scrollAreaWidgetContents)
+        self.verticalLayout_2.setSpacing(0)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.my_scroll_area.setWidget(self.my_scrollAreaWidgetContents)
+
+        self.verticalLayout.addWidget(self.my_scroll_area)
+
+        MainWindow.setCentralWidget(self.centralwidget)
+
+        self.retranslateUi(MainWindow)
+
+        QMetaObject.connectSlotsByName(MainWindow)
+    # setupUi
+
+    def retranslateUi(self, MainWindow):
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        self.cart_remove_btn_1.setText("")
+        self.cart_num_1.setText(QCoreApplication.translate("MainWindow", u"\ubc88\ud638", None))
+        self.cart_drink_name_1.setText(QCoreApplication.translate("MainWindow", u"\uc74c\ub8cc\uc774\ub984", None))
+        self.cart_minus_btn_1.setText("")
+        self.cart_drink_cnt_1.setText(QCoreApplication.translate("MainWindow", u"\uc218\ub7c9", None))
+        self.cart_plus_btn_1.setText("")
+        self.cart_price_1.setText(QCoreApplication.translate("MainWindow", u"\uac00\uaca9", None))
+    # retranslateUi
+
