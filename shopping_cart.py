@@ -73,14 +73,18 @@ class ShoppingItemWidget(QWidget):
         item = self.list_widget.itemAt(self.pos())
         row = self.list_widget.row(item)
         self.list_widget.takeItem(row)
-        idx_text = self.index_label.text()
-        print(idx_text)
-        # print(self.order_df[self.order_df['id'] == idx_text].index)
-        self.order_df = self.order_df.drop(self.order_df[self.order_df['id'] == idx_text].index)
-        print(self.order_df)
-        # self.order_df = self.order_df[self.order_df['id'] != idx_text]
-        self.con.commit()
-        self.close()
+
+
+        con = sqlite3.connect('./DATA/data.db')
+        order_df = pd.read_sql('select * from order_table', con)
+        print(self.index_label.text())
+        order_df = order_df[order_df['id'] != self.index_label.text()]
+        print(order_df)
+        order_df.to_sql('order_table', con, if_exists='replace', index=False)
+        con.commit()
+        con.close()
+        # 라벨 텍스트 출력
+        # print(column_label)
 
 
 def add_shopping_item_to_listwidget(list_widget, idx, name, price):

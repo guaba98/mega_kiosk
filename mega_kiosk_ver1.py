@@ -107,7 +107,6 @@ class Option_Class(QDialog, choose_option_class):
                 self.set_extra_charge()
                 # break
 
-
         # 버튼 시그널 연결
         self.cancel_btn.clicked.connect(lambda x: self.close())  # 창 종료하기
         self.cancel_btn.clicked.connect(self.close)  # 창 종료하기
@@ -132,6 +131,7 @@ class Option_Class(QDialog, choose_option_class):
                 drinks_price = option_price.loc[idx, 'noraml_drink'] # 체크된 옵션 가격 가져오기
                 drinks_option_name = option_price.loc[idx, 'eng_name'] # 체크된 옵션 이름 가져오기
                 add_price += drinks_price # 가격 더해주기
+
                 # 확인용 추가
                 customer_order_option[drinks_option_name] = drinks_price
                 self.customer_order_option_list.append(drinks_option_name)
@@ -174,9 +174,6 @@ class Option_Class(QDialog, choose_option_class):
                     button.setStyleSheet('')
         btn.setStyleSheet('border: 3px solid rgb(229, 79, 65);')
 
-
-
-
     def btn_check(self):
         """버튼 그룹 가져와서 체크하는 부분"""
         sender = self.sender() #버튼 모두를 가져옴
@@ -198,16 +195,12 @@ class Option_Class(QDialog, choose_option_class):
         conn = sqlite3.connect('./DATA/data.db')  # 데이터베이스 연결 정보 설정
         cur = conn.cursor()  # 커서 생성
 
-        # #  database is locked 오류 때문에 닫고 다시 실행
-        # conn.close()
-        # conn = sqlite3.connect('./DATA/data.db')
 
         cur.execute("INSERT INTO order_table (id, drink_cnt, order_drink, price, custom_option)"
                     "VALUES(?,?,?,?,?);",  # SQL 쿼리 실행
                     (self.parent.drink_num, 1, self.drink_name, self.update_drink_price, option_str ))
         conn.commit()  # 변경사항 저장
-
-        # cur.close()  # 연결 종료
+        cur.close()  # 연결 종료
         conn.close()
 
         #리스트위젯에 값 넣어주기
