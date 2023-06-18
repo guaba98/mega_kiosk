@@ -145,7 +145,7 @@ background-color: rgb(255, 204, 0);</string>
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>img/qt자료/x.png</normaloff>img/qt자료/x.png</iconset>
+             <normaloff>../img/qt자료/x.png</normaloff>../img/qt자료/x.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -395,7 +395,7 @@ background-color: rgb(255, 204, 0);</string>
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>img/qt자료/back.png</normaloff>img/qt자료/back.png</iconset>
+                   <normaloff>../img/qt자료/back.png</normaloff>../img/qt자료/back.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>

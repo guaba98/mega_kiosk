@@ -12,7 +12,7 @@ choose_id,eng_name,choose_option,noraml_drink,mega_drink
 11,stevia_changed,스태비아변경,300,500
 12,stevia_add,스태비아 추가 ,600,800
 13,choose_milk_a,아몬드밀크변경,500,700
-14,choose_milk_o,오트밀크변경,500,700
+14,choose_milk_o,오트밀크변경,700,700
 15,honey_add,꿀 추가,700,900
 16,choose_topping_h,허니퐁시리얼,0,0
 17,choose_topping_p,퐁시리얼,0,0
@@ -21,3 +21,12 @@ choose_id,eng_name,choose_option,noraml_drink,mega_drink
 20,whip_y,휘핑(X),0,0
 21,cinnamon_y,시나몬(O),0,0
 22,cinnamon_n,시나몬(X),0,0
+23,coffee_weak_2,디카페인연하게,0,0
+24,no_choice_h,헤이즐시럽추가안함,0,0
+25,no_choice_light_vanlia_add,바닐라시럽추가안함,0,0
+26,no_choice_light_vanlia_changed,라이트바닐라시럽변경안함,0,0
+27,no_choice_stevia_add,스태비아추가선택안함,0,0
+28,no_choice_milk,우유선택안함,0,0
+29,no_choice_zero_cider,제로사이다변경안함0,0
+30,no_choice_decaffein,디카페인선택안함,0,0
+31,no_choice_stevia_changed,스태비아변경안함,0,0

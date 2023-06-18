@@ -5,7 +5,6 @@ import pandas as pd
 
 from PyQt5 import uic
 from PyQt5.QtGui import *
-
 from shopping_cart import *
 
 
@@ -63,10 +62,6 @@ class Option_Class(QDialog, choose_option_class):
         self.setAttribute(Qt.WA_TranslucentBackground, True)  # 배경 투명하게 함
         self.move(30, 40)  # 창 이동
 
-        # 데이터 불러오기
-        con = sqlite3.connect('./DATA/data.db')
-        price_df = pd.read_sql('select * from drinks_price', con)  # 가격 테이블
-
         # 가격 이름 메뉴정보 불러오기
         data = parent.send_info
         self.drink_name = data['menu_name_x'].to_string(index=False)
@@ -78,11 +73,6 @@ class Option_Class(QDialog, choose_option_class):
         self.menu_name_label.setText(str(self.drink_name))  # 메뉴 이름
         self.menu_info_label.setText(str(self.drink_info))  # 메뉴 정보
         self.menu_price_label.setText(str(self.drink_price) + '원')  # 메뉴 가격
-
-        # 버튼 시그널 연결
-        self.cancel_btn.clicked.connect(lambda x: self.close())  # 창 종료하기
-        self.cancel_btn.clicked.connect(self.close)  # 창 종료하기
-        self.order_btn.clicked.connect(self.order_confirm)
 
         # 옵션 위한 테이블 생성
         option_df = data.loc[:, 'cinnamon':'zero_cider_changed']
@@ -106,8 +96,55 @@ class Option_Class(QDialog, choose_option_class):
             else:
                 self.option_frame_list[idx].setVisible(False)  # 나머지는 안보여줌
 
-        #버튼 한번만 눌리게 체크
+        # 버튼 한번만 눌리게 체크
         self.btn_duplicates_check()
+
+        # 버튼 누를 때마다 옵션 가격 추가해주는 시그널 연결
+        self.option_buttons = self.option_bottom_frame.findChildren(QPushButton)
+        for option_btn in self.option_buttons:
+            option_btn.clicked.connect(self.set_extra_charge)
+            if option_btn.isChecked():
+                self.set_extra_charge()
+                # break
+
+
+        # 버튼 시그널 연결
+        self.cancel_btn.clicked.connect(lambda x: self.close())  # 창 종료하기
+        self.cancel_btn.clicked.connect(self.close)  # 창 종료하기
+        self.order_btn.clicked.connect(self.order_confirm)
+
+    def set_extra_charge(self):
+        """버튼 누를 때마다 옵션 가격 추가해주는 부분"""
+
+        # 옵션 가격 데이터 불러오기
+        option_price = pd.read_csv('./DATA/drinks_price.csv')
+        option_price_eng_name = option_price['eng_name'].to_list()
+
+        # 눌린 버튼들 확인하기 및 라벨에 업데이트
+        add_price = 0
+        customer_order_option = {}
+        self.customer_order_option_list = []
+        self.option_buttons = self.option_bottom_frame.findChildren(QPushButton)
+        for btn in self.option_buttons:
+            if btn.isChecked() and btn.isVisible():  # 체크된 버튼만 확인
+                btn_object_name = btn.objectName() # 버튼 객체 이름
+                idx = option_price_eng_name.index(btn_object_name) #버튼의 index확인
+                drinks_price = option_price.loc[idx, 'noraml_drink'] # 체크된 옵션 가격 가져오기
+                drinks_option_name = option_price.loc[idx, 'eng_name'] # 체크된 옵션 이름 가져오기
+                add_price += drinks_price # 가격 더해주기
+                # 확인용 추가
+                customer_order_option[drinks_option_name] = drinks_price
+                self.customer_order_option_list.append(drinks_option_name)
+        print('==============================')
+        print(customer_order_option)
+        print(self.customer_order_option_list)
+
+        # 상단에 값 추가
+        self.update_drink_price = str(int(self.drink_price) + int(add_price))
+        self.menu_price_label.setText(self.update_drink_price + '원')
+
+
+
 
     def btn_duplicates_check(self):
         # 각 옵션창 프레임 내에 있는 버튼들 한번만 눌리게
@@ -121,46 +158,60 @@ class Option_Class(QDialog, choose_option_class):
 
             for btn in buttons:
                 button_group.addButton(btn)
-            button_group.buttonClicked.connect(self.btn_check)
+            button_group.buttonClicked.connect(self.btn_check) # 중복버튼 누르기 방지
+            button_group.buttonClicked.connect(self.btn_clicked_style) # 버튼 색 바뀌게 하기
             self.option_button_groups.append(button_group)
 
         for btn_group in self.option_button_groups:
-            btn_group.buttons()[0].click()
+            btn_group.buttons()[0].click() # 첫번째 버튼 무조건 눌리게
+            # btn_group.buttons()[0].clicked.connect(self.set_extra_charge)
+
+    def btn_clicked_style(self, btn):
+        """선택한 옵션버튼 색 바꿔줌"""
+        for btn_group in self.option_button_groups:
+            if btn in btn_group.buttons():
+                for button in btn_group.buttons():
+                    button.setStyleSheet('')
+        btn.setStyleSheet('border: 3px solid rgb(229, 79, 65);')
+
+
+
+
     def btn_check(self):
         """버튼 그룹 가져와서 체크하는 부분"""
-        sender = self.sender()
-
+        sender = self.sender() #버튼 모두를 가져옴
         for button_group in self.option_button_groups:
             if sender not in button_group.buttons():
-                # button_group.buttons()[0].setChecked(True)
-                # button_group.setExclusive(False)
                 button_group.setExclusive(True)
 
     def close(self):
         self.parent.remove_label()
         self.accept()
 
-
     def order_confirm(self):
         """선택옵션 확인 후 db에 저장"""
         self.parent.drink_num += 1  # 주문 수량
 
-        # 눌린 버튼들 확인하기
-        buttons = self.option_bottom_frame.findChildren(QPushButton)
-        for btn in buttons:
-            if btn.isChecked() and btn.isVisible():
-                print(btn.text())
-
-        add_shopping_item_to_listwidget(self.parent.drinks_cart_list_widget, self.drink_name, self.drink_price)
+        option_str = str(self.customer_order_option_list) #리스트 str형태로 바꿔주기
 
         # 고객 db 불러오기 및 order table 테이블에 에 값 append(추가해주기)
         conn = sqlite3.connect('./DATA/data.db')  # 데이터베이스 연결 정보 설정
         cur = conn.cursor()  # 커서 생성
-        cur.execute("INSERT INTO order_table (id, order_drink, price) VALUES(?,?,?);",  # SQL 쿼리 실행
-                    (self.parent.drink_num, self.drink_name, self.drink_price))
+
+        # #  database is locked 오류 때문에 닫고 다시 실행
+        # conn.close()
+        # conn = sqlite3.connect('./DATA/data.db')
+
+        cur.execute("INSERT INTO order_table (id, drink_cnt, order_drink, price, custom_option)"
+                    "VALUES(?,?,?,?,?);",  # SQL 쿼리 실행
+                    (self.parent.drink_num, 1, self.drink_name, self.update_drink_price, option_str ))
         conn.commit()  # 변경사항 저장
-        cur.close()  # 연결 종료
+
+        # cur.close()  # 연결 종료
         conn.close()
+
+        #리스트위젯에 값 넣어주기
+        add_shopping_item_to_listwidget(self.parent.drinks_cart_list_widget, str(self.parent.drink_num), self.drink_name, self.update_drink_price)
 
         # 선택옵션 창 종료
         self.parent.remove_label()
@@ -243,32 +294,13 @@ class WindowClass(QMainWindow, main_page_class):
         # 6. 전체 삭제 버튼
         self.all_remove_label.clicked.connect(self.delete_order_table_values)
 
-        # 7. 장바구니 부분
-        # add_shopping_item_to_listwidget(self.drinks_cart_list_widget, "디카페인 아메리카노", "2500")
-
-    # def add_widgets_to_listwidget(self, list_widget, widgets):
-    #     # 한 줄에 위젯을 담을 QWidget 생성
-    #     item_widget = QWidget()
-    #     item_layout = QHBoxLayout()
-    #     item_widget.setLayout(item_layout)
-    #
-    #     # 위젯 리스트를 순회하며 QLabel과 QPushButton을 생성하고 QHBoxLayout에 추가
-    #     for widget_type in widgets:
-    #         if widget_type == "label":
-    #             label = QLabel("라벨")
-    #             item_layout.addWidget(label)
-    #         elif widget_type == "button":
-    #             button = QPushButton("버튼")
-    #             item_layout.addWidget(button)
-    #
-    #     # QListWidgetItem 생성 및 QListWidget에 위젯 추가
-    #     item = QListWidgetItem()
-    #     item.setSizeHint(item_widget.sizeHint())
-    #     list_widget.addItem(item)
-    #     list_widget.setItemWidget(item, item_widget)
-
     def delete_order_table_values(self):
         """ 주문 값 삭제"""
+
+        # 리스트 위젯 값 삭제
+        self.drinks_cart_list_widget.clear()
+
+
         conn = sqlite3.connect('./DATA/data.db')  # 데이터베이스 연결 정보 설정
         cur = conn.cursor()  # 커서 생성
         cur.execute("DELETE FROM 'order_table'")  # SQL 쿼리 실행

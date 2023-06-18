@@ -54,7 +54,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="opening_page">
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -148,7 +148,7 @@ border-radius:5px; color:white;
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>../img/qt자료/arrow-left.png</normaloff>../img/qt자료/arrow-left.png</iconset>
+            <normaloff>img/qt자료/arrow-left.png</normaloff>img/qt자료/arrow-left.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -359,7 +359,7 @@ border-radius:5px; color:white;
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>../img/qt자료/arrow-right.png</normaloff>../img/qt자료/arrow-right.png</iconset>
+            <normaloff>img/qt자료/arrow-right.png</normaloff>img/qt자료/arrow-right.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -654,7 +654,7 @@ border: 2px solid rgb(45, 45, 45);
          <string notr="true"/>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="page_1">
          <widget class="QFrame" name="frame_13">
@@ -3042,7 +3042,669 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
           <number>0</number>
          </property>
          <item>
-          <widget class="QListWidget" name="drinks_cart_list_widget"/>
+          <widget class="QScrollArea" name="scrollArea">
+           <property name="font">
+            <font>
+             <family>Pretendard Medium</family>
+             <pointsize>14</pointsize>
+             <weight>7</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="widgetResizable">
+            <bool>true</bool>
+           </property>
+           <widget class="QWidget" name="scrollAreaWidgetContents">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>516</width>
+              <height>216</height>
+             </rect>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_30">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QFrame" name="cart_frame_1">
+               <property name="minimumSize">
+                <size>
+                 <width>516</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QPushButton" name="cart_remove_btn_1">
+                  <property name="minimumSize">
+                   <size>
+                    <width>40</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>40</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>img/qt자료/cancel_icon.png</normaloff>img/qt자료/cancel_icon.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>35</width>
+                    <height>35</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="cart_num_1">
+                  <property name="maximumSize">
+                   <size>
+                    <width>30</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(170, 255, 255);
+color:rgb(229, 79, 64);</string>
+                  </property>
+                  <property name="text">
+                   <string>번호</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="cart_drink_name_1">
+                  <property name="minimumSize">
+                   <size>
+                    <width>180</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(255, 255, 0);</string>
+                  </property>
+                  <property name="text">
+                   <string>음료이름</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="cart_minus_btn_1">
+                  <property name="maximumSize">
+                   <size>
+                    <width>40</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(229, 79, 64);</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>img/qt자료/minus_icon.png</normaloff>img/qt자료/minus_icon.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>35</width>
+                    <height>35</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="cart_drink_cnt_1">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(255, 170, 255);</string>
+                  </property>
+                  <property name="text">
+                   <string>수량</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="cart_plus_btn_1">
+                  <property name="maximumSize">
+                   <size>
+                    <width>40</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color:rgb(229, 79, 64);</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>img/qt자료/plus-icon - 복사본.png</normaloff>img/qt자료/plus-icon - 복사본.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>35</width>
+                    <height>35</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="cart_price_1">
+                  <property name="font">
+                   <font>
+                    <family>Pretendard Medium</family>
+                    <pointsize>14</pointsize>
+                    <weight>7</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(170, 255, 255);</string>
+                  </property>
+                  <property name="text">
+                   <string>가격</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QFrame" name="cart_frame_2">
+               <property name="minimumSize">
+                <size>
+                 <width>516</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_2">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QPushButton" name="cart_remove_btn_2">
+                  <property name="maximumSize">
+                   <size>
+                    <width>40</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>img/qt자료/cancel_icon.png</normaloff>img/qt자료/cancel_icon.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>35</width>
+                    <height>35</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="cart_num_2">
+                  <property name="maximumSize">
+                   <size>
+                    <width>30</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(170, 255, 255);
+color:rgb(229, 79, 64);</string>
+                  </property>
+                  <property name="text">
+                   <string>번호</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="cart_drink_name_2">
+                  <property name="minimumSize">
+                   <size>
+                    <width>180</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(255, 255, 0);</string>
+                  </property>
+                  <property name="text">
+                   <string>음료이름</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="cart_minus_btn_2">
+                  <property name="maximumSize">
+                   <size>
+                    <width>40</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(229, 79, 64);</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>img/qt자료/minus_icon.png</normaloff>img/qt자료/minus_icon.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>35</width>
+                    <height>35</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="cart_drink_cnt_2">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(255, 170, 255);</string>
+                  </property>
+                  <property name="text">
+                   <string>수량</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="cart_plus_btn_2">
+                  <property name="maximumSize">
+                   <size>
+                    <width>40</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color:rgb(229, 79, 64);</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>img/qt자료/plus-icon - 복사본.png</normaloff>img/qt자료/plus-icon - 복사본.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>35</width>
+                    <height>35</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="cart_price_2">
+                  <property name="font">
+                   <font>
+                    <family>Pretendard Medium</family>
+                    <pointsize>14</pointsize>
+                    <weight>7</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(170, 255, 255);</string>
+                  </property>
+                  <property name="text">
+                   <string>가격</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QFrame" name="cart_frame_3">
+               <property name="minimumSize">
+                <size>
+                 <width>516</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_3">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QPushButton" name="cart_remove_btn_3">
+                  <property name="maximumSize">
+                   <size>
+                    <width>40</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>img/qt자료/cancel_icon.png</normaloff>img/qt자료/cancel_icon.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>35</width>
+                    <height>35</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="cart_num_3">
+                  <property name="maximumSize">
+                   <size>
+                    <width>30</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(170, 255, 255);
+color:rgb(229, 79, 64);</string>
+                  </property>
+                  <property name="text">
+                   <string>번호</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="cart_drink_name_3">
+                  <property name="minimumSize">
+                   <size>
+                    <width>180</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(255, 255, 0);</string>
+                  </property>
+                  <property name="text">
+                   <string>음료이름</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="cart_minus_btn_3">
+                  <property name="maximumSize">
+                   <size>
+                    <width>40</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(229, 79, 64);</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>img/qt자료/minus_icon.png</normaloff>img/qt자료/minus_icon.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>35</width>
+                    <height>35</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="cart_drink_cnt_3">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(255, 170, 255);</string>
+                  </property>
+                  <property name="text">
+                   <string>수량</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="cart_plus_btn_3">
+                  <property name="maximumSize">
+                   <size>
+                    <width>40</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color:rgb(229, 79, 64);</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>img/qt자료/plus-icon - 복사본.png</normaloff>img/qt자료/plus-icon - 복사본.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>35</width>
+                    <height>35</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="cart_price_3">
+                  <property name="font">
+                   <font>
+                    <family>Pretendard Medium</family>
+                    <pointsize>14</pointsize>
+                    <weight>7</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(170, 255, 255);</string>
+                  </property>
+                  <property name="text">
+                   <string>가격</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
+          </widget>
          </item>
         </layout>
        </widget>
@@ -3088,7 +3750,7 @@ color:white;</string>
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>../img/qt자료/insert-card (1).png</normaloff>../img/qt자료/insert-card (1).png</iconset>
+           <normaloff>img/qt자료/insert-card (1).png</normaloff>img/qt자료/insert-card (1).png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -3393,7 +4055,7 @@ background-color: rgb(255, 204, 0);</string>
                    </property>
                    <property name="icon">
                     <iconset>
-                     <normaloff>../img/qt자료/x.png</normaloff>../img/qt자료/x.png</iconset>
+                     <normaloff>img/qt자료/x.png</normaloff>img/qt자료/x.png</iconset>
                    </property>
                    <property name="iconSize">
                     <size>
@@ -3593,7 +4255,7 @@ color:white;</string>
                          <widget class="QWidget" name="scrollAreaWidgetContents_2">
                           <property name="geometry">
                            <rect>
-                            <x>0</x>
+                            <x>-17</x>
                             <y>0</y>
                             <width>750</width>
                             <height>220</height>
@@ -3729,7 +4391,7 @@ background-color: rgb(255, 255, 255);}</string>
                                 </property>
                                 <property name="icon">
                                  <iconset>
-                                  <normaloff>../img/qt자료/sold_out.png</normaloff>../img/qt자료/sold_out.png</iconset>
+                                  <normaloff>img/qt자료/sold_out.png</normaloff>img/qt자료/sold_out.png</iconset>
                                 </property>
                                 <property name="iconSize">
                                  <size>
@@ -3984,7 +4646,7 @@ color:white;</string>
                          </property>
                          <property name="icon">
                           <iconset>
-                           <normaloff>../img/qt자료/insert-card (1).png</normaloff>../img/qt자료/insert-card (1).png</iconset>
+                           <normaloff>img/qt자료/insert-card (1).png</normaloff>img/qt자료/insert-card (1).png</iconset>
                          </property>
                          <property name="iconSize">
                           <size>
@@ -4042,7 +4704,7 @@ color:white;</string>
                          </property>
                          <property name="icon">
                           <iconset>
-                           <normaloff>../img/qt자료/food-package.png</normaloff>../img/qt자료/food-package.png</iconset>
+                           <normaloff>img/qt자료/food-package.png</normaloff>img/qt자료/food-package.png</iconset>
                          </property>
                          <property name="iconSize">
                           <size>
@@ -4497,7 +5159,7 @@ border-radius:5px;</string>
                          </property>
                          <property name="icon">
                           <iconset>
-                           <normaloff>../img/qt자료/kt_logo.png</normaloff>../img/qt자료/kt_logo.png</iconset>
+                           <normaloff>img/qt자료/kt_logo.png</normaloff>img/qt자료/kt_logo.png</iconset>
                          </property>
                          <property name="iconSize">
                           <size>
@@ -4712,7 +5374,7 @@ border-radius:5px;</string>
                          </property>
                          <property name="icon">
                           <iconset>
-                           <normaloff>../img/qt자료/네이버페이.png</normaloff>../img/qt자료/네이버페이.png</iconset>
+                           <normaloff>img/qt자료/네이버페이.png</normaloff>img/qt자료/네이버페이.png</iconset>
                          </property>
                          <property name="iconSize">
                           <size>
@@ -4800,7 +5462,7 @@ border-radius:5px;</string>
                          </property>
                          <property name="icon">
                           <iconset>
-                           <normaloff>../img/qt자료/원큐페이_2.png</normaloff>../img/qt자료/원큐페이_2.png</iconset>
+                           <normaloff>img/qt자료/원큐페이_2.png</normaloff>img/qt자료/원큐페이_2.png</iconset>
                          </property>
                          <property name="iconSize">
                           <size>
@@ -4904,7 +5566,7 @@ border-radius:5px;</string>
                          </property>
                          <property name="icon">
                           <iconset>
-                           <normaloff>../img/qt자료/카카오페이.jpg</normaloff>../img/qt자료/카카오페이.jpg</iconset>
+                           <normaloff>img/qt자료/카카오페이.jpg</normaloff>img/qt자료/카카오페이.jpg</iconset>
                          </property>
                          <property name="iconSize">
                           <size>
@@ -4992,7 +5654,7 @@ border-radius:5px;</string>
                          </property>
                          <property name="icon">
                           <iconset>
-                           <normaloff>../img/qt자료/제로페이.jpg</normaloff>../img/qt자료/제로페이.jpg</iconset>
+                           <normaloff>img/qt자료/제로페이.jpg</normaloff>img/qt자료/제로페이.jpg</iconset>
                          </property>
                          <property name="iconSize">
                           <size>
@@ -5080,7 +5742,7 @@ border-radius:5px;</string>
                          </property>
                          <property name="icon">
                           <iconset>
-                           <normaloff>../img/qt자료/cupon_barcorde.jpg</normaloff>../img/qt자료/cupon_barcorde.jpg</iconset>
+                           <normaloff>img/qt자료/cupon_barcorde.jpg</normaloff>img/qt자료/cupon_barcorde.jpg</iconset>
                          </property>
                          <property name="iconSize">
                           <size>
@@ -5168,7 +5830,7 @@ border-radius:5px;</string>
                          </property>
                          <property name="icon">
                           <iconset>
-                           <normaloff>../img/qt자료/matercard.png</normaloff>../img/qt자료/matercard.png</iconset>
+                           <normaloff>img/qt자료/matercard.png</normaloff>img/qt자료/matercard.png</iconset>
                          </property>
                          <property name="iconSize">
                           <size>
@@ -5256,7 +5918,7 @@ border-radius:5px;</string>
                          </property>
                          <property name="icon">
                           <iconset>
-                           <normaloff>../img/qt자료/payco.png</normaloff>../img/qt자료/payco.png</iconset>
+                           <normaloff>img/qt자료/payco.png</normaloff>img/qt자료/payco.png</iconset>
                          </property>
                          <property name="iconSize">
                           <size>
@@ -5344,7 +6006,7 @@ border-radius:5px;</string>
                          </property>
                          <property name="icon">
                           <iconset>
-                           <normaloff>../img/qt자료/bc페이북.png</normaloff>../img/qt자료/bc페이북.png</iconset>
+                           <normaloff>img/logo/bc페이북_2.png</normaloff>img/logo/bc페이북_2.png</iconset>
                          </property>
                          <property name="iconSize">
                           <size>
@@ -5432,7 +6094,7 @@ border-radius:5px;</string>
                          </property>
                          <property name="icon">
                           <iconset>
-                           <normaloff>../img/qt자료/visacard.png</normaloff>../img/qt자료/visacard.png</iconset>
+                           <normaloff>img/qt자료/visacard.png</normaloff>img/qt자료/visacard.png</iconset>
                          </property>
                          <property name="iconSize">
                           <size>
@@ -5520,7 +6182,7 @@ border-radius:5px;</string>
                          </property>
                          <property name="icon">
                           <iconset>
-                           <normaloff>../img/qt자료/bacord.png</normaloff>../img/qt자료/bacord.png</iconset>
+                           <normaloff>img/qt자료/bacord.png</normaloff>img/qt자료/bacord.png</iconset>
                          </property>
                          <property name="iconSize">
                           <size>
@@ -5608,7 +6270,7 @@ border-radius:5px;</string>
                          </property>
                          <property name="icon">
                           <iconset>
-                           <normaloff>../img/qt자료/kb페이.png</normaloff>../img/qt자료/kb페이.png</iconset>
+                           <normaloff>img/qt자료/kb페이.png</normaloff>img/qt자료/kb페이.png</iconset>
                          </property>
                          <property name="iconSize">
                           <size>
@@ -5912,7 +6574,7 @@ background-color: rgb(255, 204, 0);</string>
                    </property>
                    <property name="icon">
                     <iconset>
-                     <normaloff>../img/qt자료/x.png</normaloff>../img/qt자료/x.png</iconset>
+                     <normaloff>img/qt자료/x.png</normaloff>img/qt자료/x.png</iconset>
                    </property>
                    <property name="iconSize">
                     <size>
