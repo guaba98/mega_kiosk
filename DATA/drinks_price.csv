@@ -1,23 +1,23 @@
-choose_id,choose_option,noraml_drink,mega_drink
-1,선택안함,0,0
-2,연하게,0,0
-3,샷 추가,500,700
-4,2샷 추가,1000,1200
-5,디카페인 샷 추가,1000,1200
-6,바닐라시럽추가,500,700
-7,라이트바닐라시럽변경,300,500
-8,라이트바닐라시럽추가,800,1000
-9,헤이즐넛시럽추가,500,700
-10,카라멜시럽추가,500,700
-11,스태비아변경,300,500
-12,스태비아 추가 ,600,800
-13,아몬드밀크변경,500,700
-14,오트밀크변경,500,700
-15,꿀 추가,700,900
-16,허니퐁시리얼,0,0
-17,퐁시리얼,0,0
-18,제로사이다,0,0
-19,휘핑(O),0,0
-20,휘핑(X),0,0
-21,시나몬(O),0,0
-22,시나몬(X),0,0
+choose_id,eng_name,choose_option,noraml_drink,mega_drink
+1,no_choice,선택안함,0,0
+2,coffee_weak,연하게,0,0
+3,coffee_add_one,샷 추가,500,700
+4,coffee_add_two,2샷 추가,1000,1200
+5,decaffein_shot,디카페인 샷 추가,1000,1200
+6,vanilia_syrup_add,바닐라시럽추가,500,700
+7,light_vanilia_changed,라이트바닐라시럽변경,300,500
+8,light_vanilia_add,라이트바닐라시럽추가,800,1000
+9,syrup_add_h,헤이즐넛시럽추가,500,700
+10,syrup_add_c,카라멜시럽추가,500,700
+11,stevia_changed,스태비아변경,300,500
+12,stevia_add,스태비아 추가 ,600,800
+13,choose_milk_a,아몬드밀크변경,500,700
+14,choose_milk_o,오트밀크변경,500,700
+15,honey_add,꿀 추가,700,900
+16,choose_topping_h,허니퐁시리얼,0,0
+17,choose_topping_p,퐁시리얼,0,0
+18,zero_cider_changed,제로사이다,0,0
+19,whip_n,휘핑(O),0,0
+20,whip_y,휘핑(X),0,0
+21,cinnamon_y,시나몬(O),0,0
+22,cinnamon_n,시나몬(X),0,0

@@ -3,16 +3,17 @@ import sys
 import sqlite3
 import pandas as pd
 
-from PyQt5.QtWidgets import *
 from PyQt5 import uic
 from PyQt5.QtGui import *
-from PyQt5.QtCore import *
+
 from shopping_cart import *
+
 
 def resource_path(relative_path):
     """UI 받아오는 함수"""
     base_path = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
     return os.path.join(base_path, relative_path)
+
 
 # UI 불러오기
 main_page_ui = resource_path('./UI/mega_ui_ver3.ui')  # 메가 메인 UI 불러오기
@@ -32,8 +33,9 @@ class MSG_Dialog(QDialog, msg_box_class):
         self.setupUi(self)
 
         # 화면 설정
-        self.setWindowFlags(Qt.WindowType.FramelessWindowHint | Qt.WindowType.WindowStaysOnTopHint) #프레임 지우기 / 윈도우가 다른 창 위에 항상 최상위로 유지되도록 함
-        self.setAttribute(Qt.WA_TranslucentBackground, True) #배경 투명하게 함
+        self.setWindowFlags(
+            Qt.WindowType.FramelessWindowHint | Qt.WindowType.WindowStaysOnTopHint)  # 프레임 지우기 / 윈도우가 다른 창 위에 항상 최상위로 유지되도록 함
+        self.setAttribute(Qt.WA_TranslucentBackground, True)  # 배경 투명하게 함
 
         # 버튼 페이지 설정
         if page_data == 1:
@@ -43,7 +45,7 @@ class MSG_Dialog(QDialog, msg_box_class):
             self.stackedWidget.setCurrentWidget(self.two_btn_page)
 
         # 버튼 누르면 정보 넘겨주기
-        self.ok_btn.clicked.connect(self.close) # 확인 누르면 창 닫힘
+        self.ok_btn.clicked.connect(self.close)  # 확인 누르면 창 닫힘
 
 
 class Option_Class(QDialog, choose_option_class):
@@ -56,9 +58,10 @@ class Option_Class(QDialog, choose_option_class):
         self.setupUi(self)
 
         # 화면 설정
-        self.setWindowFlags(Qt.WindowType.FramelessWindowHint | Qt.WindowType.WindowStaysOnTopHint) #프레임 지우기 / 윈도우가 다른 창 위에 항상 최상위로 유지되도록 함
-        self.setAttribute(Qt.WA_TranslucentBackground, True) #배경 투명하게 함
-        self.move(30, 40) # 창 이동
+        self.setWindowFlags(
+            Qt.WindowType.FramelessWindowHint | Qt.WindowType.WindowStaysOnTopHint)  # 프레임 지우기 / 윈도우가 다른 창 위에 항상 최상위로 유지되도록 함
+        self.setAttribute(Qt.WA_TranslucentBackground, True)  # 배경 투명하게 함
+        self.move(30, 40)  # 창 이동
 
         # 데이터 불러오기
         con = sqlite3.connect('./DATA/data.db')
@@ -85,27 +88,33 @@ class Option_Class(QDialog, choose_option_class):
         option_df = data.loc[:, 'cinnamon':'zero_cider_changed']
         option_df_dict = option_df.to_dict('list')
         option_df_keys = list(option_df_dict.keys())
-
+        print(option_df_keys)
+        option_df_keys.append('decaffein')
         option_df_dict_not_null = {key: [int(x) for x in value[0].split(',')] for key, value in option_df_dict.items()
                                    if value != ['0']}  # 0이 들어가지 않은 인수형의 숫자 반환
 
-        if '디카페인' in self.drink_name: #디카페인은 db에서 분리를안해서 후작업
+        if '디카페인' in self.drink_name:  # 디카페인은 db에서 분리를안해서 후작업
             option_df_dict_not_null['decaffein'] = 1
+            del option_df_dict_not_null['strong_or_weak']
 
         # 음료에 따라 옵션창 띄워주는 부분
-        option_frame_list = [getattr(self, f'option_frame_{frame}') for frame in range(1, 13)] # 프레임들을 리스트에 담음
+        self.option_frame_list = [getattr(self, f'option_frame_{frame}') for frame in range(1, 13)]  # 프레임들을 리스트에 담음
 
-        for idx, key in enumerate(option_df_keys): #음료에 맞게 옵션창 띄워줌
+        for idx, key in enumerate(option_df_keys):  # 음료에 맞게 옵션창 띄워줌
             if key in list(option_df_dict_not_null.keys()):
-                option_frame_list[idx].setVisible(True) # 음료에 있는 카테고리만 보여주고
+                self.option_frame_list[idx].setVisible(True)  # 음료에 있는 카테고리만 보여주고
             else:
-                option_frame_list[idx].setVisible(False) # 나머지는 안보여줌
+                self.option_frame_list[idx].setVisible(False)  # 나머지는 안보여줌
 
+        #버튼 한번만 눌리게 체크
+        self.btn_duplicates_check()
+
+    def btn_duplicates_check(self):
         # 각 옵션창 프레임 내에 있는 버튼들 한번만 눌리게
         self.option_button_groups = []
 
         for i in range(1, 13):
-            option_frame = option_frame_list[i-1]
+            option_frame = self.option_frame_list[i - 1]
             buttons = option_frame.findChildren(QPushButton)
             button_group = QButtonGroup()
             button_group.setExclusive(True)
@@ -117,10 +126,8 @@ class Option_Class(QDialog, choose_option_class):
 
         for btn_group in self.option_button_groups:
             btn_group.buttons()[0].click()
-
-
-
     def btn_check(self):
+        """버튼 그룹 가져와서 체크하는 부분"""
         sender = self.sender()
 
         for button_group in self.option_button_groups:
@@ -133,9 +140,18 @@ class Option_Class(QDialog, choose_option_class):
         self.parent.remove_label()
         self.accept()
 
+
     def order_confirm(self):
         """선택옵션 확인 후 db에 저장"""
-        self.parent.drink_num += 1 # 주문 수량
+        self.parent.drink_num += 1  # 주문 수량
+
+        # 눌린 버튼들 확인하기
+        buttons = self.option_bottom_frame.findChildren(QPushButton)
+        for btn in buttons:
+            if btn.isChecked() and btn.isVisible():
+                print(btn.text())
+
+        add_shopping_item_to_listwidget(self.parent.drinks_cart_list_widget, self.drink_name, self.drink_price)
 
         # 고객 db 불러오기 및 order table 테이블에 에 값 append(추가해주기)
         conn = sqlite3.connect('./DATA/data.db')  # 데이터베이스 연결 정보 설정
@@ -181,7 +197,7 @@ class WindowClass(QMainWindow, main_page_class):
         self.menu_df = pd.read_sql('select * from drinks_menu', con)  # 음료상세정보 전체 테이블
         self.img_path_df = pd.read_sql('select * from drinks_img_path', con)  # 음료 이미지 경로 테이블
         self.order_table_df = pd.read_sql('select * from order_table', con)  #
-        self.drink_num = 0 # 음료 주문번호
+        self.drink_num = 0  # 음료 주문번호
 
         # 1. 타이머
         # 타이머 기본 설정값
@@ -228,8 +244,7 @@ class WindowClass(QMainWindow, main_page_class):
         self.all_remove_label.clicked.connect(self.delete_order_table_values)
 
         # 7. 장바구니 부분
-        add_shopping_item_to_listwidget(self.drinks_cart_list_widget, "디카페인 아메리카노", "2500")
-        # add_shopping_item_to_listwidget(self.drinks_cart_list_widget, "상품 1", "1000")
+        # add_shopping_item_to_listwidget(self.drinks_cart_list_widget, "디카페인 아메리카노", "2500")
 
     # def add_widgets_to_listwidget(self, list_widget, widgets):
     #     # 한 줄에 위젯을 담을 QWidget 생성

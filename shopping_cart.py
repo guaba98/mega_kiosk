@@ -1,19 +1,25 @@
 from PyQt5.QtWidgets import * #QApplication, QVBoxLayout, QListWidgetItem, QListWidget, QLabel, QPushButton, QHBoxLayout, QWidget
-
+from PyQt5.QtCore import *
 
 class ShoppingItemWidget(QWidget):
     def __init__(self, name, price, list_widget):
         super().__init__()
 
         self.name_label = QLabel(name)
+        self.name_label.setFixedSize(220,40)
         self.quantity_label = QLabel("1")
+        self.quantity_label.setFixedSize(30,40)
+        self.quantity_label.setAlignment(Qt.AlignCenter)
         self.price_label = QLabel(price)
 
         self.decrease_button = QPushButton("-")
+        self.decrease_button.setFixedSize(40,40)
         self.decrease_button.clicked.connect(self.decrease_quantity)
         self.increase_button = QPushButton("+")
+        self.increase_button.setFixedSize(40,40)
         self.increase_button.clicked.connect(self.increase_quantity)
         self.delete_button = QPushButton("삭제")
+        self.delete_button.setFixedSize(40,40)
         self.delete_button.clicked.connect(self.delete_item)
 
         layout = QHBoxLayout()
@@ -61,3 +67,6 @@ def add_shopping_item_to_listwidget(list_widget, name, price):
 
     list_widget.addItem(item)
     list_widget.setItemWidget(item, item_widget)
+
+
+# def check_clicked_btn():

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>700</width>
+    <width>772</width>
     <height>976</height>
    </rect>
   </property>
@@ -294,7 +294,7 @@ color:rgb(229, 79, 65);</string>
           </widget>
          </item>
          <item>
-          <widget class="QWidget" name="widget_2" native="true">
+          <widget class="QWidget" name="option_bottom_frame" native="true">
            <layout class="QVBoxLayout" name="verticalLayout_5">
             <property name="leftMargin">
              <number>0</number>
@@ -320,9 +320,9 @@ color:rgb(229, 79, 65);</string>
                <property name="geometry">
                 <rect>
                  <x>0</x>
-                 <y>-1834</y>
-                 <width>663</width>
-                 <height>2490</height>
+                 <y>-1860</y>
+                 <width>727</width>
+                 <height>2506</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -439,7 +439,7 @@ color:rgb(229, 79, 65);</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QPushButton" name="option_1_btn_1">
+                          <widget class="QPushButton" name="cinnamon_n">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -450,7 +450,7 @@ color:rgb(229, 79, 65);</string>
                             <cursorShape>OpenHandCursor</cursorShape>
                            </property>
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>시나몬o</string>
                            </property>
                            <property name="checkable">
                             <bool>true</bool>
@@ -498,7 +498,7 @@ color:rgb(229, 79, 65);</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QPushButton" name="option_1_btn_2">
+                          <widget class="QPushButton" name="cinnamon_y">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -509,7 +509,7 @@ color:rgb(229, 79, 65);</string>
                             <cursorShape>OpenHandCursor</cursorShape>
                            </property>
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>시나몬2</string>
                            </property>
                            <property name="checkable">
                             <bool>true</bool>
@@ -658,7 +658,7 @@ color:rgb(229, 79, 65);</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QPushButton" name="option_2_btn_1">
+                          <widget class="QPushButton" name="whip_y">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -669,7 +669,7 @@ color:rgb(229, 79, 65);</string>
                             <cursorShape>OpenHandCursor</cursorShape>
                            </property>
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>휘핑1</string>
                            </property>
                            <property name="checkable">
                             <bool>true</bool>
@@ -717,7 +717,7 @@ color:rgb(229, 79, 65);</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QPushButton" name="option_2_btn_2">
+                          <widget class="QPushButton" name="whip_n">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -728,7 +728,7 @@ color:rgb(229, 79, 65);</string>
                             <cursorShape>OpenHandCursor</cursorShape>
                            </property>
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>휘핑2</string>
                            </property>
                            <property name="checkable">
                             <bool>true</bool>
@@ -877,7 +877,7 @@ color:rgb(229, 79, 65);</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QPushButton" name="option_3_btn_1">
+                          <widget class="QPushButton" name="no_choice">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -888,7 +888,7 @@ color:rgb(229, 79, 65);</string>
                             <cursorShape>OpenHandCursor</cursorShape>
                            </property>
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>선택안함</string>
                            </property>
                            <property name="checkable">
                             <bool>true</bool>
@@ -936,7 +936,7 @@ color:rgb(229, 79, 65);</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QPushButton" name="option_3_btn_2">
+                          <widget class="QPushButton" name="coffee_weak">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -947,7 +947,7 @@ color:rgb(229, 79, 65);</string>
                             <cursorShape>OpenHandCursor</cursorShape>
                            </property>
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>연하게</string>
                            </property>
                            <property name="checkable">
                             <bool>true</bool>
@@ -995,7 +995,7 @@ color:rgb(229, 79, 65);</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QPushButton" name="option_3_btn_3">
+                          <widget class="QPushButton" name="coffee_add_one">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -1006,7 +1006,7 @@ color:rgb(229, 79, 65);</string>
                             <cursorShape>OpenHandCursor</cursorShape>
                            </property>
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>샷추가</string>
                            </property>
                            <property name="checkable">
                             <bool>true</bool>
@@ -1054,7 +1054,7 @@ color:rgb(229, 79, 65);</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QPushButton" name="option_3_btn_4">
+                          <widget class="QPushButton" name="coffee_add_two">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -1065,7 +1065,7 @@ color:rgb(229, 79, 65);</string>
                             <cursorShape>OpenHandCursor</cursorShape>
                            </property>
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>2샷추가</string>
                            </property>
                            <property name="checkable">
                             <bool>true</bool>
@@ -1214,7 +1214,7 @@ color:rgb(229, 79, 65);</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QPushButton" name="option_4_btn_1">
+                          <widget class="QPushButton" name="no_choice_2">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -1225,7 +1225,7 @@ color:rgb(229, 79, 65);</string>
                             <cursorShape>OpenHandCursor</cursorShape>
                            </property>
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>헤이즐넛</string>
                            </property>
                            <property name="checkable">
                             <bool>true</bool>
@@ -1273,7 +1273,7 @@ color:rgb(229, 79, 65);</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QPushButton" name="option_4_btn_2">
+                          <widget class="QPushButton" name="syrup_add_h">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -1284,7 +1284,7 @@ color:rgb(229, 79, 65);</string>
                             <cursorShape>OpenHandCursor</cursorShape>
                            </property>
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>헤즐 추가</string>
                            </property>
                            <property name="checkable">
                             <bool>true</bool>
@@ -1434,7 +1434,7 @@ background-color: rgb(85, 170, 255);</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QPushButton" name="option_5_btn_1">
+                          <widget class="QPushButton" name="no_choice_3">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -1445,7 +1445,7 @@ background-color: rgb(85, 170, 255);</string>
                             <cursorShape>OpenHandCursor</cursorShape>
                            </property>
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>라이트 변경안함</string>
                            </property>
                            <property name="checkable">
                             <bool>true</bool>
@@ -1493,7 +1493,7 @@ background-color: rgb(85, 170, 255);</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QPushButton" name="option_5_btn_2">
+                          <widget class="QPushButton" name="light_vanilia_add">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -1504,7 +1504,7 @@ background-color: rgb(85, 170, 255);</string>
                             <cursorShape>OpenHandCursor</cursorShape>
                            </property>
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>라이트추가안함</string>
                            </property>
                            <property name="checkable">
                             <bool>true</bool>
@@ -1653,7 +1653,7 @@ background-color: rgb(85, 170, 255);</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QPushButton" name="option_6_btn_1">
+                          <widget class="QPushButton" name="no_choice_4">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -1664,7 +1664,7 @@ background-color: rgb(85, 170, 255);</string>
                             <cursorShape>OpenHandCursor</cursorShape>
                            </property>
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>라이트변경안함</string>
                            </property>
                            <property name="checkable">
                             <bool>true</bool>
@@ -1712,7 +1712,7 @@ background-color: rgb(85, 170, 255);</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QPushButton" name="option_6_btn_2">
+                          <widget class="QPushButton" name="light_vanilia_changed">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -1723,7 +1723,7 @@ background-color: rgb(85, 170, 255);</string>
                             <cursorShape>OpenHandCursor</cursorShape>
                            </property>
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>라이트 변경</string>
                            </property>
                            <property name="checkable">
                             <bool>true</bool>
@@ -1883,7 +1883,7 @@ background-color: rgb(85, 170, 255);</string>
                             <cursorShape>OpenHandCursor</cursorShape>
                            </property>
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>스태비아 변경안함</string>
                            </property>
                            <property name="checkable">
                             <bool>true</bool>
@@ -1942,7 +1942,7 @@ background-color: rgb(85, 170, 255);</string>
                             <cursorShape>OpenHandCursor</cursorShape>
                            </property>
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>스태비아 변경함</string>
                            </property>
                            <property name="checkable">
                             <bool>true</bool>
@@ -2091,7 +2091,7 @@ background-color: rgb(85, 170, 255);</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QPushButton" name="option_8_btn_1">
+                          <widget class="QPushButton" name="no_choice_5">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -2102,7 +2102,7 @@ background-color: rgb(85, 170, 255);</string>
                             <cursorShape>OpenHandCursor</cursorShape>
                            </property>
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>스태비아추가안함</string>
                            </property>
                            <property name="checkable">
                             <bool>true</bool>
@@ -2150,7 +2150,7 @@ background-color: rgb(85, 170, 255);</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QPushButton" name="option_8_btn_2">
+                          <widget class="QPushButton" name="stevia_add">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -2161,7 +2161,7 @@ background-color: rgb(85, 170, 255);</string>
                             <cursorShape>OpenHandCursor</cursorShape>
                            </property>
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>스태비아 추가함</string>
                            </property>
                            <property name="checkable">
                             <bool>true</bool>
@@ -2310,7 +2310,7 @@ background-color: rgb(85, 170, 255);</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QPushButton" name="option_9_btn_1">
+                          <widget class="QPushButton" name="no_choice_6">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -2321,7 +2321,7 @@ background-color: rgb(85, 170, 255);</string>
                             <cursorShape>OpenHandCursor</cursorShape>
                            </property>
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>우유 변경안함</string>
                            </property>
                            <property name="checkable">
                             <bool>true</bool>
@@ -2369,7 +2369,7 @@ background-color: rgb(85, 170, 255);</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QPushButton" name="option_9_btn_2">
+                          <widget class="QPushButton" name="choose_milk_a">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -2380,7 +2380,7 @@ background-color: rgb(85, 170, 255);</string>
                             <cursorShape>OpenHandCursor</cursorShape>
                            </property>
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>아몬드밀크</string>
                            </property>
                            <property name="checkable">
                             <bool>true</bool>
@@ -2428,7 +2428,7 @@ background-color: rgb(85, 170, 255);</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QPushButton" name="option_9_btn_3">
+                          <widget class="QPushButton" name="choose_milk_o">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -2439,7 +2439,7 @@ background-color: rgb(85, 170, 255);</string>
                             <cursorShape>PointingHandCursor</cursorShape>
                            </property>
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>오트밀크</string>
                            </property>
                            <property name="checkable">
                             <bool>true</bool>
@@ -2588,7 +2588,7 @@ background-color: rgb(85, 170, 255);</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QPushButton" name="option_10_btn_1">
+                          <widget class="QPushButton" name="choose_topping_h">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -2599,7 +2599,7 @@ background-color: rgb(85, 170, 255);</string>
                             <cursorShape>OpenHandCursor</cursorShape>
                            </property>
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>허니퐁</string>
                            </property>
                            <property name="checkable">
                             <bool>true</bool>
@@ -2647,7 +2647,7 @@ background-color: rgb(85, 170, 255);</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QPushButton" name="option_10_btn_2">
+                          <widget class="QPushButton" name="choose_topping_p">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -2658,7 +2658,7 @@ background-color: rgb(85, 170, 255);</string>
                             <cursorShape>OpenHandCursor</cursorShape>
                            </property>
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>퐁</string>
                            </property>
                            <property name="checkable">
                             <bool>true</bool>
@@ -2696,284 +2696,6 @@ background-color: rgb(85, 170, 255);</string>
                 </item>
                 <item>
                  <widget class="QFrame" name="option_frame_11">
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>200</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>200</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-color: rgb(105, 255, 165);</string>
-                  </property>
-                  <property name="frameShape">
-                   <enum>QFrame::StyledPanel</enum>
-                  </property>
-                  <property name="frameShadow">
-                   <enum>QFrame::Raised</enum>
-                  </property>
-                  <layout class="QVBoxLayout" name="verticalLayout_16">
-                   <property name="spacing">
-                    <number>0</number>
-                   </property>
-                   <property name="leftMargin">
-                    <number>0</number>
-                   </property>
-                   <property name="topMargin">
-                    <number>0</number>
-                   </property>
-                   <property name="rightMargin">
-                    <number>0</number>
-                   </property>
-                   <property name="bottomMargin">
-                    <number>0</number>
-                   </property>
-                   <item>
-                    <widget class="QLabel" name="option_11_title">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>0</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>16777215</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>디카페인 샷 추가(선택, 단일선택)</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QFrame" name="frame_14">
-                     <property name="frameShape">
-                      <enum>QFrame::StyledPanel</enum>
-                     </property>
-                     <property name="frameShadow">
-                      <enum>QFrame::Raised</enum>
-                     </property>
-                     <layout class="QHBoxLayout" name="horizontalLayout_7">
-                      <property name="spacing">
-                       <number>0</number>
-                      </property>
-                      <property name="leftMargin">
-                       <number>0</number>
-                      </property>
-                      <property name="topMargin">
-                       <number>0</number>
-                      </property>
-                      <property name="rightMargin">
-                       <number>0</number>
-                      </property>
-                      <property name="bottomMargin">
-                       <number>0</number>
-                      </property>
-                      <item>
-                       <widget class="QFrame" name="frame_15">
-                        <property name="minimumSize">
-                         <size>
-                          <width>150</width>
-                          <height>0</height>
-                         </size>
-                        </property>
-                        <property name="frameShape">
-                         <enum>QFrame::StyledPanel</enum>
-                        </property>
-                        <property name="frameShadow">
-                         <enum>QFrame::Raised</enum>
-                        </property>
-                        <layout class="QVBoxLayout" name="verticalLayout_17">
-                         <property name="spacing">
-                          <number>0</number>
-                         </property>
-                         <property name="leftMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="topMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="rightMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="bottomMargin">
-                          <number>0</number>
-                         </property>
-                         <item>
-                          <widget class="QPushButton" name="option_11_btn_1">
-                           <property name="minimumSize">
-                            <size>
-                             <width>0</width>
-                             <height>130</height>
-                            </size>
-                           </property>
-                           <property name="cursor">
-                            <cursorShape>OpenHandCursor</cursorShape>
-                           </property>
-                           <property name="text">
-                            <string>PushButton</string>
-                           </property>
-                           <property name="checkable">
-                            <bool>true</bool>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QLabel" name="option_11_label_1">
-                           <property name="text">
-                            <string>선택안함</string>
-                           </property>
-                          </widget>
-                         </item>
-                        </layout>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QFrame" name="frame_16">
-                        <property name="minimumSize">
-                         <size>
-                          <width>150</width>
-                          <height>0</height>
-                         </size>
-                        </property>
-                        <property name="frameShape">
-                         <enum>QFrame::StyledPanel</enum>
-                        </property>
-                        <property name="frameShadow">
-                         <enum>QFrame::Raised</enum>
-                        </property>
-                        <layout class="QVBoxLayout" name="verticalLayout_18">
-                         <property name="spacing">
-                          <number>0</number>
-                         </property>
-                         <property name="leftMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="topMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="rightMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="bottomMargin">
-                          <number>0</number>
-                         </property>
-                         <item>
-                          <widget class="QPushButton" name="option_11_btn_2">
-                           <property name="minimumSize">
-                            <size>
-                             <width>0</width>
-                             <height>130</height>
-                            </size>
-                           </property>
-                           <property name="cursor">
-                            <cursorShape>OpenHandCursor</cursorShape>
-                           </property>
-                           <property name="text">
-                            <string>PushButton</string>
-                           </property>
-                           <property name="checkable">
-                            <bool>true</bool>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QLabel" name="option_11_label_2">
-                           <property name="text">
-                            <string>연하게</string>
-                           </property>
-                          </widget>
-                         </item>
-                        </layout>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QFrame" name="frame_45">
-                        <property name="minimumSize">
-                         <size>
-                          <width>150</width>
-                          <height>0</height>
-                         </size>
-                        </property>
-                        <property name="frameShape">
-                         <enum>QFrame::StyledPanel</enum>
-                        </property>
-                        <property name="frameShadow">
-                         <enum>QFrame::Raised</enum>
-                        </property>
-                        <layout class="QVBoxLayout" name="verticalLayout_48">
-                         <property name="spacing">
-                          <number>0</number>
-                         </property>
-                         <property name="leftMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="topMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="rightMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="bottomMargin">
-                          <number>0</number>
-                         </property>
-                         <item>
-                          <widget class="QPushButton" name="option_11_btn_3">
-                           <property name="minimumSize">
-                            <size>
-                             <width>0</width>
-                             <height>130</height>
-                            </size>
-                           </property>
-                           <property name="cursor">
-                            <cursorShape>OpenHandCursor</cursorShape>
-                           </property>
-                           <property name="text">
-                            <string>PushButton</string>
-                           </property>
-                           <property name="checkable">
-                            <bool>true</bool>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QLabel" name="option_11_label_3">
-                           <property name="text">
-                            <string>디카페인 샷 추가(+1000)</string>
-                           </property>
-                          </widget>
-                         </item>
-                        </layout>
-                       </widget>
-                      </item>
-                      <item>
-                       <spacer name="horizontalSpacer_6">
-                        <property name="orientation">
-                         <enum>Qt::Horizontal</enum>
-                        </property>
-                        <property name="sizeHint" stdset="0">
-                         <size>
-                          <width>40</width>
-                          <height>20</height>
-                         </size>
-                        </property>
-                       </spacer>
-                      </item>
-                     </layout>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QFrame" name="option_frame_12">
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
@@ -3085,7 +2807,7 @@ background-color: rgb(85, 170, 255);</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QPushButton" name="option_12_btn_1">
+                          <widget class="QPushButton" name="no_choice_7">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -3096,7 +2818,7 @@ background-color: rgb(85, 170, 255);</string>
                             <cursorShape>OpenHandCursor</cursorShape>
                            </property>
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>선택안함</string>
                            </property>
                            <property name="checkable">
                             <bool>true</bool>
@@ -3144,7 +2866,7 @@ background-color: rgb(85, 170, 255);</string>
                           <number>0</number>
                          </property>
                          <item>
-                          <widget class="QPushButton" name="option_12_btn_2">
+                          <widget class="QPushButton" name="zero_cider_changed">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
@@ -3155,7 +2877,7 @@ background-color: rgb(85, 170, 255);</string>
                             <cursorShape>OpenHandCursor</cursorShape>
                            </property>
                            <property name="text">
-                            <string>PushButton</string>
+                            <string>제로사이다</string>
                            </property>
                            <property name="checkable">
                             <bool>true</bool>
@@ -3174,6 +2896,284 @@ background-color: rgb(85, 170, 255);</string>
                       </item>
                       <item>
                        <spacer name="horizontalSpacer_5">
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>40</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QFrame" name="option_frame_12">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>200</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>200</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(105, 255, 165);</string>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_16">
+                   <property name="spacing">
+                    <number>0</number>
+                   </property>
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item>
+                    <widget class="QLabel" name="option_11_title">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>디카페인 샷 추가(선택, 단일선택)</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QFrame" name="frame_14">
+                     <property name="frameShape">
+                      <enum>QFrame::StyledPanel</enum>
+                     </property>
+                     <property name="frameShadow">
+                      <enum>QFrame::Raised</enum>
+                     </property>
+                     <layout class="QHBoxLayout" name="horizontalLayout_7">
+                      <property name="spacing">
+                       <number>0</number>
+                      </property>
+                      <property name="leftMargin">
+                       <number>0</number>
+                      </property>
+                      <property name="topMargin">
+                       <number>0</number>
+                      </property>
+                      <property name="rightMargin">
+                       <number>0</number>
+                      </property>
+                      <property name="bottomMargin">
+                       <number>0</number>
+                      </property>
+                      <item>
+                       <widget class="QFrame" name="frame_15">
+                        <property name="minimumSize">
+                         <size>
+                          <width>150</width>
+                          <height>0</height>
+                         </size>
+                        </property>
+                        <property name="frameShape">
+                         <enum>QFrame::StyledPanel</enum>
+                        </property>
+                        <property name="frameShadow">
+                         <enum>QFrame::Raised</enum>
+                        </property>
+                        <layout class="QVBoxLayout" name="verticalLayout_17">
+                         <property name="spacing">
+                          <number>0</number>
+                         </property>
+                         <property name="leftMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="topMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="rightMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="bottomMargin">
+                          <number>0</number>
+                         </property>
+                         <item>
+                          <widget class="QPushButton" name="no_choice_8">
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>130</height>
+                            </size>
+                           </property>
+                           <property name="cursor">
+                            <cursorShape>OpenHandCursor</cursorShape>
+                           </property>
+                           <property name="text">
+                            <string>디카페인x</string>
+                           </property>
+                           <property name="checkable">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="option_11_label_1">
+                           <property name="text">
+                            <string>선택안함</string>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QFrame" name="frame_16">
+                        <property name="minimumSize">
+                         <size>
+                          <width>150</width>
+                          <height>0</height>
+                         </size>
+                        </property>
+                        <property name="frameShape">
+                         <enum>QFrame::StyledPanel</enum>
+                        </property>
+                        <property name="frameShadow">
+                         <enum>QFrame::Raised</enum>
+                        </property>
+                        <layout class="QVBoxLayout" name="verticalLayout_18">
+                         <property name="spacing">
+                          <number>0</number>
+                         </property>
+                         <property name="leftMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="topMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="rightMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="bottomMargin">
+                          <number>0</number>
+                         </property>
+                         <item>
+                          <widget class="QPushButton" name="coffee_weak_2">
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>130</height>
+                            </size>
+                           </property>
+                           <property name="cursor">
+                            <cursorShape>OpenHandCursor</cursorShape>
+                           </property>
+                           <property name="text">
+                            <string>디카페인연하게</string>
+                           </property>
+                           <property name="checkable">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="option_11_label_2">
+                           <property name="text">
+                            <string>연하게</string>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QFrame" name="frame_45">
+                        <property name="minimumSize">
+                         <size>
+                          <width>150</width>
+                          <height>0</height>
+                         </size>
+                        </property>
+                        <property name="frameShape">
+                         <enum>QFrame::StyledPanel</enum>
+                        </property>
+                        <property name="frameShadow">
+                         <enum>QFrame::Raised</enum>
+                        </property>
+                        <layout class="QVBoxLayout" name="verticalLayout_48">
+                         <property name="spacing">
+                          <number>0</number>
+                         </property>
+                         <property name="leftMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="topMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="rightMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="bottomMargin">
+                          <number>0</number>
+                         </property>
+                         <item>
+                          <widget class="QPushButton" name="decaffein_shot">
+                           <property name="minimumSize">
+                            <size>
+                             <width>0</width>
+                             <height>130</height>
+                            </size>
+                           </property>
+                           <property name="cursor">
+                            <cursorShape>OpenHandCursor</cursorShape>
+                           </property>
+                           <property name="text">
+                            <string>디카페인샷추가</string>
+                           </property>
+                           <property name="checkable">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="option_11_label_3">
+                           <property name="text">
+                            <string>디카페인 샷 추가(+1000)</string>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                      <item>
+                       <spacer name="horizontalSpacer_6">
                         <property name="orientation">
                          <enum>Qt::Horizontal</enum>
                         </property>
