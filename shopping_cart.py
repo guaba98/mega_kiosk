@@ -1,94 +1,145 @@
-from PyQt5.QtWidgets import * #QApplication, QVBoxLayout, QListWidgetItem, QListWidget, QLabel, QPushButton, QHBoxLayout, QWidget
+from PyQt5.QtWidgets import *  # QApplication, QVBoxLayout, QListWidgetItem, QListWidget, QLabel, QPushButton, QHBoxLayout, QWidget
 from PyQt5.QtCore import *
 import pandas as pd
 import sqlite3
 
+
+# from mega_kiosk_ver1 import WindowClass
+
+
 class ShoppingItemWidget(QWidget):
-    def __init__(self, idx, name, price, list_widget):
+    def __init__(self, idx, name, price, list_widget, label, btn):
         super().__init__()
 
+        self.cnt_label = label
+        self.price_btn = btn
         self.name_label = QLabel(name)
-        self.name_label.setFixedSize(220,40)
+        self.name_label.setFixedSize(220, 40)
 
         self.quantity_label = QLabel('1')
-        self.quantity_label.setFixedSize(30,40)
+        self.quantity_label.setFixedSize(30, 40)
         self.quantity_label.setAlignment(Qt.AlignCenter)
 
         self.index_label = QLabel(idx)
-        self.index_label.setFixedSize(30,40)
+        self.index_label.setFixedSize(30, 40)
 
-        self.price_label = QLabel(price +'원')
+        self.price_label = QLabel(price + '원')
         self.price_label.setStyleSheet('color:rgb(229, 79, 65)')
 
         self.decrease_button = QPushButton("-")
-        self.decrease_button.setFixedSize(40,40)
+        self.decrease_button.setFixedSize(40, 40)
         self.decrease_button.clicked.connect(self.decrease_quantity)
         self.increase_button = QPushButton("+")
-        self.increase_button.setFixedSize(40,40)
+        self.increase_button.setFixedSize(40, 40)
         self.increase_button.clicked.connect(self.increase_quantity)
         self.delete_button = QPushButton("삭제")
-        self.delete_button.setFixedSize(40,40)
+        self.delete_button.setFixedSize(40, 40)
         self.delete_button.clicked.connect(self.delete_item)
 
         layout = QHBoxLayout()
-        layout.setContentsMargins(0,0,0,0)
+        layout.setContentsMargins(0, 0, 0, 0)
         layout.addWidget(self.delete_button)
-        layout.addWidget(self.index_label)
+        # layout.addWidget(self.index_label)
         layout.addWidget(self.name_label)
         layout.addWidget(self.decrease_button)
         layout.addWidget(self.quantity_label)
         layout.addWidget(self.increase_button)
         layout.addWidget(self.price_label)
+        self.setLayout(layout)
 
         self.list_widget = list_widget
         self.price = int(price)
-
-        self.setLayout(layout)
-
-        self.con = sqlite3.connect('./DATA/data.db')
-        self.order_df = pd.read_sql('select * from order_table', self.con)
-
-
+        self.idx_text = self.index_label.text()
 
     def decrease_quantity(self):
+        """리스트위젯 수량 업데이트 해줌(-)"""
         quantity = int(self.quantity_label.text())
         if quantity > 1:
             quantity -= 1
             self.quantity_label.setText(str(quantity))
 
+
+            # db에서 수량 줄임
+            con = sqlite3.connect('./DATA/data.db')
+            order_df = pd.read_sql('select * from order_table', con)
+            drinks_count = int(order_df.loc[order_df['id'] == self.idx_text, 'drink_cnt'].iloc[0]) - 1
+            order_df.loc[order_df['id'] == self.idx_text, 'drink_cnt'] = drinks_count
+            order_df.to_sql('order_table', con, if_exists='replace', index=False)
+            con.commit()
+            con.close()
+            # total_price = (order_df['drink_cnt'] * order_df['price']).sum()
+
+            self.cnt_label.setText(str(drinks_count) + '개')
+            # self.price_btn.setText(str(total_price)+'원')
             self.update_price()
 
     def increase_quantity(self):
+        """리스트위젯 수량 업데이트 해줌(+)"""
         quantity = int(self.quantity_label.text())
         quantity += 1
         self.quantity_label.setText(str(quantity))
+
+
+        # db에서 수량 추가
+        con = sqlite3.connect('./DATA/data.db')
+        order_df = pd.read_sql('select * from order_table', con)
+        # drinks_count = int(order_df.loc[order_df['id'] == self.idx_text, 'drink_cnt']) + 1
+        drinks_count = int(order_df.loc[order_df['id'] == self.idx_text, 'drink_cnt'].iloc[0]) + 1
+        order_df.loc[order_df['id'] == self.idx_text, 'drink_cnt'] = drinks_count
+
+        order_df.to_sql('order_table', con, if_exists='replace', index=False)
+        con.commit()
+        con.close()
+        self.cnt_label.setText(str(drinks_count) + '개')
+
         self.update_price()
 
     def update_price(self):
+        """리스트 위젯 가격 업데이트 해주는 함수"""
         quantity = int(self.quantity_label.text())
         new_price = self.price * quantity
-        self.price_label.setText(str(new_price)+'원')
+        self.price_label.setText(str(new_price) + '원')
+
+        # 합 구하기
+        con = sqlite3.connect('./DATA/data.db')
+        order_df = pd.read_sql('select * from order_table', con)
+        order_df['drink_cnt'] = order_df['drink_cnt'].astype(int)
+        order_df['price'] = order_df['price'].astype(int)
+        total_price = (order_df['drink_cnt'] * order_df['price']).sum()
+
+        print('장바구니 클래스 가격##############')
+        print(total_price)
+        self.price_btn.setText(f'  {str(total_price)}원\n  결제하기')
+
+
+
 
     def delete_item(self):
+        """리스트위젯에서 아이템 지우고 db에서 지우는 함수"""
+
+        # 리스트위젯에서 아이템 지워주기
         item = self.list_widget.itemAt(self.pos())
         row = self.list_widget.row(item)
         self.list_widget.takeItem(row)
 
-
+        # db에서 id에 맞는 행 지워주기
         con = sqlite3.connect('./DATA/data.db')
         order_df = pd.read_sql('select * from order_table', con)
-        print(self.index_label.text())
         order_df = order_df[order_df['id'] != self.index_label.text()]
-        print(order_df)
         order_df.to_sql('order_table', con, if_exists='replace', index=False)
         con.commit()
         con.close()
-        # 라벨 텍스트 출력
-        # print(column_label)
 
+        order_df['drink_cnt'] = order_df['drink_cnt'].astype(int)
+        order_df['price'] = order_df['price'].astype(int)
+        total_price = (order_df['drink_cnt'] * order_df['price']).sum()
 
-def add_shopping_item_to_listwidget(list_widget, idx, name, price):
-    item_widget = ShoppingItemWidget(idx, name, price, list_widget)
+        print('장바구니 클래스 가격##############')
+        print(total_price)
+        self.price_btn.setText(f'  {str(total_price)}원\n  결제하기')
+
+def add_shopping_item_to_listwidget(list_widget, idx, name, price, label, btn):
+    item_widget = ShoppingItemWidget(idx, name, price, list_widget, label, btn)
 
     item = QListWidgetItem()
     item.setSizeHint(item_widget.sizeHint())
