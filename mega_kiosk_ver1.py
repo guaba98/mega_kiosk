@@ -2,10 +2,16 @@ import os
 import sys
 import sqlite3
 import pandas as pd
+import ast
 
 from PyQt5 import uic
 from PyQt5.QtGui import *
+
+import shopping_cart
 from shopping_cart import *
+from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import *
+from PyQt5.QtCore import *
 
 
 def resource_path(relative_path):
@@ -39,6 +45,9 @@ class MSG_Dialog(QDialog, msg_box_class):
         # 버튼 페이지 설정
         if page_data == 1:
             self.info_label.setText("메뉴가 품절이라 선택하실 수 없습니다.")
+            self.stackedWidget.setCurrentWidget(self.one_btn_page)
+        elif page_data == 2:
+            self.info_label.setText("메뉴를 1개 이상 선택하셔야 합니다.")
             self.stackedWidget.setCurrentWidget(self.one_btn_page)
         else:
             self.stackedWidget.setCurrentWidget(self.two_btn_page)
@@ -107,7 +116,6 @@ class Option_Class(QDialog, choose_option_class):
                 self.set_extra_charge()
                 # break
 
-
         # 버튼 시그널 연결
         self.cancel_btn.clicked.connect(lambda x: self.close())  # 창 종료하기
         self.cancel_btn.clicked.connect(self.close)  # 창 종료하기
@@ -127,24 +135,19 @@ class Option_Class(QDialog, choose_option_class):
         self.option_buttons = self.option_bottom_frame.findChildren(QPushButton)
         for btn in self.option_buttons:
             if btn.isChecked() and btn.isVisible():  # 체크된 버튼만 확인
-                btn_object_name = btn.objectName() # 버튼 객체 이름
-                idx = option_price_eng_name.index(btn_object_name) #버튼의 index확인
-                drinks_price = option_price.loc[idx, 'noraml_drink'] # 체크된 옵션 가격 가져오기
-                drinks_option_name = option_price.loc[idx, 'eng_name'] # 체크된 옵션 이름 가져오기
-                add_price += drinks_price # 가격 더해주기
+                btn_object_name = btn.objectName()  # 버튼 객체 이름
+                idx = option_price_eng_name.index(btn_object_name)  # 버튼의 index확인
+                drinks_price = option_price.loc[idx, 'noraml_drink']  # 체크된 옵션 가격 가져오기
+                drinks_option_name = option_price.loc[idx, 'eng_name']  # 체크된 옵션 이름 가져오기
+                add_price += drinks_price  # 가격 더해주기
+
                 # 확인용 추가
                 customer_order_option[drinks_option_name] = drinks_price
                 self.customer_order_option_list.append(drinks_option_name)
-        print('==============================')
-        print(customer_order_option)
-        print(self.customer_order_option_list)
 
         # 상단에 값 추가
         self.update_drink_price = str(int(self.drink_price) + int(add_price))
         self.menu_price_label.setText(self.update_drink_price + '원')
-
-
-
 
     def btn_duplicates_check(self):
         # 각 옵션창 프레임 내에 있는 버튼들 한번만 눌리게
@@ -158,12 +161,12 @@ class Option_Class(QDialog, choose_option_class):
 
             for btn in buttons:
                 button_group.addButton(btn)
-            button_group.buttonClicked.connect(self.btn_check) # 중복버튼 누르기 방지
-            button_group.buttonClicked.connect(self.btn_clicked_style) # 버튼 색 바뀌게 하기
+            button_group.buttonClicked.connect(self.btn_check)  # 중복버튼 누르기 방지
+            button_group.buttonClicked.connect(self.btn_clicked_style)  # 버튼 색 바뀌게 하기
             self.option_button_groups.append(button_group)
 
         for btn_group in self.option_button_groups:
-            btn_group.buttons()[0].click() # 첫번째 버튼 무조건 눌리게
+            btn_group.buttons()[0].click()  # 첫번째 버튼 무조건 눌리게
             # btn_group.buttons()[0].clicked.connect(self.set_extra_charge)
 
     def btn_clicked_style(self, btn):
@@ -174,12 +177,9 @@ class Option_Class(QDialog, choose_option_class):
                     button.setStyleSheet('')
         btn.setStyleSheet('border: 3px solid rgb(229, 79, 65);')
 
-
-
-
     def btn_check(self):
         """버튼 그룹 가져와서 체크하는 부분"""
-        sender = self.sender() #버튼 모두를 가져옴
+        sender = self.sender()  # 버튼 모두를 가져옴
         for button_group in self.option_button_groups:
             if sender not in button_group.buttons():
                 button_group.setExclusive(True)
@@ -192,27 +192,35 @@ class Option_Class(QDialog, choose_option_class):
         """선택옵션 확인 후 db에 저장"""
         self.parent.drink_num += 1  # 주문 수량
 
-        option_str = str(self.customer_order_option_list) #리스트 str형태로 바꿔주기
+        option_str = str(self.customer_order_option_list)  # 리스트 str형태로 바꿔주기
 
         # 고객 db 불러오기 및 order table 테이블에 에 값 append(추가해주기)
         conn = sqlite3.connect('./DATA/data.db')  # 데이터베이스 연결 정보 설정
         cur = conn.cursor()  # 커서 생성
 
-        # #  database is locked 오류 때문에 닫고 다시 실행
-        # conn.close()
-        # conn = sqlite3.connect('./DATA/data.db')
-
         cur.execute("INSERT INTO order_table (id, drink_cnt, order_drink, price, custom_option)"
                     "VALUES(?,?,?,?,?);",  # SQL 쿼리 실행
-                    (self.parent.drink_num, 1, self.drink_name, self.update_drink_price, option_str ))
+                    (self.parent.drink_num, 1, self.drink_name, self.update_drink_price, option_str))
         conn.commit()  # 변경사항 저장
+
+        # 리스트위젯에 값 넣어주기
+        add_shopping_item_to_listwidget(
+            self.parent.drinks_cart_list_widget, str(self.parent.drink_num),
+            self.drink_name, self.update_drink_price, self.parent.menu_cnt_label, self.parent.payment_admit_btn)
+
+        cur.execute('SELECT SUM(drink_cnt) FROM order_table')
+        result = cur.fetchone()[0]
+        self.parent.menu_cnt_label.setText(str(result) + '개')
+
+        con = sqlite3.connect('./DATA/data.db')
+        order_df = pd.read_sql('select * from order_table', con)
+        order_df['drink_cnt'] = order_df['drink_cnt'].astype(int)
+        order_df['price'] = order_df['price'].astype(int)
+        total_price = (order_df['drink_cnt'] * order_df['price']).sum()
+        self.parent.payment_admit_btn.setText(f'  {str(total_price)}원\n  결제하기')
 
         # cur.close()  # 연결 종료
         conn.close()
-
-        #리스트위젯에 값 넣어주기
-        add_shopping_item_to_listwidget(self.parent.drinks_cart_list_widget, str(self.parent.drink_num), self.drink_name, self.update_drink_price)
-
         # 선택옵션 창 종료
         self.parent.remove_label()
         self.accept()
@@ -231,7 +239,7 @@ class WindowClass(QMainWindow, main_page_class):
         super().__init__()
         self.setupUi(self)
 
-        # 오픈화면
+        # 오픈화면 #######################################################################################################
         self.stackedWidget.setCurrentIndex(0)  # 시작할때 화면은 오픈 페이지로 설정
         self.set_ad_image()  # 이미지 변경
         # self.setWindowFlags(Qt.FramelessWindowHint) # 프레임 지우기
@@ -240,10 +248,10 @@ class WindowClass(QMainWindow, main_page_class):
         # 페이지 이동 및 타이머 시작
         self.ad_label.mousePressEvent = lambda event: (self.stackedWidget.setCurrentWidget(self.main_page))  # 페이지 이동)
 
-        # 메인화면
+        # 메인화면 시작 ##################################################################################################
+
         # 0. DB 불러오기
         con = sqlite3.connect('./DATA/data.db')
-        cur = con.cursor()
         self.price_df = pd.read_sql('select * from drinks_price', con)  # 가격 테이블
         self.menu_df = pd.read_sql('select * from drinks_menu', con)  # 음료상세정보 전체 테이블
         self.img_path_df = pd.read_sql('select * from drinks_img_path', con)  # 음료 이미지 경로 테이블
@@ -261,6 +269,7 @@ class WindowClass(QMainWindow, main_page_class):
         self.timer.setInterval(1000)
 
         # 2. 카테고리 버튼 이동
+        self.category_stackedWidget.setCurrentWidget(self.category_1) # 기본값
         self.category_btn_list = [getattr(self, f"category_btn_{i}") for i in range(1, 16)]  # 카테고리 버튼 리스트화
         for btn in self.category_btn_list:
             btn.clicked.connect(self.change_categroy_btn_color)  # 버튼 색 바꾸기
@@ -287,23 +296,144 @@ class WindowClass(QMainWindow, main_page_class):
         for frame in self.menu_frame_list:
             frame.mousePressEvent = lambda event, name=frame.objectName(): self.click_frame(event, name)
 
+        # 6. 전체 삭제 버튼
+        self.all_remove_label.clicked.connect(self.delete_order_table_values)
+
+        # 99. 스타일시트 관련된 부분
+        # 가격 폰트 변경
         self.menu_price_label_list = [getattr(self, f"menu_price_label_{i}") for i in range(1, 25)]  # 가격 폰트 리스트
         for label in self.menu_price_label_list:
             label.setStyleSheet('color: rgb(229, 79, 64);font: 63 12pt "Pretendard SemiBold";')
 
-        # 6. 전체 삭제 버튼
-        self.all_remove_label.clicked.connect(self.delete_order_table_values)
 
+        # 주문확인화면 시작 ############################################################################################
+
+        # 1. 주문확인창 시작 및 테이블위젯 채우기
+        self.payment_admit_btn.clicked.connect(self.move_to_order_check_page)
+
+        # 2. 버튼 시그널 연결 모음
+        self.cancel_btn_2.clicked.connect(self.timer_restart_and_go_to_main_page)
+        self.back_to_main_page_btn.clicked.connect(self.timer_restart_and_go_to_main_page)
+        self.eat_here_btn.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.payment_choose_page))
+        self.take_out_btn.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.payment_choose_page))
+
+        # 결제수단선택창 ############################################################################################
+
+        # 1. 버튼 시그널 연결
+        payment_choose_buttons = self.payment_choose_main_widget.findChildren(QPushButton)
+        for btn in payment_choose_buttons:
+            print(btn.objectName())
+
+
+    ## 함수 시작 #######################################################################################################
+
+    '''
+    주문 확인창 관련 함수
+    '''
+
+    def timer_restart_and_go_to_main_page(self):
+        """타이머 재시작 및 메인 페이지로 이동"""
+        self.timer.start()
+        self.stackedWidget.setCurrentWidget(self.main_page)
+
+    def fill_the_table_widget(self):
+        """테이블 위젯 채우기"""
+        # 업데이트한 db불러오기
+        con = sqlite3.connect('./DATA/data.db')
+        order_table_df = pd.read_sql('select * from order_table', con)
+        price_df = pd.read_csv('./DATA/drinks_price.csv')  # 가격 csv 도 불러오기(한글이름으로 비교)
+
+        # 테이블위젯 행 값 계산
+        row = order_table_df['id'].count()
+        self.tableWidget_menu_check.setRowCount(row)  # 행값 적용
+
+        # 옵션 값 딕셔너리 화 하기
+        order_table_dict = pd.DataFrame(order_table_df).to_dict()
+
+        # 테이블위젯 값 생성하고 넣기
+        for idx in range(row):
+            # 테이블위젯 값 생성
+            drink_option_df = order_table_df.loc[idx, 'custom_option']  # 각 행의 옵션을 가져와서
+            drink_option_list = ast.literal_eval(drink_option_df)  # 문자열로 되어 있는 리스트들을 리스트처럼 만들어줌
+            option_choices_no_choice = [price_df[price_df['eng_name'] == i]['choose_option'].to_string(index=False)
+                                        # 그리고 not choice가 써져 있지 않은 값들을 리스트에 넣어줌
+                                        for i in drink_option_list if 'no_choice' not in i]
+
+            # 값 넣기
+            items = [QTableWidgetItem(str(order_table_dict[col][idx])) for col in ['order_drink', 'drink_cnt', 'price']]
+            items.append(QTableWidgetItem(','.join(option_choices_no_choice)))
+
+            # 테이블 위젯 가운데로 정렬
+            for item in items:
+                item.setTextAlignment(Qt.AlignCenter)  # Qt.AlignHCenter 가운데로 정렬
+
+            # 테이블위젯에 값 넣기
+            for col, item in enumerate(items):
+                self.tableWidget_menu_check.setItem(idx, col, item)
+
+        # 테이블위젯 열 길이 헤더 크기만큼 정렬해주기
+        header = self.tableWidget_menu_check.horizontalHeader()
+        header.setSectionResizeMode(0, QHeaderView.Stretch)
+        header.setSectionResizeMode(1, QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(2, QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(3, QHeaderView.ResizeToContents)
+
+    def move_to_order_check_page(self):
+        """주문확인창"""
+        # 타이머 중단
+        self.timer.stop()
+
+        # 현재 db 연결
+        con = sqlite3.connect('./DATA/data.db')
+        order_table_df = pd.read_sql('select * from order_table', con)
+
+        # 총 가격 계산
+        order_table_df['drink_cnt'] = order_table_df['drink_cnt'].astype(int)
+        order_table_df['price'] = order_table_df['price'].astype(int)
+        total_price = (order_table_df['drink_cnt'] * order_table_df['price']).sum()
+
+        # 총 갯수 계산
+        total_count = order_table_df['drink_cnt'].sum()
+
+        # 라벨 및 버튼에 넣어주기
+        self.total_price_for_check_page.setText(str(total_price) + '원')
+        self.total_cnt_for_check_page.setText(str(total_count) + '개')
+
+        # 총 갯수가 0 초과하면 창 넘어가기
+        if total_count > 0:
+            self.stackedWidget.setCurrentWidget(self.order_check_page) #주문 확인 창으로 이동
+            self.fill_the_table_widget() # 테이블위젯 값 채우기
+        else:
+            msg_box_page = MSG_Dialog(2)  # 1보다 작으면 메세지 창 띄우기
+            msg_box_page.show()
+            msg_box_page.exec_()
+
+    ''' 
+    메인창 관련 함수 
+    '''
     def delete_order_table_values(self):
         """ 주문 값 삭제"""
 
         # 리스트 위젯 값 삭제
         self.drinks_cart_list_widget.clear()
 
-
         conn = sqlite3.connect('./DATA/data.db')  # 데이터베이스 연결 정보 설정
         cur = conn.cursor()  # 커서 생성
         cur.execute("DELETE FROM 'order_table'")  # SQL 쿼리 실행
+
+        cur.execute("SELECT SUM(drink_cnt) FROM 'order_table'")
+        # cursor.execute('SELECT SUM(column_name) FROM table_name')
+        result = cur.fetchone()[0]
+        if result == None:
+            result = 0
+        self.menu_cnt_label.setText(str(result) + '개')
+
+        order_df = pd.read_sql('select * from order_table', conn)
+        order_df['drink_cnt'] = order_df['drink_cnt'].astype(int)
+        order_df['price'] = order_df['price'].astype(int)
+        total_price = (order_df['drink_cnt'] * order_df['price']).sum()
+        self.payment_admit_btn.setText(f'  {str(total_price)}원\n  결제하기')
+
         conn.commit()  # 변경사항 저장
         cur.close()  # 연결 종료
         conn.close()
@@ -316,15 +446,18 @@ class WindowClass(QMainWindow, main_page_class):
 
     def update_timer(self):
         """타이머 시간 업데이트"""
-        self.remaining_time -= 1
-        if self.remaining_time == 0:
-            self.remaining_time = self.DURATION_INT
-            self.stackedWidget.setCurrentWidget(self.main_page)
-        self.timer_label.setText(f"{str(self.remaining_time)}초")
+        if self.stackedWidget.currentWidget() == self.main_page:  # 메인페이지에서만 구동함
+            self.remaining_time -= 1
+            if self.remaining_time == 0:
+                self.remaining_time = self.DURATION_INT
+                self.stackedWidget.setCurrentWidget(self.main_page)
+            self.timer_label.setText(f"{str(self.remaining_time)}초")
+        else:
+            pass
 
     def click_frame(self, event, name):
         """메뉴 선택하고 선택옵션 창 띄우기"""
-        print(f'{name}프레임을 선택했습니다.')
+        # print(f'{name}프레임을 선택했습니다.')
         option_page_df = pd.merge(self.menu_df, self.img_path_df, on='id')
         print(option_page_df.columns)
 
@@ -342,11 +475,9 @@ class WindowClass(QMainWindow, main_page_class):
             msg_box_page.show()
             msg_box_page.exec_()
         else:
-            print('낫품절')
+            # print('낫품절')
             self.show_sample_label()
             dialog_page = Option_Class(self)
-            # dialog_page.setWindowFlags(Qt.WindowStaysOnTopHint)  # Always on top
-            # dialog_page.setAttribute(Qt.WA_ShowWithoutActivating)  # Prevent dialog from stealing focus
             dialog_page.show()
 
     def remove_label(self):
