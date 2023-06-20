@@ -3,6 +3,7 @@ import sys
 import sqlite3
 import pandas as pd
 import ast
+from random import randint
 
 from PyQt5 import uic
 from PyQt5.QtGui import *
@@ -27,13 +28,15 @@ choose_option_ui = resource_path('./UI/mega_choose_option_page.ui')  # 메가 �
 choose_option_class = uic.loadUiType(choose_option_ui)[0]
 msg_box_ui = resource_path('./UI/msg_box.ui')  # 메세지박스 ui 불러오기
 msg_box_class = uic.loadUiType(msg_box_ui)[0]
+point_page_ui = resource_path('./UI/point_page.ui')  # 포인트페이지 창 띄우기
+point_page_class = uic.loadUiType(point_page_ui)[0]
 
 
-class MSG_Dialog(QDialog, msg_box_class):
-    """메세지 박스 다이얼로그"""
+class Point_Page(QDialog, point_page_class):
+    """포인트 적립 창"""
     data_signal = pyqtSignal(str)
 
-    def __init__(self, page_data):
+    def __init__(self):
         super().__init__()
         self.setupUi(self)
 
@@ -42,6 +45,69 @@ class MSG_Dialog(QDialog, msg_box_class):
             Qt.WindowType.FramelessWindowHint | Qt.WindowType.WindowStaysOnTopHint)  # 프레임 지우기 / 윈도우가 다른 창 위에 항상 최상위로 유지되도록 함
         self.setAttribute(Qt.WA_TranslucentBackground, True)  # 배경 투명하게 함
 
+        # 버튼 모으기
+        buttons = self.point_buttons.findChildren(QPushButton)
+        for button in buttons:
+            button.clicked.connect(self.write_point_num)
+
+        # 버튼 시그널 설정
+        self.point_confirm_btn.clicked.connect(self.point_check)  # 확인 버튼
+        self.cancel_btn.clicked.connect(self.close)  # x 버튼
+
+    def write_point_num(self):
+        """번호를 누르면 번호창에 업데이트 된다"""
+        num_list = [str(num) for num in range(0, 10)]  # 버튼은 0부터 010까지 존재함
+        num_list.append('010')
+
+        btn_name = self.sender().text()  # 누른 버튼 텍스트 가져옴
+        now_label_text = self.user_number_label.text()  # 라벨의 텍스트 가져옴
+
+        if btn_name in num_list:
+            now_label_text += str(btn_name)
+            only_num = now_label_text.replace('-', '')
+            if len(only_num) <= 11:
+                self.user_number_label.setText(self.mask_numbers(now_label_text))
+        else:
+            now_label_text = now_label_text[:-1]
+            self.user_number_label.setText(self.mask_numbers(now_label_text))
+
+    def mask_numbers(self, i):
+        i = i.replace('-','')
+        if len(i) <= 3:
+            return i
+        elif 3 < len(i) < 8:
+            return f'{i[:3]}-{(len(i) - 3) * "*"}'
+        else:
+            return i[:3] + '-****-' + i[7:]
+
+    def point_check(self):
+        now_label_text = self.user_number_label.text()  # 라벨의 텍스트 가져옴
+        if len(now_label_text) == 11:
+            self.data_signal.emit(now_label_text)
+            self.close()
+        else:
+            self.close()
+            print('창 띄우기')
+
+
+class MSG_Dialog(QDialog, msg_box_class):
+    """메세지 박스 다이얼로그"""
+    data_signal = pyqtSignal(str)
+    # def __init__(self, page_data):
+    #     super().__init__()
+    #     self.setupUi(self)
+
+    def __init__(self, parent, page_data):
+        super().__init__(parent)
+        self.parent = parent
+        self.setupUi(self)
+
+        # 화면 설정
+        self.setWindowFlags(
+            Qt.WindowType.FramelessWindowHint | Qt.WindowType.WindowStaysOnTopHint)  # 프레임 지우기 / 윈도우가 다른 창 위에 항상 최상위로 유지되도록 함
+        self.setAttribute(Qt.WA_TranslucentBackground, True)  # 배경 투명하게 함
+        self.sign = page_data
+
         # 버튼 페이지 설정
         if page_data == 1:
             self.info_label.setText("메뉴가 품절이라 선택하실 수 없습니다.")
@@ -49,11 +115,64 @@ class MSG_Dialog(QDialog, msg_box_class):
         elif page_data == 2:
             self.info_label.setText("메뉴를 1개 이상 선택하셔야 합니다.")
             self.stackedWidget.setCurrentWidget(self.one_btn_page)
+        elif page_data == 3:
+            self.remain_time = 5
+            self.p_timer = QTimer()
+            self.p_timer.timeout.connect(self.update_p_timer)
+            self.p_timer.setInterval(1000)
+            self.p_timer.start()
+            self.info_label.setText("결제중입니다.. 5초 후에 창이 닫힙니다.")
+        elif page_data == 4:
+            self.info_label.setText("포인트 적립을 하시겠습니까?")
+            self.stackedWidget.setCurrentWidget(self.two_btn_page)
+        elif page_data == 5:
+            self.info_label.setText("회원정보가 사라집니다. 계속하시겠습니까?")
+            self.stackedWidget.setCurrentWidget(self.two_btn_page)
         else:
             self.stackedWidget.setCurrentWidget(self.two_btn_page)
 
         # 버튼 누르면 정보 넘겨주기
-        self.ok_btn.clicked.connect(self.close)  # 확인 누르면 창 닫힘
+        self.ok_btn.clicked.connect(self.check_and_close)  # 확인 누르면 확인하고 창 닫힘
+        self.no_btn.clicked.connect(self.check_no_btn_and_close)  # 취소 누르면 창 닫힘
+        self.yes_btn.clicked.connect(self.show_num_keypad)
+    def check_and_close(self):
+        if self.sign == 4:
+            print('영수증 드릴게')
+        else:
+            self.close()
+    def check_no_btn_and_close(self):
+        if self.sign == 4:
+            print('여기서 오픈 페이지로 바뀝니다. 그리고 데이터 삭제해야 함')
+            self.close()
+            self.parent.stackedWidget.setCurrentWidget(self.parent.opening_page)
+            self.parent.timer.start()
+        else:
+            self.close()
+    def user_wants_recipt(self):
+        print('예스예스여요')
+    def update_p_timer(self):
+        self.remain_time -= 1
+        if self.remain_time == 0: # 시간이 종료되면
+            self.p_timer.stop() #타이머가 멈추고
+            self.close()
+            self.show_point_msg_box()
+        self.info_label.setText(f"결제중입니다.. {self.remain_time}초 후에 창이 닫힙니다.")
+
+    def show_point_msg_box(self):
+        msg_box_page = MSG_Dialog(self.parent, 4) #포인트 창이 뜨고
+        msg_box_page.exec_()
+
+    def show_num_keypad(self):
+        """숫자패드 창 띄우기"""
+        self.close()
+        key_page = Point_Page()
+        key_page.data_signal.connect(self.get_label_text)
+        key_page.show()
+        key_page.exec_()
+
+    def get_label_text(self, text):
+        print('테스트 텍스트 출력=============')
+        print(text)
 
 
 class Option_Class(QDialog, choose_option_class):
@@ -87,8 +206,8 @@ class Option_Class(QDialog, choose_option_class):
         option_df = data.loc[:, 'cinnamon':'zero_cider_changed']
         option_df_dict = option_df.to_dict('list')
         option_df_keys = list(option_df_dict.keys())
-        print(option_df_keys)
         option_df_keys.append('decaffein')
+        print(option_df_keys)
         option_df_dict_not_null = {key: [int(x) for x in value[0].split(',')] for key, value in option_df_dict.items()
                                    if value != ['0']}  # 0이 들어가지 않은 인수형의 숫자 반환
 
@@ -114,12 +233,15 @@ class Option_Class(QDialog, choose_option_class):
             option_btn.clicked.connect(self.set_extra_charge)
             if option_btn.isChecked():
                 self.set_extra_charge()
-                # break
 
         # 버튼 시그널 연결
         self.cancel_btn.clicked.connect(lambda x: self.close())  # 창 종료하기
         self.cancel_btn.clicked.connect(self.close)  # 창 종료하기
         self.order_btn.clicked.connect(self.order_confirm)
+        self.reset_btn.clicked.connect(self.btn_duplicates_check) # 옵션 초기화 버튼
+
+        # db불러오기
+        self.con = sqlite3.connect('./DATA/data.db')  # 데이터베이스 연결 정보 설정
 
     def set_extra_charge(self):
         """버튼 누를 때마다 옵션 가격 추가해주는 부분"""
@@ -133,6 +255,7 @@ class Option_Class(QDialog, choose_option_class):
         customer_order_option = {}
         self.customer_order_option_list = []
         self.option_buttons = self.option_bottom_frame.findChildren(QPushButton)
+
         for btn in self.option_buttons:
             if btn.isChecked() and btn.isVisible():  # 체크된 버튼만 확인
                 btn_object_name = btn.objectName()  # 버튼 객체 이름
@@ -150,9 +273,12 @@ class Option_Class(QDialog, choose_option_class):
         self.menu_price_label.setText(self.update_drink_price + '원')
 
     def btn_duplicates_check(self):
-        # 각 옵션창 프레임 내에 있는 버튼들 한번만 눌리게
+        """각 옵션창 프레임 내에 있는 버튼들 한번만 눌리게"""
+
+        # 버튼 그룹 담아주기
         self.option_button_groups = []
 
+        # 프레임들 안에 있는 버튼들을 각각 버튼 그룹으로 담아줌
         for i in range(1, 13):
             option_frame = self.option_frame_list[i - 1]
             buttons = option_frame.findChildren(QPushButton)
@@ -165,9 +291,9 @@ class Option_Class(QDialog, choose_option_class):
             button_group.buttonClicked.connect(self.btn_clicked_style)  # 버튼 색 바뀌게 하기
             self.option_button_groups.append(button_group)
 
+        # 각 옵션 선택창 안에 들어있는 1번 버튼 눌리게 하기
         for btn_group in self.option_button_groups:
             btn_group.buttons()[0].click()  # 첫번째 버튼 무조건 눌리게
-            # btn_group.buttons()[0].clicked.connect(self.set_extra_charge)
 
     def btn_clicked_style(self, btn):
         """선택한 옵션버튼 색 바꿔줌"""
@@ -190,37 +316,37 @@ class Option_Class(QDialog, choose_option_class):
 
     def order_confirm(self):
         """선택옵션 확인 후 db에 저장"""
-        self.parent.drink_num += 1  # 주문 수량
 
+        self.parent.drink_num += 1  # 주문 수량 늘려줌
         option_str = str(self.customer_order_option_list)  # 리스트 str형태로 바꿔주기
 
         # 고객 db 불러오기 및 order table 테이블에 에 값 append(추가해주기)
-        conn = sqlite3.connect('./DATA/data.db')  # 데이터베이스 연결 정보 설정
-        cur = conn.cursor()  # 커서 생성
-
+        # conn = sqlite3.connect('./DATA/data.db')  # 데이터베이스 연결 정보 설정
+        cur = self.con.cursor()  # 커서 생성
         cur.execute("INSERT INTO order_table (id, drink_cnt, order_drink, price, custom_option)"
                     "VALUES(?,?,?,?,?);",  # SQL 쿼리 실행
                     (self.parent.drink_num, 1, self.drink_name, self.update_drink_price, option_str))
-        conn.commit()  # 변경사항 저장
+        self.con.commit()  # 변경사항 저장
 
-        # 리스트위젯에 값 넣어주기
+        # 장바구니 리스트위젯에 값 넣어주기
         add_shopping_item_to_listwidget(
             self.parent.drinks_cart_list_widget, str(self.parent.drink_num),
             self.drink_name, self.update_drink_price, self.parent.menu_cnt_label, self.parent.payment_admit_btn)
 
-        cur.execute('SELECT SUM(drink_cnt) FROM order_table')
-        result = cur.fetchone()[0]
+        # 메뉴 갯수 라벨에 넣어주기(담은 메뉴 수 라벨)
+        cur.execute('SELECT SUM(drink_cnt) FROM order_table')  # 테이블에 있는 메뉴 수 세서
+        result = cur.fetchone()[0]  # 이를 튜플 형태로 가져오고 첫번째 값만 가져옴
         self.parent.menu_cnt_label.setText(str(result) + '개')
 
-        con = sqlite3.connect('./DATA/data.db')
-        order_df = pd.read_sql('select * from order_table', con)
+        # con = sqlite3.connect('./DATA/data.db')
+        order_df = pd.read_sql('select * from order_table', self.con)
         order_df['drink_cnt'] = order_df['drink_cnt'].astype(int)
         order_df['price'] = order_df['price'].astype(int)
         total_price = (order_df['drink_cnt'] * order_df['price']).sum()
         self.parent.payment_admit_btn.setText(f'  {str(total_price)}원\n  결제하기')
 
-        # cur.close()  # 연결 종료
-        conn.close()
+        cur.close()  # 연결 종료
+        self.con.close()
         # 선택옵션 창 종료
         self.parent.remove_label()
         self.accept()
@@ -269,7 +395,7 @@ class WindowClass(QMainWindow, main_page_class):
         self.timer.setInterval(1000)
 
         # 2. 카테고리 버튼 이동
-        self.category_stackedWidget.setCurrentWidget(self.category_1) # 기본값
+        self.category_stackedWidget.setCurrentWidget(self.category_1)  # 기본값
         self.category_btn_list = [getattr(self, f"category_btn_{i}") for i in range(1, 16)]  # 카테고리 버튼 리스트화
         for btn in self.category_btn_list:
             btn.clicked.connect(self.change_categroy_btn_color)  # 버튼 색 바꾸기
@@ -280,8 +406,10 @@ class WindowClass(QMainWindow, main_page_class):
                 lambda x, category=btn: self.start_timer(btn))  # 카테고리 버튼 누를 때마다 타이머 초기화
 
         # 3. 카테고리 페이지 넘기기 (메인화면 페이지 넘기기)
-        self.category_right_btn.clicked.connect(lambda: self.category_stackedWidget.setCurrentWidget(self.category_2))
-        self.category_left_btn_2.clicked.connect(lambda: self.category_stackedWidget.setCurrentWidget(self.category_1))
+        self.category_right_btn.clicked.connect(lambda: self.check_current_page(1))
+        self.category_right_btn_2.clicked.connect(lambda: self.check_current_page(2))
+        self.category_left_btn.clicked.connect(lambda: self.check_current_page(1))
+        self.category_left_btn_2.clicked.connect(lambda: self.check_current_page(2))
 
         # 4. 커피 메뉴 좌/우 버튼
         self.category_btn_1.click()
@@ -296,15 +424,16 @@ class WindowClass(QMainWindow, main_page_class):
         for frame in self.menu_frame_list:
             frame.mousePressEvent = lambda event, name=frame.objectName(): self.click_frame(event, name)
 
-        # 6. 전체 삭제 버튼
-        self.all_remove_label.clicked.connect(self.delete_order_table_values)
+        # 6. 버튼 시그널 연결
+        self.all_remove_label.clicked.connect(self.delete_order_table_values)  # 전체 삭제 버튼
+        self.home_button.clicked.connect(
+            lambda: self.stackedWidget.setCurrentWidget(self.opening_page))  # 홈 버튼 누르면 오픈화면으로 이동
 
         # 99. 스타일시트 관련된 부분
         # 가격 폰트 변경
         self.menu_price_label_list = [getattr(self, f"menu_price_label_{i}") for i in range(1, 25)]  # 가격 폰트 리스트
         for label in self.menu_price_label_list:
             label.setStyleSheet('color: rgb(229, 79, 64);font: 63 12pt "Pretendard SemiBold";')
-
 
         # 주문확인화면 시작 ############################################################################################
 
@@ -314,29 +443,140 @@ class WindowClass(QMainWindow, main_page_class):
         # 2. 버튼 시그널 연결 모음
         self.cancel_btn_2.clicked.connect(self.timer_restart_and_go_to_main_page)
         self.back_to_main_page_btn.clicked.connect(self.timer_restart_and_go_to_main_page)
-        self.eat_here_btn.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.payment_choose_page))
-        self.take_out_btn.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.payment_choose_page))
+        self.eat_here_btn.clicked.connect(lambda: self.move_to_payment_choose('for_here'))
+        self.take_out_btn.clicked.connect(lambda: self.move_to_payment_choose('to_go'))
 
         # 결제수단선택창 ############################################################################################
 
-        # 1. 버튼 시그널 연결
-        payment_choose_buttons = self.payment_choose_main_widget.findChildren(QPushButton)
-        for btn in payment_choose_buttons:
-            print(btn.objectName())
+        # 버튼 시그널 연결
+        self.payment_choose_signal()
 
+        # 카드 / 큐알코드 결제창 ######################################################################################
+
+        ### 1. 카드 결제창
+
+        # 버튼 클릭 이벤트
+        self.cancel_btn_3.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.payment_choose_page))  # x 버튼 누르면 결제선택수단창으로 이동
+        self.cancel_btn_4.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.payment_choose_page))  # 취소 버튼 누르면 결제선택수단창으로 이동
+        self.card_img_frame.mousePressEvent = lambda event: self.mobile_pay_msgbox()
+
+
+        ### 2. 큐알코드 결제창
+        self.cancel_btn_5.clicked.connect(
+            lambda: self.stackedWidget.setCurrentWidget(self.payment_choose_page))  # x 버튼 누르면 결제선택수단창으로 이동
+
+        # 숫자 키보드 버튼 누를때 이벤트 발생
+        keyboard_buttons = self.keyboard_frame.findChildren(QPushButton)
+        for btn in keyboard_buttons:
+            btn.clicked.connect(self.change_card_num)
+
+        # 기타 스타일시트 변경 부분 ###############################################################################
+        # 큐알코드 커서 변경해주기
+        self.qr_check_frame.setCursor(QCursor(QPixmap('./img/qt자료/bacord').scaled(80, 80)))
+        self.card_label.setCursor(QCursor(QPixmap('./img/qt자료/payment_phone.png').scaled(120, 100)))
+        self.horizontalSlider.setCursor(QCursor(QPixmap('./img/qt자료/matercard.png').scaled(80, 70)))
 
     ## 함수 시작 #######################################################################################################
+    '''
+    결제창 관련 함수
+    '''
+    def card_cancel_btn(self):
+        # msg_box_page = MSG_Dialog(3)
+        # msg_box_page.show()
+        # msg_box_page.exec_()
+        pass
+
+    def mobile_pay_msgbox(self):
+        """모바일 페이 메세지박스 띄우기"""
+        msg_box_page = MSG_Dialog(self, 3)
+        # msg_box_page.show()
+        msg_box_page.exec_()
+        # print(msg_box_page.show_num_keypad)
+
+    def change_card_num(self):
+        sender_name = self.sender().text()
+        print(sender_name)
+        self.table_widget_qr_code.setRowCount(6)
+        self.table_widget_qr_code.setItem(3, 1, QtWidgets.QTableWidgetItem(sender_name))
+
+        # pass
+
+    '''
+    결제수단 선택창 관련 함수
+    '''
+
+    def payment_choose_signal(self):
+        """결제수단 버튼에 따라 다른 정보 전달"""
+        payment_btn_df = pd.read_csv('./DATA/payment_choose.csv')  # csv 값 가져오기(결제버튼 정보)
+        payment_choose_buttons = self.payment_choose_main_widget.findChildren(QPushButton)  # 결제창에 있는 모든 버튼 가져오기
+        for btn in payment_choose_buttons:
+            con1 = payment_btn_df['btn_name'] == btn.objectName()  # 버튼객체이름과 같은 버튼이라는 조건에 맞다면
+            crs_btn = payment_btn_df.loc[con1, ['kor_name', 'type']].to_dict('list')  # 버튼 이름과 결제형태 딕셔너리 형식으로 가져오기
+            btn.clicked.connect(
+                lambda x, y=crs_btn['kor_name'][0], z=crs_btn['type'][0]: self.move_to_payment_page(y, z))
+
+    def move_to_payment_page(self, name, type):
+        """전달해준 정보에 따라 다른 결제창 불러오기"""
+
+        # 카드 결제창 이동
+        if type == 1:
+            self.payment_card_title_bar.setText("  "+name)
+            self.stackedWidget.setCurrentWidget(self.charge_page)
+            self.update_card_payment_table()
+        # 큐알코드 확인창 이동
+        else:
+            self.barcord_payment_title_bar.setText("  "+name)
+            self.stackedWidget.setCurrentWidget(self.barcod_payment_page)
+        print(name, type)
+
+    def update_card_payment_table(self):
+        # 현재 db 연결
+        con = sqlite3.connect('./DATA/data.db')
+        order_table_df = pd.read_sql('select * from order_table', con)
+
+        # 총 가격 계산
+        order_table_df['drink_cnt'] = order_table_df['drink_cnt'].astype(int)
+        order_table_df['price'] = order_table_df['price'].astype(int)
+        total_price = (order_table_df['drink_cnt'] * order_table_df['price']).sum()
+
+        # 카드번호 랜덤으로 만들어줄것
+        card_num = self.make_random_card_num()
+
+        # 카드 테이블에 값 업데이트 해주기
+        self.card_payment_table_widget.setRowCount(3)
+        self.card_payment_table_widget.setColumnCount(1)
+        self.card_payment_table_widget.horizontalHeader().setVisible(False)  # 열 헤더를 숨깁니다.
+        self.card_payment_table_widget.setItem(0, 0, QtWidgets.QTableWidgetItem(str(total_price)+'원'))
+        self.card_payment_table_widget.setItem(1, 0, QtWidgets.QTableWidgetItem('0개월'))
+        self.card_payment_table_widget.setItem(2, 0, QtWidgets.QTableWidgetItem(card_num))
+        self.card_payment_table_widget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)  # 열 너비를 조정합니다.
+
+    def make_random_card_num(self):
+        random_card_num = [str(randint(1000, 9999)) for _ in range(4)]
+        random_card_num_for_print = ' '.join(random_card_num)
+        mask_card_num = "*" * (len(random_card_num_for_print) - 4) + random_card_num_for_print[-4:]
+        return mask_card_num
+
 
     '''
     주문 확인창 관련 함수
     '''
+
+    def move_to_payment_choose(self, state):
+        con = sqlite3.connect('./DATA/data.db')
+        order_table_df = pd.read_sql('select * from order_table', con)
+        order_table_df.loc[:, 'for_here_or_to_go'] = state
+        order_table_df.to_sql('order_table', con, if_exists='replace', index=False)
+        con.commit()
+        con.close()
+        self.stackedWidget.setCurrentWidget(self.payment_choose_page)
 
     def timer_restart_and_go_to_main_page(self):
         """타이머 재시작 및 메인 페이지로 이동"""
         self.timer.start()
         self.stackedWidget.setCurrentWidget(self.main_page)
 
-    def fill_the_table_widget(self):
+    def fill_the_table_widget(self, table):
         """테이블 위젯 채우기"""
         # 업데이트한 db불러오기
         con = sqlite3.connect('./DATA/data.db')
@@ -345,7 +585,7 @@ class WindowClass(QMainWindow, main_page_class):
 
         # 테이블위젯 행 값 계산
         row = order_table_df['id'].count()
-        self.tableWidget_menu_check.setRowCount(row)  # 행값 적용
+        table.setRowCount(row)  # 행값 적용
 
         # 옵션 값 딕셔너리 화 하기
         order_table_dict = pd.DataFrame(order_table_df).to_dict()
@@ -369,10 +609,10 @@ class WindowClass(QMainWindow, main_page_class):
 
             # 테이블위젯에 값 넣기
             for col, item in enumerate(items):
-                self.tableWidget_menu_check.setItem(idx, col, item)
+                table.setItem(idx, col, item)
 
         # 테이블위젯 열 길이 헤더 크기만큼 정렬해주기
-        header = self.tableWidget_menu_check.horizontalHeader()
+        header = table.horizontalHeader()
         header.setSectionResizeMode(0, QHeaderView.Stretch)
         header.setSectionResizeMode(1, QHeaderView.ResizeToContents)
         header.setSectionResizeMode(2, QHeaderView.ResizeToContents)
@@ -397,20 +637,33 @@ class WindowClass(QMainWindow, main_page_class):
 
         # 라벨 및 버튼에 넣어주기
         self.total_price_for_check_page.setText(str(total_price) + '원')
+        self.payment_choose_title_bar.setText(f'  결제수단 선택({str(total_price)})원')  # 이건 결제수단 선택창임
         self.total_cnt_for_check_page.setText(str(total_count) + '개')
 
         # 총 갯수가 0 초과하면 창 넘어가기
         if total_count > 0:
-            self.stackedWidget.setCurrentWidget(self.order_check_page) #주문 확인 창으로 이동
-            self.fill_the_table_widget() # 테이블위젯 값 채우기
+            self.stackedWidget.setCurrentWidget(self.order_check_page)  # 주문 확인 창으로 이동
+            self.fill_the_table_widget(self.tableWidget_menu_check)  # 테이블위젯 값 채우기
+            self.fill_the_table_widget(self.tableWidget_menu_2_for_qr)  # 일단 여기에 넣음 @@@@@@@@@@@@@@@@@@@ 수정필요
         else:
-            msg_box_page = MSG_Dialog(2)  # 1보다 작으면 메세지 창 띄우기
-            msg_box_page.show()
+            msg_box_page = MSG_Dialog(self, 2)  # 1보다 작으면 메세지 창 띄우기
+            # msg_box_page.show()
             msg_box_page.exec_()
 
     ''' 
     메인창 관련 함수 
     '''
+
+    def check_current_page(self, num):
+        print('탑니다')
+        if num == 1:
+            self.category_stackedWidget.setCurrentWidget(self.category_2)
+            self.category_btn_11.click()
+        elif num == 2:
+            self.category_stackedWidget.setCurrentWidget(self.category_1)
+            self.category_btn_1.click()
+        self.menu_stackedWidget.setCurrentWidget(self.page_1)
+
     def delete_order_table_values(self):
         """ 주문 값 삭제"""
 
@@ -471,8 +724,8 @@ class WindowClass(QMainWindow, main_page_class):
         self.send_info = option_page_df.loc[condition1 & condition2]
         print(self.send_info['info'])
         if sold_out_state.sum() > 0:
-            msg_box_page = MSG_Dialog(1)
-            msg_box_page.show()
+            msg_box_page = MSG_Dialog(self, 1)
+            # msg_box_page.show()
             msg_box_page.exec_()
         else:
             # print('낫품절')

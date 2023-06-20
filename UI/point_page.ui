@@ -177,7 +177,7 @@ background-color: rgb(255, 204, 0);</string>
           <number>0</number>
          </property>
          <item>
-          <widget class="QFrame" name="frame">
+          <widget class="QFrame" name="point_bottom_page">
            <property name="frameShape">
             <enum>QFrame::StyledPanel</enum>
            </property>
@@ -226,7 +226,7 @@ background-color: rgb(255, 204, 0);</string>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_2">
+             <widget class="QLabel" name="user_number_label">
               <property name="font">
                <font>
                 <family>Pretendard Medium</family>
@@ -234,7 +234,7 @@ background-color: rgb(255, 204, 0);</string>
                </font>
               </property>
               <property name="text">
-               <string>번호가 여기에 뜹니다</string>
+               <string/>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
@@ -242,7 +242,7 @@ background-color: rgb(255, 204, 0);</string>
              </widget>
             </item>
             <item>
-             <widget class="QFrame" name="frame_3">
+             <widget class="QFrame" name="point_buttons">
               <property name="styleSheet">
                <string notr="true">QFrame#frame_3{border: 1px solid rgb(45, 45, 45);}</string>
               </property>
@@ -540,7 +540,7 @@ background-color: rgb(255, 204, 0);</string>
                 <number>0</number>
                </property>
                <item>
-                <widget class="QPushButton" name="cancel_btn_2">
+                <widget class="QPushButton" name="point_confirm_btn">
                  <property name="minimumSize">
                   <size>
                    <width>141</width>

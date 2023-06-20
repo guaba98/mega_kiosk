@@ -317,6 +317,39 @@ border-radius:15px;
             </property>
             <item>
              <widget class="QScrollArea" name="scrollArea">
+              <property name="styleSheet">
+               <string notr="true">QScrollBar:vertical{
+border:none;
+background: white;
+width:14px;
+margin: 15px 0 15px 0;
+border-radius: 0px;
+}
+QScrollBar::handle:vertical {	
+	background-color:  rgb(255, 204, 0);
+	min-height: 30px;
+	border-radius: 7px;
+}
+QScrollBar::handle:vertical:hover{	
+	
+	background-color: rgb(251, 197, 0);
+}
+QScrollBar::handle:vertical:pressed {	
+	background-color: rgb(255, 204, 0);
+}
+
+QScrollBar::sub-line:vertical {
+	border: none;
+	background-color: rgba(255, 204, 0, 0);
+	height: 15px;
+	border-radius:5px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+}
+
+
+</string>
+              </property>
               <property name="frameShape">
                <enum>QFrame::NoFrame</enum>
               </property>
@@ -327,12 +360,97 @@ border-radius:15px;
                <property name="geometry">
                 <rect>
                  <x>0</x>
-                 <y>-1840</y>
-                 <width>663</width>
-                 <height>2490</height>
+                 <y>0</y>
+                 <width>666</width>
+                 <height>2524</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_6">
+                <item>
+                 <widget class="QFrame" name="frame_44">
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QHBoxLayout" name="horizontalLayout_16">
+                   <property name="spacing">
+                    <number>0</number>
+                   </property>
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item>
+                    <widget class="QLabel" name="label">
+                     <property name="styleSheet">
+                      <string notr="true">font: 57 14pt &quot;Pretendard Medium&quot;;</string>
+                     </property>
+                     <property name="text">
+                      <string>선택한 옵션: </string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="choose_option_label">
+                     <property name="styleSheet">
+                      <string notr="true">font: 57 14pt &quot;Pretendard Medium&quot;;</string>
+                     </property>
+                     <property name="text">
+                      <string>선택한 옵션</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_15">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="reset_btn">
+                     <property name="minimumSize">
+                      <size>
+                       <width>100</width>
+                       <height>26</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>300</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgb(229, 79, 65);
+border-radius: 12px;
+color:white;
+font: 57 14pt &quot;Pretendard Medium&quot;;</string>
+                     </property>
+                     <property name="text">
+                      <string>초기화</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
                 <item>
                  <widget class="QFrame" name="option_frame_1">
                   <property name="minimumSize">
@@ -3304,8 +3422,7 @@ border-radius:15px;
                    </size>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">
-</string>
+                   <string notr="true"/>
                   </property>
                   <property name="frameShape">
                    <enum>QFrame::StyledPanel</enum>

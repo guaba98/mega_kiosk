@@ -50,11 +50,14 @@
     </property>
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
       <property name="styleSheet">
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="opening_page">
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -137,6 +140,9 @@
             <height>50</height>
            </rect>
           </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgb(45, 45, 45);
 border: 2px solid rgb(45, 45, 45);
@@ -174,6 +180,9 @@ border-radius:5px; color:white;
             <bold>true</bold>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
           <property name="styleSheet">
            <string notr="true">border-radius:15px;
 border: 2px solid rgb(45, 45, 45);
@@ -206,6 +215,9 @@ border: 2px solid rgb(45, 45, 45);
             <bold>true</bold>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
           <property name="styleSheet">
            <string notr="true">border-radius:15px;
 border: 2px solid rgb(45, 45, 45);</string>
@@ -230,6 +242,9 @@ border: 2px solid rgb(45, 45, 45);</string>
             <weight>75</weight>
             <bold>true</bold>
            </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
           </property>
           <property name="styleSheet">
            <string notr="true">border-radius:15px;
@@ -256,6 +271,9 @@ border: 2px solid rgb(45, 45, 45);</string>
             <bold>true</bold>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
           <property name="styleSheet">
            <string notr="true">border-radius:15px;
 border: 2px solid rgb(45, 45, 45);</string>
@@ -280,6 +298,9 @@ border: 2px solid rgb(45, 45, 45);</string>
             <weight>75</weight>
             <bold>true</bold>
            </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
           </property>
           <property name="styleSheet">
            <string notr="true">border-radius:15px;
@@ -306,6 +327,9 @@ border: 2px solid rgb(45, 45, 45);</string>
             <bold>true</bold>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
           <property name="styleSheet">
            <string notr="true">border-radius:15px;
 border: 2px solid rgb(45, 45, 45);</string>
@@ -331,6 +355,9 @@ border: 2px solid rgb(45, 45, 45);</string>
             <bold>true</bold>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
           <property name="styleSheet">
            <string notr="true">border-radius:15px;
 border: 2px solid rgb(45, 45, 45);</string>
@@ -347,6 +374,9 @@ border: 2px solid rgb(45, 45, 45);</string>
             <width>60</width>
             <height>50</height>
            </rect>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
           </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgb(45, 45, 45);
@@ -385,6 +415,9 @@ border-radius:5px; color:white;
             <bold>true</bold>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
           <property name="styleSheet">
            <string notr="true">border-radius:15px;
 border: 2px solid rgb(45, 45, 45);</string>
@@ -410,6 +443,9 @@ border: 2px solid rgb(45, 45, 45);</string>
             <bold>true</bold>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
           <property name="styleSheet">
            <string notr="true">border-radius:15px;
 border: 2px solid rgb(45, 45, 45);</string>
@@ -434,6 +470,9 @@ border: 2px solid rgb(45, 45, 45);</string>
             <weight>75</weight>
             <bold>true</bold>
            </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
           </property>
           <property name="styleSheet">
            <string notr="true">border-radius:15px;
@@ -640,8 +679,8 @@ border: 2px solid rgb(45, 45, 45);
          <rect>
           <x>10</x>
           <y>193</y>
-          <width>749</width>
-          <height>581</height>
+          <width>767</width>
+          <height>585</height>
          </rect>
         </property>
         <property name="font">
@@ -2951,6 +2990,1109 @@ border: 2px solid rgb(45, 45, 45);
           </layout>
          </widget>
         </widget>
+        <widget class="QWidget" name="page_3">
+         <layout class="QVBoxLayout" name="verticalLayout_68">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QFrame" name="frame_32">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>749</width>
+              <height>567</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_53">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <layout class="QGridLayout" name="gridLayout_4">
+               <property name="leftMargin">
+                <number>9</number>
+               </property>
+               <property name="topMargin">
+                <number>9</number>
+               </property>
+               <property name="rightMargin">
+                <number>9</number>
+               </property>
+               <property name="bottomMargin">
+                <number>9</number>
+               </property>
+               <property name="spacing">
+                <number>10</number>
+               </property>
+               <item row="0" column="0">
+                <widget class="QFrame" name="menu_frame_25">
+                 <property name="maximumSize">
+                  <size>
+                   <width>179</width>
+                   <height>181</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true"/>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_54">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="menu_img_25">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="menu_name_label_25">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Pretendard Medium</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="menu_price_label_25">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Pretendard Medium</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QFrame" name="menu_frame_26">
+                 <property name="maximumSize">
+                  <size>
+                   <width>179</width>
+                   <height>181</height>
+                  </size>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_55">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="menu_img_26">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="menu_name_label_26">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Pretendard Medium</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="menu_price_label_26">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Pretendard Medium</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QFrame" name="menu_frame_33">
+                 <property name="maximumSize">
+                  <size>
+                   <width>179</width>
+                   <height>181</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true"/>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_56">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="menu_img_33">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="menu_name_label_33">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Pretendard Medium</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="menu_price_label_33">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Pretendard Medium</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QFrame" name="menu_frame_29">
+                 <property name="maximumSize">
+                  <size>
+                   <width>179</width>
+                   <height>181</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true"/>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_57">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="menu_img_29">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="menu_name_label_29">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Pretendard Medium</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="menu_price_label_29">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Pretendard Medium</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QFrame" name="menu_frame_27">
+                 <property name="maximumSize">
+                  <size>
+                   <width>179</width>
+                   <height>181</height>
+                  </size>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_58">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="menu_img_27">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="menu_name_label_27">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Pretendard Medium</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="menu_price_label_27">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Pretendard Medium</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="4" column="2">
+                <widget class="QFrame" name="menu_frame_35">
+                 <property name="maximumSize">
+                  <size>
+                   <width>179</width>
+                   <height>181</height>
+                  </size>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_59">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="menu_img_35">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="menu_name_label_35">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Pretendard Medium</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="menu_price_label_35">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Pretendard Medium</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QFrame" name="menu_frame_30">
+                 <property name="maximumSize">
+                  <size>
+                   <width>179</width>
+                   <height>181</height>
+                  </size>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_61">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="menu_img_30">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="menu_name_label_30">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Pretendard Medium</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="menu_price_label_30">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Pretendard Medium</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QFrame" name="menu_frame_28">
+                 <property name="maximumSize">
+                  <size>
+                   <width>179</width>
+                   <height>181</height>
+                  </size>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_62">
+                  <property name="spacing">
+                   <number>6</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="menu_img_28">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="menu_name_label_28">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Pretendard Medium</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="menu_price_label_28">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Pretendard Medium</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(229, 79, 64);</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QFrame" name="menu_frame_344">
+                 <property name="maximumSize">
+                  <size>
+                   <width>179</width>
+                   <height>181</height>
+                  </size>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_63">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="menu_img_344">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="menu_name_label_344">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Pretendard Medium</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="menu_price_label_344">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Pretendard Medium</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="2" column="2">
+                <widget class="QFrame" name="menu_frame_31">
+                 <property name="maximumSize">
+                  <size>
+                   <width>179</width>
+                   <height>181</height>
+                  </size>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_65">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="menu_img_31">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="menu_name_label_31">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Pretendard Medium</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="menu_price_label_31">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Pretendard Medium</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="2" column="3">
+                <widget class="QFrame" name="menu_frame_32">
+                 <property name="maximumSize">
+                  <size>
+                   <width>179</width>
+                   <height>181</height>
+                  </size>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_66">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="menu_img_32">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="menu_name_label_32">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Pretendard Medium</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="menu_price_label_32">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Pretendard Medium</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="4" column="3">
+                <widget class="QFrame" name="menu_frame_36">
+                 <property name="maximumSize">
+                  <size>
+                   <width>179</width>
+                   <height>181</height>
+                  </size>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_67">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="menu_img_36">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="menu_name_label_36">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Pretendard Medium</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="menu_price_label_36">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Pretendard Medium</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
        </widget>
        <widget class="QPushButton" name="menu_right_btn">
         <property name="geometry">
@@ -3060,7 +4202,7 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(213, 213, 213);</string>
+         <string notr="true"/>
         </property>
         <widget class="QPushButton" name="payment_admit_btn">
          <property name="geometry">
@@ -3084,7 +4226,8 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(45, 45, 45);
-color:white;</string>
+color:white;
+border-radius:5px;</string>
          </property>
          <property name="text">
           <string>  0원
@@ -3247,6 +4390,44 @@ color:white;</string>
           <enum>Qt::Horizontal</enum>
          </property>
         </widget>
+       </widget>
+       <widget class="QPushButton" name="home_button">
+        <property name="geometry">
+         <rect>
+          <x>6</x>
+          <y>4</y>
+          <width>40</width>
+          <height>40</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>35</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../img/qt자료/home_img.png</normaloff>../img/qt자료/home_img.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="order_check_page">
@@ -3616,7 +4797,7 @@ color:white;</string>
                             <x>0</x>
                             <y>0</y>
                             <width>750</width>
-                            <height>203</height>
+                            <height>220</height>
                            </rect>
                           </property>
                           <layout class="QHBoxLayout" name="horizontalLayout_14">
@@ -4494,7 +5675,7 @@ color: rgb(255, 255, 255);</string>
                         <number>0</number>
                        </property>
                        <item>
-                        <widget class="QPushButton" name="payment_btn_1">
+                        <widget class="QPushButton" name="payment_btn_kt">
                          <property name="minimumSize">
                           <size>
                            <width>141</width>
@@ -4506,6 +5687,9 @@ color: rgb(255, 255, 255);</string>
                            <width>141</width>
                            <height>81</height>
                           </size>
+                         </property>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
                          </property>
                          <property name="styleSheet">
                           <string notr="true">border: 1px solid #dcdcdc;
@@ -4703,7 +5887,7 @@ color: rgb(255, 255, 255);</string>
                         <number>0</number>
                        </property>
                        <item>
-                        <widget class="QPushButton" name="payment_btn_6">
+                        <widget class="QPushButton" name="payment_btn_naver_pay">
                          <property name="sizePolicy">
                           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                            <horstretch>0</horstretch>
@@ -4721,6 +5905,9 @@ color: rgb(255, 255, 255);</string>
                            <width>141</width>
                            <height>81</height>
                           </size>
+                         </property>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
                          </property>
                          <property name="styleSheet">
                           <string notr="true">border: 1px solid #dcdcdc;
@@ -4791,7 +5978,7 @@ border-radius:5px;</string>
                         <number>0</number>
                        </property>
                        <item>
-                        <widget class="QPushButton" name="payment_btn_9">
+                        <widget class="QPushButton" name="payment_btn_hana_one">
                          <property name="sizePolicy">
                           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                            <horstretch>0</horstretch>
@@ -4809,6 +5996,9 @@ border-radius:5px;</string>
                            <width>141</width>
                            <height>81</height>
                           </size>
+                         </property>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
                          </property>
                          <property name="styleSheet">
                           <string notr="true">border: 1px solid #dcdcdc;
@@ -4895,7 +6085,7 @@ border-radius:5px;</string>
                         <number>0</number>
                        </property>
                        <item>
-                        <widget class="QPushButton" name="payment_btn_4">
+                        <widget class="QPushButton" name="payment_btn_kakao_pay">
                          <property name="sizePolicy">
                           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                            <horstretch>0</horstretch>
@@ -4913,6 +6103,9 @@ border-radius:5px;</string>
                            <width>141</width>
                            <height>16777215</height>
                           </size>
+                         </property>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
                          </property>
                          <property name="styleSheet">
                           <string notr="true">border: 1px solid #dcdcdc;
@@ -4983,7 +6176,7 @@ border-radius:5px;</string>
                         <number>0</number>
                        </property>
                        <item>
-                        <widget class="QPushButton" name="payment_btn_7">
+                        <widget class="QPushButton" name="payment_btn_zero_pay">
                          <property name="sizePolicy">
                           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                            <horstretch>0</horstretch>
@@ -5001,6 +6194,9 @@ border-radius:5px;</string>
                            <width>141</width>
                            <height>81</height>
                           </size>
+                         </property>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
                          </property>
                          <property name="styleSheet">
                           <string notr="true">border: 1px solid #dcdcdc;
@@ -5071,7 +6267,7 @@ border-radius:5px;</string>
                         <number>0</number>
                        </property>
                        <item>
-                        <widget class="QPushButton" name="payment_btn_11">
+                        <widget class="QPushButton" name="payment_btn_coupon">
                          <property name="sizePolicy">
                           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                            <horstretch>0</horstretch>
@@ -5089,6 +6285,9 @@ border-radius:5px;</string>
                            <width>141</width>
                            <height>16777215</height>
                           </size>
+                         </property>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
                          </property>
                          <property name="styleSheet">
                           <string notr="true">border: 1px solid #dcdcdc;
@@ -5159,7 +6358,7 @@ border-radius:5px;</string>
                         <number>0</number>
                        </property>
                        <item>
-                        <widget class="QPushButton" name="payment_btn_12">
+                        <widget class="QPushButton" name="payment_btn_mega_card">
                          <property name="sizePolicy">
                           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                            <horstretch>0</horstretch>
@@ -5177,6 +6376,9 @@ border-radius:5px;</string>
                            <width>141</width>
                            <height>81</height>
                           </size>
+                         </property>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
                          </property>
                          <property name="styleSheet">
                           <string notr="true">border: 1px solid #dcdcdc;
@@ -5247,7 +6449,7 @@ border-radius:5px;</string>
                         <number>0</number>
                        </property>
                        <item>
-                        <widget class="QPushButton" name="payment_btn_5">
+                        <widget class="QPushButton" name="payment_btn_payco">
                          <property name="sizePolicy">
                           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                            <horstretch>0</horstretch>
@@ -5265,6 +6467,9 @@ border-radius:5px;</string>
                            <width>141</width>
                            <height>81</height>
                           </size>
+                         </property>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
                          </property>
                          <property name="styleSheet">
                           <string notr="true">border: 1px solid #dcdcdc;
@@ -5335,7 +6540,7 @@ border-radius:5px;</string>
                         <number>0</number>
                        </property>
                        <item>
-                        <widget class="QPushButton" name="payment_btn_8">
+                        <widget class="QPushButton" name="payment_btn_bc_paybook">
                          <property name="sizePolicy">
                           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                            <horstretch>0</horstretch>
@@ -5353,6 +6558,9 @@ border-radius:5px;</string>
                            <width>141</width>
                            <height>16777215</height>
                           </size>
+                         </property>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
                          </property>
                          <property name="styleSheet">
                           <string notr="true">border: 1px solid #dcdcdc;
@@ -5423,7 +6631,7 @@ border-radius:5px;</string>
                         <number>0</number>
                        </property>
                        <item>
-                        <widget class="QPushButton" name="payment_btn_2">
+                        <widget class="QPushButton" name="payment_btn_card">
                          <property name="sizePolicy">
                           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                            <horstretch>0</horstretch>
@@ -5441,6 +6649,9 @@ border-radius:5px;</string>
                            <width>141</width>
                            <height>81</height>
                           </size>
+                         </property>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
                          </property>
                          <property name="styleSheet">
                           <string notr="true">border: 1px solid #dcdcdc;
@@ -5479,7 +6690,7 @@ border-radius:5px;</string>
                           </font>
                          </property>
                          <property name="text">
-                          <string>메가선불카드</string>
+                          <string>신용/체크카드</string>
                          </property>
                          <property name="alignment">
                           <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -5511,7 +6722,7 @@ border-radius:5px;</string>
                         <number>0</number>
                        </property>
                        <item>
-                        <widget class="QPushButton" name="payment_btn_3">
+                        <widget class="QPushButton" name="payment_btn_app_card">
                          <property name="sizePolicy">
                           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                            <horstretch>0</horstretch>
@@ -5529,6 +6740,9 @@ border-radius:5px;</string>
                            <width>141</width>
                            <height>81</height>
                           </size>
+                         </property>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
                          </property>
                          <property name="styleSheet">
                           <string notr="true">border: 1px solid #dcdcdc;
@@ -5567,7 +6781,7 @@ border-radius:5px;</string>
                           </font>
                          </property>
                          <property name="text">
-                          <string>메가선불카드</string>
+                          <string>앱카드/바코드</string>
                          </property>
                          <property name="alignment">
                           <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -5599,7 +6813,7 @@ border-radius:5px;</string>
                         <number>0</number>
                        </property>
                        <item>
-                        <widget class="QPushButton" name="payment_btn_10">
+                        <widget class="QPushButton" name="payment_btn_kb_pay">
                          <property name="sizePolicy">
                           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                            <horstretch>0</horstretch>
@@ -5617,6 +6831,9 @@ border-radius:5px;</string>
                            <width>141</width>
                            <height>16777215</height>
                           </size>
+                         </property>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
                          </property>
                          <property name="styleSheet">
                           <string notr="true">border: 1px solid #dcdcdc;
@@ -5715,7 +6932,7 @@ border-radius:5px;</string>
                      </spacer>
                     </item>
                     <item>
-                     <widget class="QLabel" name="label_15">
+                     <widget class="QLabel" name="total_payment_price">
                       <property name="font">
                        <font>
                         <family>Pretendard SemiBold</family>
@@ -5733,7 +6950,7 @@ border-radius:5px;</string>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLabel" name="label_16">
+                     <widget class="QLabel" name="total_payment_price_2">
                       <property name="font">
                        <font>
                         <family>Pretendard SemiBold</family>
@@ -5880,7 +7097,7 @@ border-radius:5px;</string>
                   <number>0</number>
                  </property>
                  <item>
-                  <widget class="QLabel" name="payment_choose_title_bar_3">
+                  <widget class="QLabel" name="payment_card_title_bar">
                    <property name="minimumSize">
                     <size>
                      <width>610</width>
@@ -5922,6 +7139,9 @@ border-radius:5px;</string>
                      <width>0</width>
                      <height>85</height>
                     </size>
+                   </property>
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
                     <string notr="true">  border-top-right-radius: 15px;
@@ -6016,7 +7236,8 @@ background-color: rgb(255, 204, 0);</string>
                        </font>
                       </property>
                       <property name="text">
-                       <string>다음 그림과 같이 신용/체크카드를 넣어주세요</string>
+                       <string>다음 그림과 같이 신용/체크카드를 넣어주세요
+(삼성/LG페이는 핸드폰을 카드리더기에 터치해 주세요.)</string>
                       </property>
                       <property name="alignment">
                        <set>Qt::AlignCenter</set>
@@ -6024,7 +7245,7 @@ background-color: rgb(255, 204, 0);</string>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QFrame" name="frame_27">
+                     <widget class="QFrame" name="card_img_frame">
                       <property name="minimumSize">
                        <size>
                         <width>0</width>
@@ -6038,7 +7259,7 @@ background-color: rgb(255, 204, 0);</string>
                        </size>
                       </property>
                       <property name="styleSheet">
-                       <string notr="true">background-color: rgb(212, 212, 212);</string>
+                       <string notr="true"/>
                       </property>
                       <property name="frameShape">
                        <enum>QFrame::StyledPanel</enum>
@@ -6052,6 +7273,9 @@ background-color: rgb(255, 204, 0);</string>
                          <property name="orientation">
                           <enum>Qt::Horizontal</enum>
                          </property>
+                         <property name="sizeType">
+                          <enum>QSizePolicy::Fixed</enum>
+                         </property>
                          <property name="sizeHint" stdset="0">
                           <size>
                            <width>40</width>
@@ -6061,9 +7285,26 @@ background-color: rgb(255, 204, 0);</string>
                         </spacer>
                        </item>
                        <item>
-                        <widget class="QLabel" name="label_26">
+                        <widget class="QLabel" name="card_label">
+                         <property name="maximumSize">
+                          <size>
+                           <width>16777215</width>
+                           <height>350</height>
+                          </size>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <pointsize>14</pointsize>
+                          </font>
+                         </property>
                          <property name="text">
-                          <string>여기에 이미지가 들어갑니다.</string>
+                          <string/>
+                         </property>
+                         <property name="pixmap">
+                          <pixmap>../img/qt자료/Frame 6.png</pixmap>
+                         </property>
+                         <property name="scaledContents">
+                          <bool>true</bool>
                          </property>
                         </widget>
                        </item>
@@ -6071,6 +7312,9 @@ background-color: rgb(255, 204, 0);</string>
                         <spacer name="horizontalSpacer_16">
                          <property name="orientation">
                           <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeType">
+                          <enum>QSizePolicy::Fixed</enum>
                          </property>
                          <property name="sizeHint" stdset="0">
                           <size>
@@ -6084,19 +7328,31 @@ background-color: rgb(255, 204, 0);</string>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QTableWidget" name="tableWidget">
+                     <widget class="QTableWidget" name="card_payment_table_widget">
                       <property name="maximumSize">
                        <size>
                         <width>16777215</width>
                         <height>300</height>
                        </size>
                       </property>
+                      <property name="font">
+                       <font>
+                        <family>Pretendard Medium</family>
+                        <pointsize>14</pointsize>
+                        <weight>7</weight>
+                        <italic>false</italic>
+                        <bold>false</bold>
+                       </font>
+                      </property>
                       <property name="cursor" stdset="0">
                        <cursorShape>OpenHandCursor</cursorShape>
                       </property>
+                      <property name="styleSheet">
+                       <string notr="true">font: 57 14pt &quot;Pretendard Medium&quot;;</string>
+                      </property>
                       <row>
                        <property name="text">
-                        <string>결제금액</string>
+                        <string>총 결제금액</string>
                        </property>
                       </row>
                       <row>
@@ -6120,10 +7376,10 @@ background-color: rgb(255, 204, 0);</string>
     margin: 0px;
     }
 QSlider::handle:horizontal {
-    background-color: black;
+    background-color: rgb(45,45,45);
     border: 1px solid;
     height: 20px;
-    width: 30px;
+    width: 20px;
     margin: -15px 0px;
     }</string>
                       </property>
@@ -6202,6 +7458,9 @@ QSlider::handle:horizontal {
                            <bold>true</bold>
                           </font>
                          </property>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
+                         </property>
                          <property name="styleSheet">
                           <string notr="true">background-color: rgb(45, 45, 45);
 border-radius: 15px;
@@ -6227,6 +7486,9 @@ color:white;</string>
                            <weight>75</weight>
                            <bold>true</bold>
                           </font>
+                         </property>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
                          </property>
                          <property name="styleSheet">
                           <string notr="true">background-color: rgb(229, 79, 65);
@@ -6282,7 +7544,7 @@ color:white;
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="kt_discount_page">
+      <widget class="QWidget" name="barcod_payment_page">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(97, 84, 33);</string>
        </property>
@@ -6398,7 +7660,7 @@ color:white;
                   <number>0</number>
                  </property>
                  <item>
-                  <widget class="QLabel" name="payment_choose_title_bar_4">
+                  <widget class="QLabel" name="barcord_payment_title_bar">
                    <property name="minimumSize">
                     <size>
                      <width>610</width>
@@ -6513,7 +7775,7 @@ background-color: rgb(255, 204, 0);</string>
                        <number>0</number>
                       </property>
                       <item>
-                       <widget class="QTableWidget" name="tableWidget_2">
+                       <widget class="QTableWidget" name="table_widget_qr_code">
                         <property name="maximumSize">
                          <size>
                           <width>16777215</width>
@@ -6523,6 +7785,9 @@ background-color: rgb(255, 204, 0);</string>
                         <property name="cursor" stdset="0">
                          <cursorShape>OpenHandCursor</cursorShape>
                         </property>
+                        <property name="styleSheet">
+                         <string notr="true">font: 57 14pt &quot;Pretendard Medium&quot;;</string>
+                        </property>
                         <property name="frameShape">
                          <enum>QFrame::NoFrame</enum>
                         </property>
@@ -6531,12 +7796,17 @@ background-color: rgb(255, 204, 0);</string>
                         </property>
                         <row>
                          <property name="text">
-                          <string>결제금액</string>
+                          <string>제휴사명</string>
                          </property>
                         </row>
                         <row>
                          <property name="text">
-                          <string>할부개월</string>
+                          <string>할인종류</string>
+                         </property>
+                        </row>
+                        <row>
+                         <property name="text">
+                          <string>유효기간</string>
                          </property>
                         </row>
                         <row>
@@ -6544,10 +7814,20 @@ background-color: rgb(255, 204, 0);</string>
                           <string>카드번호</string>
                          </property>
                         </row>
+                        <row>
+                         <property name="text">
+                          <string>대상금액</string>
+                         </property>
+                        </row>
+                        <row>
+                         <property name="text">
+                          <string>할인금액</string>
+                         </property>
+                        </row>
                        </widget>
                       </item>
                       <item>
-                       <widget class="QFrame" name="frame_31">
+                       <widget class="QFrame" name="keyboard_frame">
                         <property name="minimumSize">
                          <size>
                           <width>250</width>
@@ -6585,12 +7865,15 @@ border-radius: 10px;
                          <item>
                           <layout class="QHBoxLayout" name="horizontalLayout_2">
                            <item>
-                            <widget class="QPushButton" name="pushButton_2">
+                            <widget class="QPushButton" name="keyboard_clear">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
                                <height>50</height>
                               </size>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
                              </property>
                              <property name="styleSheet">
                               <string notr="true">background-color: rgb(45, 45, 45);
@@ -6602,12 +7885,15 @@ color:white;</string>
                             </widget>
                            </item>
                            <item>
-                            <widget class="QPushButton" name="pushButton">
+                            <widget class="QPushButton" name="keyboard_back_space">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
                                <height>50</height>
                               </size>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
                              </property>
                              <property name="styleSheet">
                               <string notr="true">background-color: rgb(45, 45, 45);
@@ -6623,12 +7909,15 @@ color:white;</string>
                          <item>
                           <layout class="QGridLayout" name="gridLayout_5">
                            <item row="1" column="0">
-                            <widget class="QPushButton" name="pushButton_10">
+                            <widget class="QPushButton" name="keyboard_4">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
                                <height>50</height>
                               </size>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
                              </property>
                              <property name="styleSheet">
                               <string notr="true">background-color: rgb(220, 220, 220);</string>
@@ -6639,12 +7928,15 @@ color:white;</string>
                             </widget>
                            </item>
                            <item row="1" column="2">
-                            <widget class="QPushButton" name="pushButton_8">
+                            <widget class="QPushButton" name="keyboard_6">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
                                <height>50</height>
                               </size>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
                              </property>
                              <property name="styleSheet">
                               <string notr="true">background-color: rgb(220, 220, 220);</string>
@@ -6655,12 +7947,15 @@ color:white;</string>
                             </widget>
                            </item>
                            <item row="0" column="2">
-                            <widget class="QPushButton" name="pushButton_3">
+                            <widget class="QPushButton" name="keyboard_3">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
                                <height>50</height>
                               </size>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
                              </property>
                              <property name="styleSheet">
                               <string notr="true">background-color: rgb(220, 220, 220);</string>
@@ -6671,12 +7966,15 @@ color:white;</string>
                             </widget>
                            </item>
                            <item row="2" column="2">
-                            <widget class="QPushButton" name="pushButton_4">
+                            <widget class="QPushButton" name="keyboard_9">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
                                <height>50</height>
                               </size>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
                              </property>
                              <property name="styleSheet">
                               <string notr="true">background-color: rgb(220, 220, 220);</string>
@@ -6687,12 +7985,15 @@ color:white;</string>
                             </widget>
                            </item>
                            <item row="1" column="1">
-                            <widget class="QPushButton" name="pushButton_7">
+                            <widget class="QPushButton" name="keyboard_5">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
                                <height>50</height>
                               </size>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
                              </property>
                              <property name="styleSheet">
                               <string notr="true">background-color: rgb(220, 220, 220);</string>
@@ -6703,12 +8004,15 @@ color:white;</string>
                             </widget>
                            </item>
                            <item row="2" column="0">
-                            <widget class="QPushButton" name="pushButton_11">
+                            <widget class="QPushButton" name="keyboard_7">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
                                <height>50</height>
                               </size>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
                              </property>
                              <property name="styleSheet">
                               <string notr="true">background-color: rgb(220, 220, 220);</string>
@@ -6719,12 +8023,15 @@ color:white;</string>
                             </widget>
                            </item>
                            <item row="0" column="0">
-                            <widget class="QPushButton" name="pushButton_9">
+                            <widget class="QPushButton" name="keyboard_1">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
                                <height>50</height>
                               </size>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
                              </property>
                              <property name="styleSheet">
                               <string notr="true">background-color: rgb(220, 220, 220);</string>
@@ -6735,12 +8042,15 @@ color:white;</string>
                             </widget>
                            </item>
                            <item row="0" column="1">
-                            <widget class="QPushButton" name="pushButton_5">
+                            <widget class="QPushButton" name="keyboard_2">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
                                <height>50</height>
                               </size>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
                              </property>
                              <property name="styleSheet">
                               <string notr="true">background-color: rgb(220, 220, 220);</string>
@@ -6751,12 +8061,15 @@ color:white;</string>
                             </widget>
                            </item>
                            <item row="2" column="1">
-                            <widget class="QPushButton" name="pushButton_6">
+                            <widget class="QPushButton" name="keyboard_8">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
                                <height>50</height>
                               </size>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
                              </property>
                              <property name="styleSheet">
                               <string notr="true">background-color: rgb(220, 220, 220);</string>
@@ -6767,12 +8080,15 @@ color:white;</string>
                             </widget>
                            </item>
                            <item row="3" column="0">
-                            <widget class="QPushButton" name="pushButton_12">
+                            <widget class="QPushButton" name="keyboard_0">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
                                <height>50</height>
                               </size>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
                              </property>
                              <property name="styleSheet">
                               <string notr="true">background-color: rgb(220, 220, 220);</string>
@@ -6783,12 +8099,15 @@ color:white;</string>
                             </widget>
                            </item>
                            <item row="3" column="1">
-                            <widget class="QPushButton" name="pushButton_13">
+                            <widget class="QPushButton" name="keyboard_00">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
                                <height>50</height>
                               </size>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
                              </property>
                              <property name="styleSheet">
                               <string notr="true">background-color: rgb(220, 220, 220);</string>
@@ -6799,12 +8118,15 @@ color:white;</string>
                             </widget>
                            </item>
                            <item row="3" column="2">
-                            <widget class="QPushButton" name="pushButton_14">
+                            <widget class="QPushButton" name="keyboard_000">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
                                <height>50</height>
                               </size>
+                             </property>
+                             <property name="cursor">
+                              <cursorShape>PointingHandCursor</cursorShape>
                              </property>
                              <property name="styleSheet">
                               <string notr="true">background-color: rgb(220, 220, 220);</string>
@@ -6817,12 +8139,15 @@ color:white;</string>
                           </layout>
                          </item>
                          <item>
-                          <widget class="QPushButton" name="pushButton_15">
+                          <widget class="QPushButton" name="keyboard_enter">
                            <property name="minimumSize">
                             <size>
                              <width>0</width>
                              <height>40</height>
                             </size>
+                           </property>
+                           <property name="cursor">
+                            <cursorShape>PointingHandCursor</cursorShape>
                            </property>
                            <property name="styleSheet">
                             <string notr="true">background-color: rgb(229, 79, 65);
@@ -6840,7 +8165,7 @@ font: 63 18pt &quot;Pretendard SemiBold&quot;;</string>
                      </layout>
                     </item>
                     <item>
-                     <widget class="QTableWidget" name="tableWidget_menu_check_2">
+                     <widget class="QTableWidget" name="tableWidget_menu_2_for_qr">
                       <property name="maximumSize">
                        <size>
                         <width>16777215</width>
@@ -6889,7 +8214,26 @@ color:black;</string>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QFrame" name="frame_29">
+                     <widget class="QLabel" name="label">
+                      <property name="font">
+                       <font>
+                        <family>Pretendard Medium</family>
+                        <pointsize>11</pointsize>
+                       </font>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">color: rgb(229, 79, 65);</string>
+                      </property>
+                      <property name="text">
+                       <string>※ 스캔이 되지 않으실 경우 위의 키패드로 번호를 직접 입력 후 승인을 눌러주세요</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QFrame" name="qr_check_frame">
                       <property name="minimumSize">
                        <size>
                         <width>0</width>
