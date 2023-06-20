@@ -1,0 +1,13 @@
+btn_name,kor_name,type
+payment_btn_kt,kt버튼,3
+payment_btn_card,신용/체크카드,1
+payment_btn_app_card,앱카드/바코드,2
+payment_btn_kakao_pay,카카오페이,2
+payment_btn_payco,페이코,2
+payment_btn_naver_pay,네이버페이,2
+payment_btn_zero_pay,제로페이,2
+payment_btn_bc_paybook,BC페이북,2
+payment_btn_hana_one,하나원큐페이,2
+payment_btn_kb_pay,KB페이,2
+payment_btn_coupon,쿠폰사용,2
+payment_btn_mega_card,메가선불카드,1
