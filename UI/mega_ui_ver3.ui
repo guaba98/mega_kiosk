@@ -8342,7 +8342,7 @@ color:black;</string>
                        <item>
                         <widget class="QStackedWidget" name="qr_check_btns_stackwidget">
                          <property name="currentIndex">
-                          <number>0</number>
+                          <number>1</number>
                          </property>
                          <widget class="QWidget" name="kt_check_btn">
                           <layout class="QHBoxLayout" name="horizontalLayout_27">
