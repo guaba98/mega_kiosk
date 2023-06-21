@@ -109,13 +109,13 @@
            <property name="minimumSize">
             <size>
              <width>0</width>
-             <height>131</height>
+             <height>160</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
              <width>16777215</width>
-             <height>130</height>
+             <height>160</height>
             </size>
            </property>
            <property name="frameShape">
@@ -124,56 +124,37 @@
            <property name="frameShadow">
             <enum>QFrame::Raised</enum>
            </property>
-           <layout class="QHBoxLayout" name="horizontalLayout">
+           <layout class="QVBoxLayout" name="verticalLayout_43">
             <property name="spacing">
              <number>0</number>
             </property>
             <property name="leftMargin">
-             <number>5</number>
+             <number>0</number>
             </property>
             <property name="topMargin">
              <number>0</number>
             </property>
             <property name="rightMargin">
-             <number>5</number>
+             <number>0</number>
             </property>
             <property name="bottomMargin">
              <number>0</number>
             </property>
             <item>
-             <widget class="QLabel" name="menu_photo_label">
-              <property name="minimumSize">
-               <size>
-                <width>109</width>
-                <height>130</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>109</width>
-                <height>130</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true"/>
-              </property>
-              <property name="text">
-               <string>사진</string>
-              </property>
-              <property name="scaledContents">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QFrame" name="frame_2">
+             <widget class="QFrame" name="frame_46">
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
               </property>
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <layout class="QVBoxLayout" name="verticalLayout">
+              <layout class="QHBoxLayout" name="horizontalLayout">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
                <property name="topMargin">
                 <number>0</number>
                </property>
@@ -184,14 +165,39 @@
                 <number>0</number>
                </property>
                <item>
-                <widget class="QFrame" name="frame">
+                <widget class="QLabel" name="menu_photo_label">
+                 <property name="minimumSize">
+                  <size>
+                   <width>109</width>
+                   <height>130</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>109</width>
+                   <height>130</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true"/>
+                 </property>
+                 <property name="text">
+                  <string>사진</string>
+                 </property>
+                 <property name="scaledContents">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QFrame" name="frame_2">
                  <property name="frameShape">
                   <enum>QFrame::StyledPanel</enum>
                  </property>
                  <property name="frameShadow">
                   <enum>QFrame::Raised</enum>
                  </property>
-                 <layout class="QHBoxLayout" name="horizontalLayout_2">
+                 <layout class="QVBoxLayout" name="verticalLayout">
                   <property name="leftMargin">
                    <number>0</number>
                   </property>
@@ -205,85 +211,194 @@
                    <number>0</number>
                   </property>
                   <item>
-                   <widget class="QLabel" name="menu_name_label">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>46</height>
-                     </size>
+                   <widget class="QFrame" name="frame">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
                     </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>46</height>
-                     </size>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
                     </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_2">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item>
+                      <widget class="QLabel" name="menu_name_label">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>46</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>16777215</width>
+                         <height>46</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <family>Pretendard SemiBold</family>
+                         <pointsize>16</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true"/>
+                       </property>
+                       <property name="text">
+                        <string>메뉴 이름</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="menu_price_label">
+                       <property name="maximumSize">
+                        <size>
+                         <width>16777215</width>
+                         <height>46</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <family>Pretendard SemiBold</family>
+                         <pointsize>16</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">
+color:rgb(229, 79, 65);</string>
+                       </property>
+                       <property name="text">
+                        <string>가격  </string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="menu_info_label">
                     <property name="font">
                      <font>
-                      <family>Pretendard SemiBold</family>
-                      <pointsize>16</pointsize>
-                      <weight>75</weight>
-                      <bold>true</bold>
+                      <family>Pretendard Medium</family>
+                      <pointsize>12</pointsize>
                      </font>
                     </property>
                     <property name="styleSheet">
                      <string notr="true"/>
                     </property>
                     <property name="text">
-                     <string>메뉴 이름</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="menu_price_label">
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>46</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <family>Pretendard SemiBold</family>
-                      <pointsize>16</pointsize>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">
-color:rgb(229, 79, 65);</string>
-                    </property>
-                    <property name="text">
-                     <string>가격  </string>
+                     <string>메뉴 설명</string>
                     </property>
                     <property name="alignment">
-                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                    </property>
+                    <property name="wordWrap">
+                     <bool>true</bool>
                     </property>
                    </widget>
                   </item>
                  </layout>
                 </widget>
                </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="frame_44">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_16">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
                <item>
-                <widget class="QLabel" name="menu_info_label">
-                 <property name="font">
-                  <font>
-                   <family>Pretendard Medium</family>
-                   <pointsize>12</pointsize>
-                  </font>
-                 </property>
+                <widget class="QLabel" name="label">
                  <property name="styleSheet">
-                  <string notr="true"/>
+                  <string notr="true">font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                  </property>
                  <property name="text">
-                  <string>메뉴 설명</string>
+                  <string>선택한 옵션: </string>
                  </property>
-                 <property name="alignment">
-                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="choose_option_label">
+                 <property name="styleSheet">
+                  <string notr="true">font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                  </property>
-                 <property name="wordWrap">
-                  <bool>true</bool>
+                 <property name="text">
+                  <string>선택한 옵션</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer_15">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QPushButton" name="reset_btn">
+                 <property name="minimumSize">
+                  <size>
+                   <width>100</width>
+                   <height>26</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>300</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(229, 79, 65);
+border-radius: 12px;
+color:white;
+font: 57 14pt &quot;Pretendard Medium&quot;;</string>
+                 </property>
+                 <property name="text">
+                  <string>초기화</string>
                  </property>
                 </widget>
                </item>
@@ -361,96 +476,11 @@ QScrollBar::sub-line:vertical {
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>666</width>
-                 <height>2524</height>
+                 <width>663</width>
+                 <height>2490</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_6">
-                <item>
-                 <widget class="QFrame" name="frame_44">
-                  <property name="frameShape">
-                   <enum>QFrame::StyledPanel</enum>
-                  </property>
-                  <property name="frameShadow">
-                   <enum>QFrame::Raised</enum>
-                  </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_16">
-                   <property name="spacing">
-                    <number>0</number>
-                   </property>
-                   <property name="leftMargin">
-                    <number>0</number>
-                   </property>
-                   <property name="topMargin">
-                    <number>0</number>
-                   </property>
-                   <property name="rightMargin">
-                    <number>0</number>
-                   </property>
-                   <property name="bottomMargin">
-                    <number>0</number>
-                   </property>
-                   <item>
-                    <widget class="QLabel" name="label">
-                     <property name="styleSheet">
-                      <string notr="true">font: 57 14pt &quot;Pretendard Medium&quot;;</string>
-                     </property>
-                     <property name="text">
-                      <string>선택한 옵션: </string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLabel" name="choose_option_label">
-                     <property name="styleSheet">
-                      <string notr="true">font: 57 14pt &quot;Pretendard Medium&quot;;</string>
-                     </property>
-                     <property name="text">
-                      <string>선택한 옵션</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <spacer name="horizontalSpacer_15">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>40</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                   <item>
-                    <widget class="QPushButton" name="reset_btn">
-                     <property name="minimumSize">
-                      <size>
-                       <width>100</width>
-                       <height>26</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>300</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">background-color: rgb(229, 79, 65);
-border-radius: 12px;
-color:white;
-font: 57 14pt &quot;Pretendard Medium&quot;;</string>
-                     </property>
-                     <property name="text">
-                      <string>초기화</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
                 <item>
                  <widget class="QFrame" name="option_frame_1">
                   <property name="minimumSize">
@@ -609,8 +639,17 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_1_label_1">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>시나몬(O)</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
                            </property>
                           </widget>
                          </item>
@@ -684,8 +723,17 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_1_label_2">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>시나몬(X)</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
                            </property>
                           </widget>
                          </item>
@@ -866,8 +914,17 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_2_label_1">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>휘핑(O)</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
                            </property>
                           </widget>
                          </item>
@@ -935,8 +992,17 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_2_btn_3">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>휘핑(X)</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
                            </property>
                           </widget>
                          </item>
@@ -1114,8 +1180,17 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_3_label_1">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>선택안함</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
                            </property>
                           </widget>
                          </item>
@@ -1189,8 +1264,17 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_3_label_2">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>연하게</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
                            </property>
                           </widget>
                          </item>
@@ -1258,8 +1342,17 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_3_label_3">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>1샷추가(+500)</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
                            </property>
                           </widget>
                          </item>
@@ -1327,8 +1420,17 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_3_label_4">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>2샷추가(+1000)</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
                            </property>
                           </widget>
                          </item>
@@ -1506,8 +1608,17 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_4_label_1">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>변경안함</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
                            </property>
                           </widget>
                          </item>
@@ -1575,8 +1686,17 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_4_label2">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>헤이즐넛 시럽 추가(+500)</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
                            </property>
                           </widget>
                          </item>
@@ -1754,8 +1874,17 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_5_label_1">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>변경안함</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
                            </property>
                           </widget>
                          </item>
@@ -1823,8 +1952,17 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_5_label_2">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>라이트바닐라시럽추가(+800)</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
                            </property>
                           </widget>
                          </item>
@@ -2002,6 +2140,12 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_6_label_1">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>변경안함</string>
                            </property>
@@ -2071,6 +2215,12 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_6_label_2">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>라이트바닐라시럽 변경(+300)</string>
                            </property>
@@ -2250,6 +2400,12 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_7_label_1">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>변경안함</string>
                            </property>
@@ -2319,6 +2475,12 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_7_label_2">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>스태비아 변경(+300)</string>
                            </property>
@@ -2498,8 +2660,17 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_8_label_1">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>변경안함</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
                            </property>
                           </widget>
                          </item>
@@ -2567,8 +2738,17 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_8_label_2">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>스태비아 추가(+600)</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
                            </property>
                           </widget>
                          </item>
@@ -2746,8 +2926,17 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_9_label_1">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>변경안함</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
                            </property>
                           </widget>
                          </item>
@@ -2815,8 +3004,17 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_9_label_2">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>아몬드 밀크 변경(+500)</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
                            </property>
                           </widget>
                          </item>
@@ -2884,8 +3082,17 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_9_label_3">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>오트밀크 변경(+700)</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
                            </property>
                           </widget>
                          </item>
@@ -3063,8 +3270,17 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_10_label_1">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>허니퐁 시리얼</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
                            </property>
                           </widget>
                          </item>
@@ -3132,8 +3348,17 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_10_label_2">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>퐁 시리얼</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
                            </property>
                           </widget>
                          </item>
@@ -3311,8 +3536,17 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_12_label_1">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>변경안함</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
                            </property>
                           </widget>
                          </item>
@@ -3380,8 +3614,17 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_12_label_2">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>제로사이다 변경</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
                            </property>
                           </widget>
                          </item>
@@ -3559,8 +3802,17 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_11_label_1">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>선택안함</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
                            </property>
                           </widget>
                          </item>
@@ -3628,8 +3880,17 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_11_label_2">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>연하게</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
                            </property>
                           </widget>
                          </item>
@@ -3697,8 +3958,17 @@ font: 57 14pt &quot;Pretendard Medium&quot;;</string>
                          </item>
                          <item>
                           <widget class="QLabel" name="option_11_label_3">
+                           <property name="font">
+                            <font>
+                             <family>Pretendard Light</family>
+                             <pointsize>11</pointsize>
+                            </font>
+                           </property>
                            <property name="text">
                             <string>디카페인 샷 추가(+1000)</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
                            </property>
                           </widget>
                          </item>

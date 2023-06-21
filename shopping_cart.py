@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import *  # QApplication, QVBoxLayout, QListWidgetItem, QListWidget, QLabel, QPushButton, QHBoxLayout, QWidget
 from PyQt5.QtCore import *
+from PyQt5.QtGui import *
 import pandas as pd
 import sqlite3
 
@@ -10,6 +11,11 @@ import sqlite3
 class ShoppingItemWidget(QWidget):
     def __init__(self, idx, name, price, list_widget, label, btn):
         super().__init__()
+
+        # 이미지 불러오기
+        plus_btn_img = QPixmap('./img/qt자료/plus-icon.png')
+        minus_btn_img = QPixmap('./img/qt자료/minus_icon.png')
+        cancel_img = QPixmap('./img/qt자료/cancel_icon.png')
 
         self.cnt_label = label
         self.price_btn = btn
@@ -26,14 +32,26 @@ class ShoppingItemWidget(QWidget):
         self.price_label = QLabel(price + '원')
         self.price_label.setStyleSheet('color:rgb(229, 79, 65)')
 
-        self.decrease_button = QPushButton("-")
+        # (-) 버튼 생성
+        self.decrease_button = QPushButton()
         self.decrease_button.setFixedSize(40, 40)
+        self.decrease_button.setStyleSheet('background-color: rgb(229, 79, 64);')
+        self.decrease_button.setIcon(QIcon(minus_btn_img))
         self.decrease_button.clicked.connect(self.decrease_quantity)
-        self.increase_button = QPushButton("+")
+
+        # (+) 버튼 생성
+        self.increase_button = QPushButton()
         self.increase_button.setFixedSize(40, 40)
+        self.increase_button.setStyleSheet('background-color: rgb(229, 79, 64);')
+        self.increase_button.setIcon(QIcon(plus_btn_img))
         self.increase_button.clicked.connect(self.increase_quantity)
-        self.delete_button = QPushButton("삭제")
+
+        # (삭제) 버튼 생성
+        self.delete_button = QPushButton()
         self.delete_button.setFixedSize(40, 40)
+        self.delete_button.setIcon(QIcon(cancel_img))
+        self.delete_button.setIconSize(QSize(38,38))
+        self.delete_button.setStyleSheet('background-color: transparent ;')
         self.delete_button.clicked.connect(self.delete_item)
 
         layout = QHBoxLayout()

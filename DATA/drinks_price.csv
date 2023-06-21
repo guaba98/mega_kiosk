@@ -1,5 +1,5 @@
-choose_id,eng_name,choose_option,noraml_drink,mega_drink
-1,no_choice,선택안함,0,0
+choose_id,eng_name,kor_name,noraml_drink,mega_drink
+1,no_choice,선택x,0,0
 2,coffee_weak,연하게,0,0
 3,coffee_add_one,샷 추가,500,700
 4,coffee_add_two,2샷 추가,1000,1200

@@ -23,19 +23,33 @@
 # masked_number = mask_phone_number('01012345678')
 # print(masked_number)  # 출력: '010****5678'
 # #
-number1 = '010'
-number2 = '0102863'
-number3 = '01028639'
+# number1 = '1234'
+# number2 = '12345678'
+# number3 = '123456781234'
+# number4 = '1234567812345678'
+# list_ = [number1, number2, number3]
+# # for i in list_:
+#     if len(i) <= 3:
+#         print(i)
+#     elif 3 < len(i) <8:
+#         print(f'{i[:3]}-{(len(i)-3)*"*"}')
+#     else:
+#         print(i[:3] + '-****' + i[7:])
+# card = "CREDITCARDNUMBER"
+# print ("*" * (len(card) - 4) + card[-4:])
+number1 = '1234'
+number2 = '12345678'
+number3 = '123456781234'
+number4 = '1234567812345678'
 list_ = [number1, number2, number3]
-for i in list_:
-    if len(i) <= 3:
-        print(i)
-    elif 3 < len(i) <8:
-        print(f'{i[:3]}-{(len(i)-3)*"*"}')
-    else:
-        print(i[:3] + '-****' + i[7:])
 
 
-    # print(f'{number[:3]}-{(len(number)-3)*"*"}')
+string = 'Test5412Test8'
+divided_4_letter = [string[i:i + 4] for i in range(0, len(string), 4)]
+four_letter = '-'.join(divided_4_letter)
+print(four_letter)
+
+
+
 
 
