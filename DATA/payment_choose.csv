@@ -1,5 +1,5 @@
 btn_name,kor_name,type
-payment_btn_kt,kt버튼,3
+payment_btn_kt,kt할인,3
 payment_btn_card,신용/체크카드,1
 payment_btn_app_card,앱카드/바코드,2
 payment_btn_kakao_pay,카카오페이,2
