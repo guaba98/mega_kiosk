@@ -1,8 +1,8 @@
 import os
 import sys
+import ast
 import sqlite3
 import pandas as pd
-import ast
 from random import randint
 
 from PyQt5 import uic
@@ -327,9 +327,6 @@ class Option_Class(QDialog, choose_option_class):
 
         self.parent.drink_num += 1  # 주문 수량 늘려줌
         option_str = str(self.customer_order_option_list)  # 리스트 str형태로 바꿔주기
-
-        # 고객 db 불러오기 및 order table 테이블에 에 값 append(추가해주기)
-        # conn = sqlite3.connect('./DATA/data.db')  # 데이터베이스 연결 정보 설정
         cur = self.con.cursor()  # 커서 생성
         cur.execute("INSERT INTO order_table (id, drink_cnt, order_drink, price, custom_option)"
                     "VALUES(?,?,?,?,?);",  # SQL 쿼리 실행
@@ -346,7 +343,6 @@ class Option_Class(QDialog, choose_option_class):
         result = cur.fetchone()[0]  # 이를 튜플 형태로 가져오고 첫번째 값만 가져옴
         self.parent.menu_cnt_label.setText(str(result) + '개')
 
-        # con = sqlite3.connect('./DATA/data.db')
         order_df = pd.read_sql('select * from order_table', self.con)
         order_df['drink_cnt'] = order_df['drink_cnt'].astype(int)
         order_df['price'] = order_df['price'].astype(int)
@@ -494,16 +490,14 @@ class WindowClass(QMainWindow, main_page_class):
         self.horizontalSlider.setCursor(QCursor(QPixmap('./img/qt자료/matercard.png').scaled(80, 70)))
 
     ## 함수 시작 #######################################################################################################
-    '''
-    결제창 관련 함수
-    '''
+    '''결제창 관련 함수'''
 
     def check_discount_and_move(self):
-        d_price = self.get_discount_price()
-        t_price = self.get_total_price()
-        r_price = t_price - d_price
+        d_price = self.get_discount_price()  # 할인금액
+        t_price = self.get_total_price()  # 총 금액
+        self.r_price = t_price - d_price  # 총금액 - 할인금액 = 사용자의결제금액
         self.total_payment_price.setText(f'  주문금액: {str(t_price)}원 - 할인금액:{str(d_price)}원')
-        self.total_payment_price_2.setText(f'결제금액: {r_price}원')
+        self.total_payment_price_2.setText(f'결제금액: {str(self.r_price)}원')
         self.stackedWidget.setCurrentWidget(self.payment_choose_page)
 
     def mobile_pay_msgbox(self):
@@ -524,7 +518,7 @@ class WindowClass(QMainWindow, main_page_class):
 
         # 사용자가 누른 키패드 번호 받아옴
         sender_name = self.sender().text()
-
+        print('사용자가 누른 번호', sender_name)
         # 만약 kt 할인창이라면
         if self.barcode_type == 'kr_discount':
             card_num_row = 3
@@ -534,6 +528,7 @@ class WindowClass(QMainWindow, main_page_class):
         self.insert_value_in_tablewidget(self.table_widget_qr_code, sender_name, card_num_row)
 
     def insert_value_in_tablewidget(self, tablewidget, sender_obj, card_row):
+
         # 키패드 번호 리스트에 저장
         keypad_numbers = [str(num) for num in range(10)]
         keypad_numbers.extend(['00', '000'])
@@ -553,7 +548,6 @@ class WindowClass(QMainWindow, main_page_class):
             # tablewidget.item(card_row, 0).setTextAlignment(Qt.AlignRight | Qt.AlignVCenter)  # 값 오른쪽 정렬
         elif sender_obj == 'clear':
             tablewidget.setItem(card_row, 0, QtWidgets.QTableWidgetItem(''))  # clear 되었을 때 값 넣어주기
-
         elif sender_obj == '승인':
             if card_num.replace('-', '') == '1111222233334444':
                 self.set_number_in_kt_discount()
@@ -578,6 +572,7 @@ class WindowClass(QMainWindow, main_page_class):
         #     self.table_widget_qr_code.item(i, 0).setTextAlignment(Qt.AlignRight | Qt.AlignVCenter)
 
     def get_discount_price(self):
+        """할인된 금액 리턴"""
         con = sqlite3.connect('./DATA/data.db')
         order_df = pd.read_sql('select * from order_table', con)
         order_df.loc[0, 'discount_price'] = 1900
@@ -586,9 +581,7 @@ class WindowClass(QMainWindow, main_page_class):
         con.close()
         return order_df.loc[0, 'discount_price']
 
-    '''
-    결제수단 선택창 관련 함수
-    '''
+    '''결제수단 선택창 관련 함수'''
 
     def payment_choose_signal(self):
         """결제수단 버튼에 따라 다른 정보 전달"""
@@ -603,6 +596,7 @@ class WindowClass(QMainWindow, main_page_class):
     def move_to_payment_page(self, name, type):
         """전달해준 정보에 따라 다른 결제창 불러오기"""
         print('타입', type)
+
         # 카드 결제창 이동
         if type == 1:
             self.payment_card_title_bar.setText("  " + name)
@@ -647,8 +641,10 @@ class WindowClass(QMainWindow, main_page_class):
 
     def update_card_payment_table(self):
 
-        # 총 가격
-        total_price = self.get_total_price()
+
+        total_price = self.get_total_price() # 총 가격
+        discount_price = self.get_discount_price()
+        f_price = total_price - discount_price
 
         # 카드번호 랜덤으로 만들어줄것
         card_num = self.make_random_card_num()
@@ -657,7 +653,7 @@ class WindowClass(QMainWindow, main_page_class):
         self.card_payment_table_widget.setRowCount(3)
         self.card_payment_table_widget.setColumnCount(1)
         self.card_payment_table_widget.horizontalHeader().setVisible(False)  # 열 헤더를 숨깁니다.
-        self.card_payment_table_widget.setItem(0, 0, QtWidgets.QTableWidgetItem(str(total_price) + '원'))
+        self.card_payment_table_widget.setItem(0, 0, QtWidgets.QTableWidgetItem(str(f_price) + '원'))
         self.card_payment_table_widget.setItem(1, 0, QtWidgets.QTableWidgetItem('0개월'))
         self.card_payment_table_widget.setItem(2, 0, QtWidgets.QTableWidgetItem(card_num))
         self.card_payment_table_widget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)  # 열 너비를 조정합니다.
@@ -669,9 +665,7 @@ class WindowClass(QMainWindow, main_page_class):
         mask_card_num = "*" * (len(random_card_num_for_print) - 4) + random_card_num_for_print[-4:]
         return mask_card_num
 
-    '''
-    주문 확인창 관련 함수
-    '''
+    '''주문 확인창 관련 함수'''
 
     def move_to_payment_choose(self, state):
         """포장/매장 선택하는 것 db에 저장해주기"""
@@ -747,14 +741,12 @@ class WindowClass(QMainWindow, main_page_class):
 
         # 할인금 계산
         discount_price = order_table_df['discount_price'].sum()
-        print('할인금액', discount_price)
 
         # 라벨 및 버튼에 넣어주기
         self.total_price_for_check_page.setText(str(total_price) + '원')
         self.payment_choose_title_bar.setText(f'  결제수단 선택({str(total_price)}원)')  # 이건 결제수단 선택창임
         self.total_payment_price.setText(f'  주문금액: {str(total_price)}원 - 할인금액:{str(discount_price)}원')  # 이건 결제수단 선택창임
         self.total_payment_price_2.setText(f'  결제금액: {str(total_price)}원')  # 이건 결제수단 선택창임
-
         self.total_cnt_for_check_page.setText(str(total_count) + '개')
 
         # 총 갯수가 0 초과하면 창 넘어가기
@@ -764,15 +756,11 @@ class WindowClass(QMainWindow, main_page_class):
             self.fill_the_table_widget(self.tableWidget_menu_2_for_qr)  # 일단 여기에 넣음 @@@@@@@@@@@@@@@@@@@ 수정필요
         else:
             msg_box_page = MSG_Dialog(self, 2)  # 1보다 작으면 메세지 창 띄우기
-            # msg_box_page.show()
             msg_box_page.exec_()
 
-    ''' 
-    메인창 관련 함수 
-    '''
+    '''메인창 관련 함수'''
 
     def check_current_page(self, num):
-        print('탑니다')
         if num == 1:
             self.category_stackedWidget.setCurrentWidget(self.category_2)
             self.category_btn_11.click()
@@ -834,7 +822,6 @@ class WindowClass(QMainWindow, main_page_class):
         # 조건설정
         condition1 = (option_page_df['category'] == self.user_clicked_category)
         condition2 = (option_page_df['category_num'] == int(name[11:]))
-        # condition3 = (self.menu_df['sold_out'] == 0)
 
         # 조건에 맞는 변수이름에 저장
         sold_out_state = option_page_df.loc[condition1 & condition2, 'sold_out']
@@ -856,7 +843,6 @@ class WindowClass(QMainWindow, main_page_class):
 
     def show_sample_label(self):
         """임시 검은 라벨 띄우기"""
-        print('라벨 띄움')
         self.sample_label = QLabel(self)
         self.sample_label.setGeometry(0, 0, 768, 1024)
         self.sample_label.setStyleSheet('background-color: rgba(45,45,45,200);')
@@ -875,7 +861,6 @@ class WindowClass(QMainWindow, main_page_class):
         menu_frame_list = [getattr(self, f"menu_frame_{i}") for i in range(1, 25)]  # 담길 라벨 리스트화
         btn_name = self.sender().text()  # 버튼 이름 가져오기
         self.user_clicked_category = btn_name
-
         category_drinks_num = len(self.menu_df[self.menu_df['category'] == btn_name])  # 카테고리 메뉴 갯수 세기
 
         # 카테고리 번호만큼 프레임 보여주기
@@ -898,7 +883,6 @@ class WindowClass(QMainWindow, main_page_class):
         user_click_category_df = menu_and_price_join_df.loc[
             con1, ['id', 'category', 'category_num', 'sold_out', 'menu_name_x', 'img_path',
                    'price']]  # 테이블 2차 가공 원하는 열만
-        print(user_click_category_df[['category', 'category_num', 'img_path']])
 
         # 2)이미지 열을 라벨에 입힌다. 카테고리 번호에 맞게
         con3 = user_click_category_df['sold_out'] == 1
