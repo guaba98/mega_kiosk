@@ -57,7 +57,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="opening_page">
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -128,7 +128,7 @@
          <string notr="true"/>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="category_1">
          <widget class="QPushButton" name="category_left_btn">
@@ -4823,10 +4823,10 @@ QScrollBar::handle:horizontal  {
                          <widget class="QWidget" name="scrollAreaWidgetContents_2">
                           <property name="geometry">
                            <rect>
-                            <x>0</x>
+                            <x>-139</x>
                             <y>0</y>
                             <width>770</width>
-                            <height>222</height>
+                            <height>220</height>
                            </rect>
                           </property>
                           <property name="styleSheet">
@@ -4864,7 +4864,7 @@ QScrollBar::handle:horizontal  {
                              </property>
                              <layout class="QHBoxLayout" name="horizontalLayout_16">
                               <item>
-                               <widget class="QFrame" name="frame_34">
+                               <widget class="QFrame" name="r_frame_1">
                                 <property name="styleSheet">
                                  <string notr="true">background-color: rgb(255, 255, 255);</string>
                                 </property>
@@ -4874,10 +4874,87 @@ QScrollBar::handle:horizontal  {
                                 <property name="frameShadow">
                                  <enum>QFrame::Raised</enum>
                                 </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_69">
+                                 <property name="spacing">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="leftMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="topMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="rightMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="bottomMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <item>
+                                  <widget class="QLabel" name="img_label_1">
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                   <property name="scaledContents">
+                                    <bool>true</bool>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="img_name_1">
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>30</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <family>Pretendard Medium</family>
+                                     <pointsize>11</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                   </property>
+                                   <property name="wordWrap">
+                                    <bool>true</bool>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="img_price_1">
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>30</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <family>Pretendard Medium</family>
+                                     <pointsize>11</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">color: rgb(229, 79, 64);</string>
+                                   </property>
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
                                </widget>
                               </item>
                               <item>
-                               <widget class="QFrame" name="frame_33">
+                               <widget class="QFrame" name="r_frame_2">
                                 <property name="styleSheet">
                                  <string notr="true">background-color: rgb(255, 255, 255);</string>
                                 </property>
@@ -4887,6 +4964,83 @@ QScrollBar::handle:horizontal  {
                                 <property name="frameShadow">
                                  <enum>QFrame::Raised</enum>
                                 </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_70">
+                                 <property name="spacing">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="leftMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="topMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="rightMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="bottomMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <item>
+                                  <widget class="QLabel" name="img_label_2">
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                   <property name="scaledContents">
+                                    <bool>true</bool>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="img_name_2">
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>30</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <family>Pretendard Medium</family>
+                                     <pointsize>11</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                   </property>
+                                   <property name="wordWrap">
+                                    <bool>true</bool>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="img_price_2">
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>30</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <family>Pretendard Medium</family>
+                                     <pointsize>11</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">color: rgb(229, 79, 64);</string>
+                                   </property>
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
                                </widget>
                               </item>
                               <item>
@@ -4900,6 +5054,83 @@ QScrollBar::handle:horizontal  {
                                 <property name="frameShadow">
                                  <enum>QFrame::Raised</enum>
                                 </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_71">
+                                 <property name="spacing">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="leftMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="topMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="rightMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="bottomMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <item>
+                                  <widget class="QLabel" name="img_label_3">
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                   <property name="scaledContents">
+                                    <bool>true</bool>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="img_name_3">
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>30</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <family>Pretendard Medium</family>
+                                     <pointsize>11</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                   </property>
+                                   <property name="wordWrap">
+                                    <bool>true</bool>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="img_price_3">
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>30</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <family>Pretendard Medium</family>
+                                     <pointsize>11</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">color: rgb(229, 79, 64);</string>
+                                   </property>
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
                                </widget>
                               </item>
                               <item>
@@ -4913,6 +5144,83 @@ QScrollBar::handle:horizontal  {
                                 <property name="frameShadow">
                                  <enum>QFrame::Raised</enum>
                                 </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_72">
+                                 <property name="spacing">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="leftMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="topMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="rightMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="bottomMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <item>
+                                  <widget class="QLabel" name="img_label_4">
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                   <property name="scaledContents">
+                                    <bool>true</bool>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="img_name_4">
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>30</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <family>Pretendard Medium</family>
+                                     <pointsize>11</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                   </property>
+                                   <property name="wordWrap">
+                                    <bool>true</bool>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="img_price_4">
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>30</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <family>Pretendard Medium</family>
+                                     <pointsize>11</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">color: rgb(229, 79, 64);</string>
+                                   </property>
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
                                </widget>
                               </item>
                               <item>
@@ -4926,6 +5234,83 @@ QScrollBar::handle:horizontal  {
                                 <property name="frameShadow">
                                  <enum>QFrame::Raised</enum>
                                 </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_73">
+                                 <property name="spacing">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="leftMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="topMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="rightMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="bottomMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <item>
+                                  <widget class="QLabel" name="img_label_5">
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                   <property name="scaledContents">
+                                    <bool>true</bool>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="img_name_5">
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>30</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <family>Pretendard Medium</family>
+                                     <pointsize>11</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                   </property>
+                                   <property name="wordWrap">
+                                    <bool>true</bool>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="img_price_5">
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>30</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <family>Pretendard Medium</family>
+                                     <pointsize>11</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">color: rgb(229, 79, 64);</string>
+                                   </property>
+                                   <property name="text">
+                                    <string/>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
                                </widget>
                               </item>
                              </layout>
@@ -6832,7 +7217,7 @@ border-radius:5px;</string>
                          </property>
                          <property name="icon">
                           <iconset>
-                           <normaloff>../img/qt자료/kb페이.png</normaloff>../img/qt자료/kb페이.png</iconset>
+                           <normaloff>../img/logo/kb_pay.png</normaloff>../img/logo/kb_pay.png</iconset>
                          </property>
                          <property name="iconSize">
                           <size>
@@ -7781,7 +8166,19 @@ background-color: rgb(255, 204, 0);</string>
                     <item>
                      <layout class="QHBoxLayout" name="horizontalLayout_3">
                       <property name="spacing">
-                       <number>0</number>
+                       <number>6</number>
+                      </property>
+                      <property name="leftMargin">
+                       <number>9</number>
+                      </property>
+                      <property name="topMargin">
+                       <number>9</number>
+                      </property>
+                      <property name="rightMargin">
+                       <number>9</number>
+                      </property>
+                      <property name="bottomMargin">
+                       <number>9</number>
                       </property>
                       <item>
                        <widget class="QTableWidget" name="table_widget_qr_code">
@@ -8342,7 +8739,7 @@ color:black;</string>
                        <item>
                         <widget class="QStackedWidget" name="qr_check_btns_stackwidget">
                          <property name="currentIndex">
-                          <number>1</number>
+                          <number>0</number>
                          </property>
                          <widget class="QWidget" name="kt_check_btn">
                           <layout class="QHBoxLayout" name="horizontalLayout_27">
