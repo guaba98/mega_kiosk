@@ -89,7 +89,7 @@ class ShoppingItemWidget(QWidget):
 
             self.cnt_label.setText(str(drinks_count) + '개')
             # self.price_btn.setText(str(total_price)+'원')
-            self.update_price()
+            self.update_price(drinks_count)
 
     def increase_quantity(self):
         """리스트위젯 수량 업데이트 해줌(+)"""
@@ -101,7 +101,6 @@ class ShoppingItemWidget(QWidget):
         # db에서 수량 추가
         con = sqlite3.connect('./DATA/data.db')
         order_df = pd.read_sql('select * from order_table', con)
-        # drinks_count = int(order_df.loc[order_df['id'] == self.idx_text, 'drink_cnt']) + 1
         drinks_count = int(order_df.loc[order_df['id'] == self.idx_text, 'drink_cnt'].iloc[0]) + 1
         order_df.loc[order_df['id'] == self.idx_text, 'drink_cnt'] = drinks_count
 
@@ -109,10 +108,9 @@ class ShoppingItemWidget(QWidget):
         con.commit()
         con.close()
         self.cnt_label.setText(str(drinks_count) + '개')
+        self.update_price(drinks_count)
 
-        self.update_price()
-
-    def update_price(self):
+    def update_price(self, cnt):
         """리스트 위젯 가격 업데이트 해주는 함수"""
         quantity = int(self.quantity_label.text())
         new_price = self.price * quantity
@@ -125,8 +123,7 @@ class ShoppingItemWidget(QWidget):
         order_df['price'] = order_df['price'].astype(int)
         total_price = (order_df['drink_cnt'] * order_df['price']).sum()
 
-        print('장바구니 클래스 가격##############')
-        print(total_price)
+        self.cnt_label.setText(str(cnt) + '개')
         self.price_btn.setText(f'  {str(total_price)}원\n  결제하기')
 
 
@@ -151,9 +148,9 @@ class ShoppingItemWidget(QWidget):
         order_df['drink_cnt'] = order_df['drink_cnt'].astype(int)
         order_df['price'] = order_df['price'].astype(int)
         total_price = (order_df['drink_cnt'] * order_df['price']).sum()
+        drinks_count = (order_df['drink_cnt']).sum()
 
-        print('장바구니 클래스 가격##############')
-        print(total_price)
+        self.cnt_label.setText(f'{str(drinks_count)} 개')
         self.price_btn.setText(f'  {str(total_price)}원\n  결제하기')
 
 def add_shopping_item_to_listwidget(list_widget, idx, name, price, label, btn):

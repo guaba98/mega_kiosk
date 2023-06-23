@@ -4823,7 +4823,7 @@ QScrollBar::handle:horizontal  {
                          <widget class="QWidget" name="scrollAreaWidgetContents_2">
                           <property name="geometry">
                            <rect>
-                            <x>-139</x>
+                            <x>0</x>
                             <y>0</y>
                             <width>770</width>
                             <height>220</height>
@@ -4846,7 +4846,7 @@ QScrollBar::handle:horizontal  {
                             <number>0</number>
                            </property>
                            <item>
-                            <widget class="QFrame" name="frame_22">
+                            <widget class="QFrame" name="recommend_frame">
                              <property name="minimumSize">
                               <size>
                                <width>770</width>
@@ -4892,8 +4892,17 @@ QScrollBar::handle:horizontal  {
                                  </property>
                                  <item>
                                   <widget class="QLabel" name="img_label_1">
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>144</width>
+                                     <height>140</height>
+                                    </size>
+                                   </property>
                                    <property name="text">
                                     <string/>
+                                   </property>
+                                   <property name="pixmap">
+                                    <pixmap>../img/food/감자빵.jpg</pixmap>
                                    </property>
                                    <property name="scaledContents">
                                     <bool>true</bool>
@@ -4915,7 +4924,7 @@ QScrollBar::handle:horizontal  {
                                     </font>
                                    </property>
                                    <property name="text">
-                                    <string/>
+                                    <string>감자빵</string>
                                    </property>
                                    <property name="alignment">
                                     <set>Qt::AlignCenter</set>
@@ -4943,7 +4952,7 @@ QScrollBar::handle:horizontal  {
                                     <string notr="true">color: rgb(229, 79, 64);</string>
                                    </property>
                                    <property name="text">
-                                    <string/>
+                                    <string>3500</string>
                                    </property>
                                    <property name="alignment">
                                     <set>Qt::AlignCenter</set>
@@ -4982,8 +4991,17 @@ QScrollBar::handle:horizontal  {
                                  </property>
                                  <item>
                                   <widget class="QLabel" name="img_label_2">
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>144</width>
+                                     <height>140</height>
+                                    </size>
+                                   </property>
                                    <property name="text">
                                     <string/>
+                                   </property>
+                                   <property name="pixmap">
+                                    <pixmap>../img/food/딸기요거트 마카롱.jpg</pixmap>
                                    </property>
                                    <property name="scaledContents">
                                     <bool>true</bool>
@@ -5005,7 +5023,7 @@ QScrollBar::handle:horizontal  {
                                     </font>
                                    </property>
                                    <property name="text">
-                                    <string/>
+                                    <string>딸기요거트 마카롱</string>
                                    </property>
                                    <property name="alignment">
                                     <set>Qt::AlignCenter</set>
@@ -5033,7 +5051,7 @@ QScrollBar::handle:horizontal  {
                                     <string notr="true">color: rgb(229, 79, 64);</string>
                                    </property>
                                    <property name="text">
-                                    <string/>
+                                    <string>2100</string>
                                    </property>
                                    <property name="alignment">
                                     <set>Qt::AlignCenter</set>
@@ -5072,8 +5090,17 @@ QScrollBar::handle:horizontal  {
                                  </property>
                                  <item>
                                   <widget class="QLabel" name="img_label_3">
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>144</width>
+                                     <height>140</height>
+                                    </size>
+                                   </property>
                                    <property name="text">
                                     <string/>
+                                   </property>
+                                   <property name="pixmap">
+                                    <pixmap>../img/food/아이스허니와앙슈.jpg</pixmap>
                                    </property>
                                    <property name="scaledContents">
                                     <bool>true</bool>
@@ -5095,7 +5122,7 @@ QScrollBar::handle:horizontal  {
                                     </font>
                                    </property>
                                    <property name="text">
-                                    <string/>
+                                    <string>아이스허니와앙슈</string>
                                    </property>
                                    <property name="alignment">
                                     <set>Qt::AlignCenter</set>
@@ -5123,7 +5150,7 @@ QScrollBar::handle:horizontal  {
                                     <string notr="true">color: rgb(229, 79, 64);</string>
                                    </property>
                                    <property name="text">
-                                    <string/>
+                                    <string>2400</string>
                                    </property>
                                    <property name="alignment">
                                     <set>Qt::AlignCenter</set>
@@ -5162,8 +5189,17 @@ QScrollBar::handle:horizontal  {
                                  </property>
                                  <item>
                                   <widget class="QLabel" name="img_label_4">
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>144</width>
+                                     <height>140</height>
+                                    </size>
+                                   </property>
                                    <property name="text">
                                     <string/>
+                                   </property>
+                                   <property name="pixmap">
+                                    <pixmap>../img/food/아이스크림크로플.jpg</pixmap>
                                    </property>
                                    <property name="scaledContents">
                                     <bool>true</bool>
@@ -5185,7 +5221,7 @@ QScrollBar::handle:horizontal  {
                                     </font>
                                    </property>
                                    <property name="text">
-                                    <string/>
+                                    <string>아이스크림크로플</string>
                                    </property>
                                    <property name="alignment">
                                     <set>Qt::AlignCenter</set>
@@ -5213,7 +5249,7 @@ QScrollBar::handle:horizontal  {
                                     <string notr="true">color: rgb(229, 79, 64);</string>
                                    </property>
                                    <property name="text">
-                                    <string/>
+                                    <string>3500</string>
                                    </property>
                                    <property name="alignment">
                                     <set>Qt::AlignCenter</set>
@@ -5252,8 +5288,17 @@ QScrollBar::handle:horizontal  {
                                  </property>
                                  <item>
                                   <widget class="QLabel" name="img_label_5">
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>144</width>
+                                     <height>140</height>
+                                    </size>
+                                   </property>
                                    <property name="text">
                                     <string/>
+                                   </property>
+                                   <property name="pixmap">
+                                    <pixmap>../img/food/말차스모어쿠키.jpg</pixmap>
                                    </property>
                                    <property name="scaledContents">
                                     <bool>true</bool>
@@ -5275,7 +5320,7 @@ QScrollBar::handle:horizontal  {
                                     </font>
                                    </property>
                                    <property name="text">
-                                    <string/>
+                                    <string>말차스모어쿠키</string>
                                    </property>
                                    <property name="alignment">
                                     <set>Qt::AlignCenter</set>
@@ -5303,7 +5348,7 @@ QScrollBar::handle:horizontal  {
                                     <string notr="true">color: rgb(229, 79, 64);</string>
                                    </property>
                                    <property name="text">
-                                    <string/>
+                                    <string>2900</string>
                                    </property>
                                    <property name="alignment">
                                     <set>Qt::AlignCenter</set>

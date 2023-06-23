@@ -2,6 +2,7 @@ import os
 import sys
 import ast
 import sqlite3
+import datetime
 import pandas as pd
 from random import randint
 
@@ -24,17 +25,36 @@ def resource_path(relative_path):
 
 
 # UI 불러오기
-# main_page_ui = resource_path('./UI/mega_ui_ver3.ui')  # 메가 메인 UI 불러오기
-main_page_class = uic.loadUiType(resource_path('./UI/mega_ui_ver3.ui'))[0]
-# choose_option_ui = resource_path('./UI/mega_choose_option_page.ui')  # 메가 음료옵션창 불러오기
-choose_option_class = uic.loadUiType(resource_path('./UI/mega_choose_option_page.ui'))[0]
-# msg_box_ui = resource_path('./UI/msg_box.ui')  # 메세지박스 ui 불러오기
-msg_box_class = uic.loadUiType(resource_path('./UI/msg_box.ui'))[0]
-# point_page_ui = resource_path('./UI/point_page.ui')  # 포인트페이지 창 띄우기
-point_page_class = uic.loadUiType(resource_path('./UI/point_page.ui'))[0]
-# manager_page_ui = resource_path('./UI/manager_page.ui')  # 관리자페이지
-manager_page_class = uic.loadUiType(resource_path('./UI/manager_page.ui'))[0]
+main_page_class = uic.loadUiType(resource_path('./UI/mega_ui_ver3.ui'))[0] # 메가 메인 UI 불러오기
+choose_option_class = uic.loadUiType(resource_path('./UI/mega_choose_option_page.ui'))[0] # 메가 음료옵션창 불러오기
+msg_box_class = uic.loadUiType(resource_path('./UI/msg_box.ui'))[0]  # 메세지박스 ui 불러오기
+point_page_class = uic.loadUiType(resource_path('./UI/point_page.ui'))[0] # 포인트페이지 창 띄우기
+manager_page_class = uic.loadUiType(resource_path('./UI/manager_page.ui'))[0] # 관리자페이지
+receipt_page = uic.loadUiType(resource_path('./UI/receipt_page_2.ui'))[0] # 영수증 창
+# main_page_ui = resource_path('./UI/mega_ui_ver3.ui')
+# choose_option_ui = resource_path('./UI/mega_choose_option_page.ui')
+# msg_box_ui = resource_path('./UI/msg_box.ui')
+# point_page_ui = resource_path('./UI/point_page.ui')
+# manager_page_ui = resource_path('./UI/manager_page.ui')
 
+class Rept(QDialog, receipt_page):
+    """영수증"""
+    def __init__(self, parent, order_num, t_price):
+        super().__init__()
+        self.setupUi(self)
+        self.parent = parent
+
+        self.order_number_label.setText(str(order_num))
+        self.total_price_label.setText(str(t_price))
+        self.set_datetime()
+
+        self.parent.fill_the_table_widget(self.tableWidget)
+
+
+    def set_datetime(self):
+        now = datetime.datetime.now()
+        formatted_now = now.strftime("%Y-%m-%d %H:%M:%S")
+        self.date_label.setText(str(formatted_now))
 
 
 class Point_Page(QDialog, point_page_class):
@@ -64,15 +84,21 @@ class Point_Page(QDialog, point_page_class):
         num_list = [str(num) for num in range(0, 10)]  # 버튼은 0부터 010까지 존재함
         num_list.append('010')
 
+        self.user_num = []
         btn_name = self.sender().text()  # 누른 버튼 텍스트 가져옴
         now_label_text = self.user_number_label.text()  # 라벨의 텍스트 가져옴
 
+
         if btn_name in num_list:
             now_label_text += str(btn_name)
-            only_num = now_label_text.replace('-', '')
-            if len(only_num) <= 11:
+            self.only_num = now_label_text.replace('-', '')
+            self.user_num.append(self.user_num.append(btn_name))
+            print('누를때', self.user_num)
+            if len(self.only_num) <= 11:
                 self.user_number_label.setText(self.mask_numbers(now_label_text))
         else:
+            self.user_num = self.user_num[:-1]
+            print('지울때', self.user_num)
             now_label_text = now_label_text[:-1]
             self.user_number_label.setText(self.mask_numbers(now_label_text))
 
@@ -92,6 +118,12 @@ class Point_Page(QDialog, point_page_class):
             self.close()
         else:
             self.close()
+            con = sqlite3.connect('./DATA/data.db')
+            df = pd.read_sql('select * from order_table', con)
+            df.loc[:, 'customer_id'] = self.user_num
+            df.to_sql('order_table', con, if_exists='replace', index=False)
+            con.commit()
+            con.close()
             print('포인트 적립 확인')
 
 
@@ -188,10 +220,15 @@ class MSG_Dialog(QDialog, msg_box_class):
             key_page.show()
             key_page.exec_()
         else:
-            print('영수증 띄우기')  # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!하삼하삼삼!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            self.parent.order_num += 1 # 주문번호 늘리기
+            rept = Rept(self.parent, self.parent.order_num, self.parent.get_total_price() )
+            rept.show()
+            rept.exec_()
+            self.close()
+            self.parent.stackedWidget.setCurrentWidget(self.parent.opening_page)
+            self.parent.timer.start()
+            self.parent.delete_order_table_values()  # 테이블 내용 삭제
 
-    def user_wants_recipt(self):
-        print('예스예스여요')
 
     def get_label_text(self, text):
         print('테스트 텍스트 출력=============')
@@ -391,8 +428,8 @@ class WindowClass(QMainWindow, main_page_class):
         # 오픈화면 #######################################################################################################
         self.stackedWidget.setCurrentIndex(0)  # 시작할때 화면은 오픈 페이지로 설정
         self.set_ad_image()  # 이미지 변경
-        # self.setWindowFlags(Qt.FramelessWindowHint) # 프레임 지우기
-        # self.move(10,30) #창이동
+        self.setWindowFlags(Qt.FramelessWindowHint) # 프레임 지우기
+        self.move(10,30) #창이동
 
         # 페이지 이동 및 타이머 시작
         self.ad_label.mousePressEvent = lambda event: (self.stackedWidget.setCurrentWidget(self.main_page))  # 페이지 이동)
@@ -406,6 +443,7 @@ class WindowClass(QMainWindow, main_page_class):
         self.img_path_df = pd.read_sql('select * from drinks_img_path', con)  # 음료 이미지 경로 테이블
         self.order_table_df = pd.read_sql('select * from order_table', con)  #
         self.drink_num = 0  # 음료 주문번호
+        self.order_num = 100 # 고객 주문번호 100부터 시작
 
         # 1. 타이머
         # 타이머 기본 설정값
@@ -473,6 +511,7 @@ class WindowClass(QMainWindow, main_page_class):
         self.eat_here_btn.clicked.connect(lambda: self.move_to_payment_choose('for_here'))
         self.take_out_btn.clicked.connect(lambda: self.move_to_payment_choose('to_go'))
 
+
         # 결제수단선택창 ############################################################################################
 
         # 버튼 시그널 연결
@@ -492,7 +531,7 @@ class WindowClass(QMainWindow, main_page_class):
         self.cancel_btn_4.clicked.connect(
             lambda: self.stackedWidget.setCurrentWidget(self.payment_choose_page))  # 취소  버튼 누르면 결제선택수단창으로 이동
         self.card_img_frame.mousePressEvent = lambda event: self.mobile_pay_msgbox()
-
+        self.barcode_type = None
         ### 2. 큐알코드 결제창
         # self.qr_check_frame.mousePressEvent = lambda event: self.fill_the_table_widget()
         # self.check_coupon_num.clicked.connect(self.) # 쿠폰 조회버튼
@@ -625,6 +664,7 @@ class WindowClass(QMainWindow, main_page_class):
         order_df = pd.read_sql('select * from order_table', con)
         if self.barcode_type == 'kt_discount':
             order_df.loc[0, 'discount_price'] = 1900
+
         order_df.to_sql('order_table', con, if_exists='replace', index=False)
         con.commit()
         con.close()
@@ -635,6 +675,7 @@ class WindowClass(QMainWindow, main_page_class):
         return discount_p
 
     '''결제수단 선택창 관련 함수'''
+
 
     def payment_choose_signal(self):
         """결제수단 버튼에 따라 다른 정보 전달"""
@@ -656,6 +697,7 @@ class WindowClass(QMainWindow, main_page_class):
             self.payment_card_title_bar.setText("  " + name)
             self.stackedWidget.setCurrentWidget(self.charge_page)
             self.update_card_payment_table()
+
         elif type == 2 or (type == 3 and not self.kt_discount) or type == 4:  # qr/바코드 창으로 이동
             self.move_to_payment_page_for_qr(name, type)
         else:
@@ -731,7 +773,6 @@ class WindowClass(QMainWindow, main_page_class):
         return mask_card_num
 
     '''주문 확인창 관련 함수'''
-
     def insert_img_for_recommend(self):
         """추천 디저트 메뉴 5개 넣음"""
         menu_and_price_join_df = pd.merge(self.menu_df, self.img_path_df, on='id')  # 조인
@@ -1015,6 +1056,8 @@ class WindowClass(QMainWindow, main_page_class):
                     border-radius:15px;
                     color:black;
                     ''')
+
+    '''오프닝 페이지 관련 함수'''
 
     def set_ad_image(self):
         """3초에 한번씩 오픈 페이지 이미지 변하게 함"""
